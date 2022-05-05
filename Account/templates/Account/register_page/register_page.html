@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="text" placeholder="first_name" name="first_name">
+        <input type="text" placeholder="last_name" name="last_name">
+        <input type="text" placeholder="father_name" name="father_name">
+        <input type="text" placeholder="id_passport" name="id_passport">
+        <input type="text" placeholder="nationality" name="nationality">
+        <select name="gender" id="gender">
+          <option value="mard">آقا</option>
+          <option value="zan">خانوم</option>
+        </select>
+        <select name="role" id="role">
+          <option value="derakhti">درختی</option>
+          <option value="mlm">ام ال ام</option>
+          <option value="taksathi">تک سطحی</option>
+        </select>
+        <select name="marital_status" id="marital_status">
+          <option value="motahel">متاهل</option>
+          <option value="mojarad">مجرد</option>
+        </select>
+        <input type="text" placeholder="national_code" name="national_code">
+        <input type="text" placeholder="username" name="username">
+        <input type="text" placeholder="mobile1" name="mobile1">
+        <input type="text" placeholder="cityـcode" name="cityـcode">
+        <input type="text" placeholder="phone" name="phone">
+        <input type="text" placeholder="mobile2" name="mobile2">
+        <input type="date" placeholder="dateـofـbirth" name="dateـofـbirth">
+        <input type="text" placeholder="country" name="country">
+        <input type="text" placeholder="state" name="state">
+        <input type="text" placeholder="city" name="city">
+        <input type="text" placeholder="neighbourhood" name="neighbourhood">
+        <input type="text" placeholder="address" name="address">
+        <input type="text" placeholder="postalـcode" name="postalـcode">
+        <input type="text" placeholder="password" name="password">
+
+        <br>
+        <button type="submit">Send</button>
+
+        <br>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </form>
+</body>
+</html>

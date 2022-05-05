@@ -1,0 +1,550 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--styles-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'taksathi_panel/asset/style/new_style.css' %}" />
+    <link rel="stylesheet" href="{% static 'taksathi_panel/asset/style/user_panel_style.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'taksathi_panel/asset/plugins/fontawesome/css/all.min.css' %}">
+
+    <!--/styles-->
+    <title>wellcome to C2|Home</title>
+</head>
+
+<body>
+    <!--header-->
+    <section id="">
+        <!--  MENU -->
+        <!----------------------------------search--------------------------------->
+        <div onclick="" id="search-box" class="">
+            <button onclick="myFunction2()" id="search-btn-close" class="search-btn-close">x</button>
+            <div class="main-div">
+                <input type="search" class="search-input" placeholder="جستجو" />
+                <button class="search-btn"><img style="width:20px; height: 20px;" src="{% static 'taksathi_panel/asset/icons/icon-19.png' %}" alt=""></button>
+            </div>
+        </div>
+        <!-- ------------------------------------------------------------------------>
+
+        <nav class="header-nav">
+            <!-- responsive top menu -->
+            <div class="responsive-menu-top">
+                <div class="main-div2">
+                    <button class="search-btn2"><div class="search-btn-icon"></div>
+                    </button>
+
+                    <input type="search" class="search-input2" placeholder="جستجو..." />
+                </div>
+                <div class="header-nav-logo-resp">
+                    <a href="./index.html">
+                        <img class="header-nav-logo-img" src="{% static 'taksathi_panel/asset/img/main-logo.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- responsive top menu -->
+
+            <div class="header-nav-div" >
+                <div class="header-nav-icon" onclick="menufunc()">
+
+                    <a href="#" aria-expanded="false">
+
+                        <div class="header-nav-icon-img"></div>
+                        <em class="droopmenu-topanim"></em>
+                    </a>
+                </div>
+                <div class="header-nav-logo">
+                    <a href="./index.html">
+                        <img class="header-nav-logo-img" src="{% static 'taksathi_panel/asset/img/main-logo.png' %}" alt="">
+                    </a>
+                </div>
+
+                <div class="header-nav-left-icon">
+
+                    <div onclick="myFunction()" class="header-nav-left-icons search-box-responsiv">
+                        <a href="#"><div class="header-nav-left-icons-ic ic1" ></div></a>
+                    </div>
+                    <div class="tooltip header-nav-left-icons">
+                        <div class="menu-cover">
+                        </div>
+                        <a href="#"><div class="header-nav-left-icons-ic ic2"></div></a>
+                        <div class="tooltiptext" style="margin-top: 25px;">
+                            <a class="" href="#">ورود</a>/
+                            <a class="" href="#">ثبت نام</a>
+                        </div>
+                    </div>
+                    <div class="header-nav-left-icons">
+                        <div class="menu-cover">
+                        </div>
+                        <a href="./cart.html">
+                            <div class="header-nav-left-icons-ic ic3" ></div>
+                            <span class="cart-basket">
+                                0
+                              </span>
+                        </a>
+                    </div>
+                    <div class="header-nav-left-icons" >
+                        <div class="menu-cover">
+                        </div>
+                        <a href="./cart.html">
+                            <div class="header-nav-left-icons-ic ic4" ></div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!--------------------------------------------list ----------------------->
+            <div id="menu-list" class="menu-list" style="z-index: 10;direction: rtl;margin-top: -5px;width: 100%; height: auto; position: absolute;display: none; ">
+
+                <div class="tabs">
+                        <button  class=" tablinks active " data-valuetxt="first">
+                            <div class="menu-titr-icon titr-icon1"></div>
+                            <p  data-title="محصولات">محصولات</p>
+                        </button>
+                        <button class=" tablinks second-menu-btn-f " data-valuetxt="second">
+                            <div class="menu-titr-icon titr-icon2"></div>
+                            <p  data-title="خدمات "> خدمات</p>
+                        </button>
+                </div>
+
+                <div class="wrapper_tabcontent" >
+
+                    <div id="first" class=" tabcontent active" >
+                        <div class="block-div">
+
+                        <div class="header-nav-lists">
+                            <a href="#" class="header-nav-lists-a">پوشاک</a>
+                            <div class="header-nav-lists-content">
+
+                                <ul class="nav-ul">
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">لباس مردانه</a>
+                                        <p></p>
+                                    </li>
+
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">کفش  مردانه</a>
+                                        <p class="header-nav-lists-content-li">
+                                            <a href="#" class="">کفش  روزمره</a>
+                                            <a href="#" class=" ">کفش رسمی</a>
+                                        </p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">اکسسوری مردانه</a>
+                                        <p></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header-nav-lists">
+                            <a href="#" class="nav-link alfa header-nav-lists-a" >آشپزخانه</a>
+                            <div class="header-nav-lists-content">
+                                <ul class="nav-ul">
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">  صوتی تصویری</a>
+                                        <p></p>
+                                    </li>
+
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#"> دکراتیو </a>
+                                        <p class="header-nav-lists-content-li">
+                                            <a href="#" class="">آینه</a>
+                                            <a href="#" class=" ">پرده</a>
+                                        </p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">موادشوینده</a>
+                                        <p></p>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-div">
+                        <div class="header-nav-lists" >
+                            <a href="#" class="nav-link alfa header-nav-lists-a" >الکترونیک  </a>
+                            <div class="header-nav-lists-content">
+
+
+                                <ul class="nav-ul">
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">  لپتاپ</a>
+                                        <p></p>
+                                    </li>
+
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#"> گوشی </a>
+                                        <p class="header-nav-lists-content-li">
+
+                                        </p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">دوربین</a>
+                                        <p class="header-nav-lists-content-li">
+                                            <a href="#" class="">دوربین چاپ فوری</a>
+                                            <a href="#" class=" "> دوربین دیجیتال</a>
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="header-nav-lists" >
+                            <a href="#" class="nav-link alfa header-nav-lists-a">الکترونیک  </a>
+                            <div class="header-nav-lists-content">
+
+
+                                <ul class="nav-ul">
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">  لپتاپ</a>
+                                        <p></p>
+                                    </li>
+
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#"> گوشی </a>
+                                        <p class="header-nav-lists-content-li">
+
+                                        </p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">دوربین</a>
+                                        <p class="header-nav-lists-content-li">
+                                            <a href="#" class="">دوربین چاپ فوری</a>
+                                            <a href="#" class=" "> دوربین دیجیتال</a>
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="tabs">
+                        <button class=" tablinks second-menu-btn " data-valuetxt="second">
+                            <div class="menu-titr-icon titr-icon2"></div>
+                            <p  data-title="خدمات "> خدمات</p>
+                        </button>
+                    </div>
+
+
+
+                    <div id="second" class="tabcontent">
+                        <div class=" header-nav-lists  right-one" >
+                            <a href="#" class="nav-link alfa header-nav-lists-a" >الکترونیک  </a>
+                            <div class="header-nav-lists-content">
+                                <ul class="nav-ul">
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">  لپتاپ</a>
+                                        <p></p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#"> گوشی </a>
+                                        <p class="header-nav-lists-content-li">
+
+                                        </p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">دوربین</a>
+                                        <p class="header-nav-lists-content-li" >
+                                            <a href="#" class="">دوربین چاپ فوری</a>
+                                            <a href="#" class=" "> دوربین دیجیتال</a>
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </nav>
+        <!--  MENU -->
+
+    </section>
+
+    <!--header-->
+
+
+    <!--script-->
+    <div class="main-content-userpanel">
+        <div class="panel">
+            <div class="panels">
+                <p>پنل کاربری</p>
+                <div class="panels-icon"></div>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(1)">
+                <div class="edit-prof-icon"></div>
+                <p>ویرایش حساب کاربری</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(2)">
+                <div class="order-history-icon"></div>
+                <p>سابقه سفارش </p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(3)">
+                <div class="comments-icon"></div>
+                <p>نظرات</p>
+            </div>
+            <div class="panels-details" onclick="exit(1)">
+                <div class="exit-icon"></div>
+                <p>خروج</p>
+            </div>
+        </div>
+
+        <div class="panel-details">
+            <div class="panels-two">
+                <p>پنل کاربری</p>
+            </div>
+            <div id="edit-acount" class="user-panel-tab panel-page">
+                <h3 class="user-panel-title">ویرایش حساب کاربری</h3>
+                <input class="user-panel-input" type="text" placeholder="نام و نام خانوادگی">
+                <input class="user-panel-input" type="text" placeholder="شماره تماس">
+                <input class="user-panel-input" type="text" placeholder=" شماره تماس">
+                <input class="user-panel-input" type="text" placeholder="ایمیل">
+                <input class="user-panel-input" type="text" placeholder="رمز عبور فعلی">
+                <input class="user-panel-input" type="text" placeholder="رمز عبور جدید">
+                <button type="button" class="user-panel-btn">ویرایش</button>
+            </div>
+
+            <div id="order-history" class="order-history panel-page">
+                <h3 class="user-panel-title">سابقه سفارش</h3>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right">
+                                   <div class="user-history-box-right-div">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-29.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-32.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-13.png' %}" class="user-history-img">
+                            </div>
+                           <h3 class="user-history-text">سفارش 1</h3>
+                        </div>
+                        <div class="  user-history-box-left">
+                            <div class="user-history-lefticon"></div>
+                            <div class="user-history-text-div">
+                                <h3 class="user-history-text">dl-sadd13f </h3>
+                                <h3 class="user-history-text"> 990,000 </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="div-line"></div>
+                </div>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right">
+                                 <div class="user-history-box-right-div">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-29.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-32.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-13.png' %}" class="user-history-img">
+                            </div>
+                           <h3 class="user-history-text">سفارش 1</h3>
+                        </div>
+                        <div class="  user-history-box-left">
+                            <div class="user-history-lefticon"></div>
+                            <div class="user-history-text-div">
+                                <h3 class="user-history-text">dl-sadd13f </h3>
+                                <h3 class="user-history-text"> 990,000 </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="div-line"></div>
+                </div>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right">
+                            <div class="user-history-box-right-div">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-29.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-32.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-13.png' %}" class="user-history-img">
+                            </div>
+                           <h3 class="user-history-text">سفارش 1</h3>
+                        </div>
+                        <div class="  user-history-box-left">
+                            <div class="user-history-lefticon"></div>
+                            <div class="user-history-text-div">
+                                <h3 class="user-history-text">dl-sadd13f </h3>
+                                <h3 class="user-history-text"> 990,000 </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="div-line"></div>
+                </div>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right">
+                            <div class="user-history-box-right-div">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-29.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-32.png' %}" class="user-history-img">
+                                <img src="{% static 'taksathi_panel/asset/img/pic-13.png' %}" class="user-history-img">
+                            </div>
+                           <h3 class="user-history-text">سفارش 1</h3>
+                        </div>
+                        <div class="  user-history-box-left">
+                            <div class="user-history-lefticon"></div>
+                            <div class="user-history-text-div">
+                                <h3 class="user-history-text">dl-sadd13f </h3>
+                                <h3 class="user-history-text"> 990,000 </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="div-line"></div>
+                </div>
+
+
+            </div>
+
+            <div id="comments" class="comments panel-page">
+                <h3 class="user-panel-title"> نظرات</h3>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right4">
+                            <img src="{% static 'taksathi_panel/asset/img/pic-29.png' %}" class="user-comments-img" />
+                            <div class="user-comments-text">
+                                <h2>بانکه چوبی </h2>
+                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="user-history-lefticon3"></div>
+
+                        <div class="  user-history-box-left4">
+                            <div>
+                                <p>22تیر </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="div-line"></div>
+                </div>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right4">
+                            <img src="{% static 'taksathi_panel/asset/img/pic-29.png' %}" class="user-comments-img" />
+                            <div class="user-comments-text">
+                                <h2>بانکه چوبی </h2>
+                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="user-history-lefticon3"></div>
+
+                        <div class="  user-history-box-left4">
+                            <div>
+                                <p>22تیر </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="div-line"></div>
+                </div>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right4">
+                            <img src="{% static 'taksathi_panela/asset/img/pic-29.png' %}" class="user-comments-img" />
+                            <div class="user-comments-text">
+                                <h2>بانکه چوبی </h2>
+                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="user-history-lefticon3"></div>
+
+                        <div class="  user-history-box-left4">
+                            <div>
+                                <p>22تیر </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="div-line"></div>
+                </div>
+                <div class="user-history-mainbox">
+                    <div class="user-history-box">
+                        <div class=" user-history-box-right4">
+                            <img src="{% static 'taksathi_panel/asset/img/pic-29.png' %}" class="user-comments-img" />
+                            <div class="user-comments-text">
+                                <h2>بانکه چوبی </h2>
+                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="user-history-lefticon3"></div>
+
+                        <div class="  user-history-box-left4">
+                            <div>
+                                <p>22تیر </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- <div style="display: none;" class="background"> -->
+    <div id="qu-two-on" class="question-box-two qu-two-on">
+        <div class="close-icon" onclick="exit(2)"></div>
+        <div class="close-icon-big"></div>
+        <p>آیا مطمئن هستید میخواهید خارج شوید</p>
+        <div class="question-btn">
+            <button class="yes-btn" type="submit">بله</button>
+            <button class="no-btn" type="submit" onclick="exit(2)">خیر</button>
+        </div>
+    </div>
+<!-- </div> -->
+    <script src="{% static 'taksathi_panel/js/user-panel.js' %}"></script>
+    <script src="{% static 'taksathi_panel/js/index.js' %}"></script>
+    <script src={% static 'taksathi_panel/js/fixed.js' %}></script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,312 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>میراث</title>
+    <link rel="stylesheet" href="{% static 'base/assets/bootstrap/css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'base/assets/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'base/assets/plugins/flickity/flickity.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'base/assets/fonts/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'base/assets/css/styles.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">میراث</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">درباره ما</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            تماس با ما
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="support.html">آدرس و تلفن دفتر مرکزی</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">صدور مجوزها</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">شعب و دفاتر</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">ثبت شکایات</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            قوانین و مقررات
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="Tradeunionlawsofthecountry.html">قوانین و مقررات نظام صنفی کشور</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">قوانین و مقررات شرکت میراث</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">منشور اخلاقی</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">سیاست ها و حریم خصوصی</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">ارسال کالا</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">لغو جایگاه</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">گالری تصاویر</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            طرح درآمدی
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">شاخه ای(درختی)</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">ام ال ام</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">تک سطحی</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">اخبار شرکت</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">سوالات متداول</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            ثبت نارضایتی
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">ثبت نارضایتی بازاریاب از شرکت</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">ثبت نارضایتی مشتری از شرکت</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">ثبت نارضایتی شرکت از شرکت</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">ثبت نارضایتی مشتری از بازاریاب</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">پیگیری نارضایتی ثبت شده</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="fa fa-user"></i>ورود</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="fa fa-pen"></i>ثبت نام</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"><i class="fa fa-shopping-cart"></i>فروشگاه</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-12 col-lg text-center">
+                    <a href="">
+                        <img src="{% static 'base/assets/images/qnet-logo-colour.png' %}" class="w-100" alt="">
+                    </a>
+                </div>
+                <div class="col-12 col-lg text-center">
+                    <h4 class="text-white py-2">Our Company</h4>
+                    <ul>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg text-center">
+                    <h4 class="text-white py-2">Our Company</h4>
+                    <ul>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg text-center">
+                    <h4 class="text-white py-2">Our Company</h4>
+                    <ul>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg text-center">
+                    <h4 class="text-white py-2">Our Company</h4>
+                    <ul>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg text-center">
+                    <h4 class="text-white py-2">Our Company</h4>
+                    <ul>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                        <li class="py-2">
+                            <a href="" class="text-decoration-none text-secondary">About QNET</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg text-center">
+                    <h4 class="text-white py-2 text-center">Follow Us</h4>
+                    <div class="row">
+                        <div class="col-2 col-lg-4 text-center py-2">
+                            <a href="" class="text-decoration-none text-secondary">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 col-lg-4 text-center py-2">
+                            <a href="" class="text-decoration-none text-secondary">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 col-lg-4 text-center py-2">
+                            <a href="" class="text-decoration-none text-secondary">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 col-lg-4 text-center py-2">
+                            <a href="" class="text-decoration-none text-secondary">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 col-lg-4 text-center py-2">
+                            <a href="" class="text-decoration-none text-secondary">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="col-2 col-lg-4 text-center py-2">
+                            <a href="" class="text-decoration-none text-secondary">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="copy-right py-3">
+            <p class="text-center text-secondary  fs-6">COPYRIGHT © 2020 QNET LTD. ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'base/assets/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'base/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'base/assets/plugins/flickity/flickity.min.js' %}"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="{% static 'base/assets/javascript/scripts.js' %}"></script>
+</body>
+
+</html>

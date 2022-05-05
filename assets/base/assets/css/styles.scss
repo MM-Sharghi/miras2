@@ -1,0 +1,472 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+html{
+    overflow-x: hidden ;
+}
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+.navbar{
+    .collapse{
+        ul{
+            li{
+                @media (max-width:992px) {
+                   line-height: 2.5; 
+                }
+                a{
+                    i{
+                        width:25px;
+                        vertical-align: middle;
+                    }
+                    i.fa-angle-down{
+                        @media (max-width:992px) {
+                            float : left ;
+                            margin-top: 3%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+main{
+    section#pic-top-header{
+        .parent{
+            height: 80vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            @media (max-width: 992px) {
+                height: 30vh;
+            }
+            .explore{
+                position: absolute;
+                width: 100%;
+                height: 20%;
+                bottom: 0;
+                right: 0;
+                color : #fff;
+                font-size: 1.5rem;
+                text-align: center;
+                @media (max-width: 992px) {
+                    height: 70%;
+                    font-size: 2rem;
+                }
+                h3 , h1{
+                    line-height: 1.5;
+                }
+                .bottom-link{
+                    padding-top: 1%;
+                    a {
+                        background : #fff;
+                        width: 40px;
+                        height: 40px;
+                        display: inline-block;
+                        border-radius : 50%;
+                        position: relative;
+                        color : #000;
+                        transition : .5s;
+                        font-size: .8rem;
+                        i{
+                            position: absolute;
+                            top : 50%;
+                            left : 50%;
+                            transform: translate(-50% , -50%);
+                        }
+                        &:hover{
+                            background : #ec6726;
+                            color : #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section#slider{
+        .flickity-enabled.is-draggable .flickity-viewport{
+            @media (max-width:992px) {
+                height: 200px!important;
+            }
+        }
+        @media (max-width: 992px) {
+            .main-carousel{
+                width: 100%!important;
+            }
+        }
+        .carousel-cell {
+            @media (max-width : 992px) {
+                height: 200px;                
+            }
+            width: 100%; /* full width */
+            height: 500px;
+            background: #222;
+            /* center images in cells with flexbox */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .carousel.is-fullscreen .carousel-cell {
+            height: 100%;
+          }
+          
+          .carousel-cell img {
+            display: block;
+            max-height: 100%;
+          }
+          .flickity-page-dots .dot{
+              width: 20px;
+              height: 5px;
+              border-radius: 0;
+              &.is-selected{
+                  background : #ec6726;
+              }
+          }
+    }
+    section#products{
+        background : url('../images/Frame.png'),url('../images/Frame2.png');
+        background-repeat: no-repeat;
+        background-position: top left , bottom right;
+        background-size : 200px 200px , 200px 200px;
+        h2{
+            color : #ec6726;
+            span{
+                color : #000;
+            }
+        }
+        .product-item{
+            margin-top : 3%;
+            a{
+                text-decoration : none;
+                color : #fff;
+                p{
+                    line-height: 4;
+                    margin-top : -4%;
+                    border-bottom-left-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                }
+                p.yellow{
+                    background : #EFB500;
+                }
+                img{
+                    width: 100%;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                }
+            }
+        }
+    }
+    section#about-qnet{
+        padding-top: 3%;
+        background : #f7f8f9!important;
+        text-align: center;
+        h3{
+            font-size : 2rem;
+            span{
+                color : #ec6726;
+            }
+        }
+        .item {
+            position: relative;
+            a{
+                text-decoration : none;
+                color : #fff;
+                .desc{
+                    position: absolute;
+                    width: 50%;
+                    right :  20px ;
+                    font-size : 1.5rem;
+                    bottom : 20px ;
+                    text-align: right;
+                    button {
+                        width: 40px;
+                        height: 40px;
+                        color : #fff;
+                        background : #ec6726;
+                        border : none;
+                        border-radius: 50%;
+                        margin-bottom: 3%;
+                    }
+                }
+            }
+        }
+    }
+    section#success-stories{
+        position : relative;
+        margin-top: 30px;
+        text-align: center;
+        background : #212121!important;
+        .top-divider{
+            height: 50px;
+            background-repeat: no-repeat!important;
+            background-size: 100% 100%!important;
+            background : url('../images/specialtriangle.svg');
+        }
+        .bottom-divider{
+            height: 50px;
+            background-repeat: no-repeat!important;
+            background-size : 100% 100%!important;
+            background : url('../images/specialtrianglebottom.svg');
+            margin-top : 50px;
+        }
+        .wrapper{
+            width: 80%;
+            max-width: 80%;
+            h3.title{
+                font-size : 2rem;
+                padding-top : 30px;
+            }
+            .row{
+                h3{
+                    font-size: 1.5rem;
+                    padding-top: 30px;
+                }
+                margin : 0;
+                .youtube-link{
+                    iframe{
+                        margin-top : 3%;
+                        width: 100%;
+                    }
+                }
+                .slider{
+                    .swiper {
+                        width: 100%;
+                        margin-top: 3%;
+                        padding-bottom: 50px;
+                      }
+                
+                      .swiper-slide {
+                        background-position: center;
+                        background-size: cover;
+                        width: 300px;
+                        height: 300px;
+                      }
+                
+                      .swiper-slide img {
+                        display: block;
+                        width: 100%;
+                      }
+                      .swiper-pagination-bullet{
+                          background : #fff;
+                          width: 20px;
+                          border-radius: 0;
+                      }
+                      .swiper-pagination-bullet-active{
+                          background : #ec6726;
+                      }
+                }
+            }
+        }
+    }
+    section#voice-qnet{
+        p{
+            line-height: 1.5;
+        }
+        .swiper {
+            width: 100%;
+            margin-top: 3%;
+            padding-bottom: 50px;
+          }
+    
+          .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 300px;
+          }
+    
+          .swiper-slide img {
+            display: block;
+            width: 100%;
+          }
+          .swiper-pagination-bullet{
+              width: 20px;
+              border-radius: 0;
+          }
+          .swiper-pagination-bullet-active{
+              background : #ec6726;
+          }
+    }
+    section#apps{
+        .bg-banner{
+            background : url('../images/Stay_Connect_WP_BG.jpg');
+            background-repeat: no-repeat;
+            background-size : 100% 100% ;
+            height: 60vh;
+            @media (max-width:992px) {
+                background-size : cover;
+                height: 30vh;
+            }
+        }
+        .description{
+            @media (max-width:992px) {
+                width: 100%;
+                position: static;
+                margin-top: 5%;
+                .row > div{
+                    text-align: center!important;
+                }
+            }
+            width: 30%;
+            position: absolute;
+            right: 10%;
+            top : 20%;
+            a.custom-link{
+                border : 1px solid #000;
+                width: 40%;
+                border-radius: 10px;
+                margin : 10% auto;
+                padding: 2%;
+                transition: .5s;
+                @media (max-width:992px) {
+                    width: 50%;
+                    background : rgba(0,0,0,0.05);
+                }
+                &:hover{
+                    border : none;
+                    background : rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
+    }
+    section#globe-qnet-support{
+        background : url('../images/Global-support-Centre-BG.jpg');
+        background-size : cover;
+    }
+    section#landing-page-section{
+        height: 100vh;
+        background: url('../images/landing-bg.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        &::before{
+            content : '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba($color: #000000, $alpha: .5);
+        }
+        .container{
+            width:75%;
+            height: 50%;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+            background : rgba($color: #000000, $alpha: .6);
+            @media (max-width:992px) {
+                height: 80%;
+                p{
+                    font-size: 1rem!important;
+                }
+            }
+        }
+
+    }
+}
+footer{
+    background : #222222;
+}
+.text-qnet-orange{
+    color : #ec6726!important;
+}
+.bg-qnet-orange{
+    background : #ec6726!important;
+}

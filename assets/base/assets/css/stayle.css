@@ -1,0 +1,361 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+html {
+  overflow-x: hidden;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+@media (max-width: 992px) {
+  .navbar .collapse ul li {
+    line-height: 2.5;
+  }
+}
+
+.navbar .collapse ul li a i {
+  width: 25px;
+  vertical-align: middle;
+}
+
+@media (max-width: 992px) {
+  .navbar .collapse ul li a i.fa-angle-down {
+    float: left;
+    margin-top: 3%;
+  }
+}
+
+main #image {
+  width: 97%;
+  padding: 1%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main #image img {
+  height: 300px;
+}
+
+main #groping .conteiner {
+  width: 97%;
+}
+
+main #groping .conteiner .images {
+  width: 50%;
+}
+
+main #groping .conteiner .images h6 {
+  font-size: .8rem;
+}
+
+@media (max-width: 768px) {
+  main #groping .conteiner .images img {
+    margin-right: 80px;
+    margin-top: 20px;
+  }
+  main #groping .conteiner .images h6 {
+    margin-right: 150px;
+  }
+}
+
+main #product .conteiner {
+  width: 97%;
+}
+
+main #product .conteiner .item h5 {
+  margin-top: 190px;
+}
+
+main #content .conteiner {
+  width: 97%;
+}
+
+main #content .conteiner p {
+  font-size: .7rem;
+}
+
+main #dec-product .conteiner {
+  width: 97%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #dec-product .conteiner .icones {
+  width: 7%;
+}
+
+main #dec-product .conteiner .picZoomer {
+  width: 30%;
+}
+
+main #dec-product .conteiner .left {
+  width: 58%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #dec-product .conteiner .left .card {
+  width: 45%;
+}
+
+main #dec-product .conteiner .left .card h5 {
+  font-size: .7rem;
+}
+
+main #dec-product .conteiner .left .card span {
+  font-size: .9rem;
+}
+
+main #dec-product .conteiner .left .card button {
+  width: 100%;
+  font-size: .8rem;
+  height: 40px;
+  border-radius: 10px;
+}
+
+main #dec-product .conteiner .left .list li {
+  font-size: .9rem;
+}
+
+@media (max-width: 992px) {
+  main #dec-product .conteiner .icones {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main #dec-product .conteiner .icones {
+    width: 7%;
+  }
+  main #dec-product .conteiner .picZoomer {
+    width: 70%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  main #dec-product .conteiner .left {
+    width: 88%;
+  }
+  main #dec-product .conteiner .left .card {
+    width: 95%;
+  }
+}
+
+main #similar-product .conteiner {
+  width: 97%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #similar-product .conteiner h6 {
+  width: 10%;
+}
+
+main #similar-product .conteiner .card {
+  width: 20%;
+}
+
+main #similar-product .conteiner .card p {
+  font-size: .8rem;
+}
+
+main #similar-product .conteiner .card span {
+  font-size: .9rem;
+  float: left;
+}
+
+main #similar-product .conteiner .card img {
+  width: 60%;
+}
+
+@media (max-width: 678px) {
+  main #similar-product .conteiner h6 {
+    width: 15%;
+  }
+  main #similar-product .conteiner .card {
+    width: 50%;
+  }
+  main #similar-product .conteiner .card img {
+    width: 70%;
+  }
+}
+
+main #information .conteiner {
+  width: 97%;
+  position: relative;
+}
+
+main #information .conteiner ul {
+  list-style: none;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+main #information .conteiner ul li {
+  width: 7%;
+}
+
+main #information .conteiner ul li a {
+  font-size: .9rem;
+}
+
+@media (max-width: 768px) {
+  main #information .conteiner {
+    display: none;
+  }
+}
+
+main #description .conteiner {
+  width: 95%;
+}
+
+main #description .conteiner h6 {
+  width: 8%;
+}
+
+main #description .conteiner p {
+  font-size: .9rem;
+  line-height: 2;
+}
+
+main #description .conteiner .text {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #description .conteiner .text p {
+  width: 20%;
+}
+
+main #description .conteiner .text .list {
+  width: 70%;
+}
+
+main #description .conteiner .text .list ul {
+  width: 100%;
+  list-style: none;
+}
+
+main #description .conteiner .text .list ul li {
+  font-size: .8rem;
+  line-height: 3.5;
+}
+
+@media (max-width: 768px) {
+  main .conteiner .text p {
+    display: none;
+  }
+  main .conteiner .text .list {
+    width: 100%;
+  }
+}
+
+footer {
+  background: #222222;
+}
+
+.text-qnet-orange {
+  color: #ec6726 !important;
+}
+
+.bg-qnet-orange {
+  background: #ec6726 !important;
+}
+/*# sourceMappingURL=stayle.css.map */

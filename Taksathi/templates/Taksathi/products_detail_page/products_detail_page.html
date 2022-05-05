@@ -1,0 +1,172 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+       <main>
+        <section id="dec-product">
+            <div class="conteiner mx-auto d-flex py-5 justify-content-around">
+                <div class="icones">
+                    <div class="icone pb-2 mx-3 fs-5">
+                        <a href="" class="text-black text-decoration-none">
+                           <i class="fa fa-share-alt"></i>
+                        </a>
+                    </div>
+                    <div class="icone pb-2 mx-3 fs-5">
+                        <a href="" class="text-black text-decoration-none">
+                           <i class="fa fa-share-alt"></i>
+                        </a>
+                    </div>
+                    <div class="icone pb-2 mx-3 fs-5">
+                        <a href="" class="text-black text-decoration-none">
+                           <i class="fa fa-share-alt"></i>
+                        </a>
+                    </div>
+                    <div class="icone pb-2 mx-3 fs-5">
+                        <a href="" class="text-black text-decoration-none">
+                           <i class="fa fa-share-alt"></i>
+                        </a>
+                    </div>
+                    <div class="icone pb-2 mx-3 fs-5">
+                        <a href="" class="text-black text-decoration-none">
+                           <i class="fa fa-share-alt"></i>
+                        </a>
+                    </div>
+                    <div class="icone pb-2 mx-3 fs-5 ">
+                        <a href="" class="text-black text-decoration-none">
+                           <i class="fa fa-share-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="picZoomer">
+                    <a href="">
+                        <img src="{{ product.image.url }}" class="w-75" alt="{{ product.title }}">
+                    </a>
+                </div>
+                <div class="left d-flex justify-content-around">
+                    <div class="text">
+                        <h6 class="border-bottom pb-3">
+                            {{ product.title }}
+                        </h6>
+                        <p></p>
+                    </div>
+                    <div class="card text-dark bg-light mb-3 ">
+                        <div class="card-header justify-content-around">
+                            <h6>فروشنده</h6>
+                            <br>
+                            <a href="" class="text-black text-decoration-none ">
+                                <i class="fa fa-store-alt"></i>
+                                <span>میراث</span>
+                            </a>
+                        </div>
+                        <div class="list border-bottom py-3 mx-5">
+                            <ul>
+                                <li>
+                                    تضمین کیفیت
+                                </li>
+                                <li>
+                                    تضمین اصالت
+                                </li>
+                                <li>
+                                    تضمین بازگشت
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                          <div class="price d-flex justify-content-around py-3">
+                            <h5 class="card-title w-100 text-secondary">قیمت فروشنده</h5>
+                            <span>{{ product.price }}</span><span>تومان</span>
+                           </div>
+                          <button type="submit" class="btn-danger lh-base ">افزودن به سبد </button>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+        <section id="similar-product">
+            <div class="conteiner mx-auto py-3">
+                <h6 class="border-bottom border-danger pb-2">کالاهای مشابه</h6>
+                <div class="card-group py-2">
+                    {% for similar in similars %}
+                        {% if similar.id == product.id %}
+                        {% else %}
+                            <div class="card pt-5 text-center mx-auto">
+                          <a href="{% url 'Taksathi:products_detail_page' similar.id similar.slug %}" class="text-black text-decoration-none">
+                            <img src="{{ similar.image.url }}" class="card-img-top mx-auto" alt="{{ similar.title }}">
+                            <div class="card-body">
+                              <p class="card-text">{{ similar.title }}
+                            </p>
+                            <div class="price pt-5 pb-3">
+                                <span>تومان</span> <span>{{ similar.price }}</span>
+                            </div>
+                          </a>
+                        </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </section>
+        <section id="information">
+            <div class="conteiner mx-auto py-3 ">
+                <ul class="d-flex border-bottom pb-2">
+                    <li>
+                        <a href="" class="text-secondary text-decoration-none text-center" >معرفی</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-secondary text-decoration-none text-center" >مشخصات</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-secondary text-decoration-none text-center" >دیدگاه</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-secondary text-decoration-none text-center" >پرسش</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="description">
+            <div class="conteiner py-3 mx-auto">
+                <div class="item border-bottom py-3">
+                    <h6 class="border-bottom border-danger pb-2 text-center">معرفی</h6>
+                    <p class="text-secondary py-3">
+                        {{ product.descriptions }}
+                    </p>
+                </div>
+                <div class="item border-bottom py-3">
+                    <h6 class="border-bottom border-danger pb-2 pt-4 text-center">مشخصات</h6>
+                    <div class="text d-flex">
+                        <p class="text-secondary py-3">مشخصات</p>
+                        <div class="list d-flex  py-3 ">
+                            <ul class="name">
+                                <li class="text-secondary">
+                                    حجم
+                                </li>
+                                <li class="text-secondary">
+                                    ترکیبات
+                                </li>
+                                <li class="text-secondary">
+                                    صادرکننده مجوز
+                                </li>
+                            </ul>
+                            <ul class="mx-5">
+                                <li class="border-bottom ">
+                                    {{ product.volume }}
+                                </li>
+                                <li class="border-bottom w-100">
+                                    {{ product.compounds }}
+                                </li>
+                                <li class="border-bottom ">
+                                    {{ product.licenseـissuer }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
