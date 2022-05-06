@@ -52,6 +52,16 @@ class Products(models.Model):
     def __str__(self):
         return self.title
 
+class ProductsComments(models.Model):
+    user = models.ForeignKey(Users,null=False, blank=False,on_delete=models.CASCADE,verbose_name='User')
+    product = models.ForeignKey(Products,null=False, blank=False, on_delete=models.CASCADE,verbose_name='Prodcut Id')
+    comment = models.TextField(null=False, blank=False,verbose_name='Comment')
+    status = models.BooleanField(default=False, verbose_name='Status')
+    date = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='Date')
+
+
+    def __str__(self):
+        return self.comment
 
 class ProductsSliders(models.Model):
     image = models.ImageField(upload_to='ProductsSlides',verbose_name='Image')
@@ -63,6 +73,8 @@ class ProductsSliders(models.Model):
 
     def __str__(self):
         return f"{self.url}"
+
+
 
 
 
@@ -88,3 +100,5 @@ class ProductsOrders(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+

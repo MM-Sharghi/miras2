@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(Products)
+admin.site.register(ProductsComments)
 admin.site.register(ProductMainCategories)
 admin.site.register(ProductSubCategories_1)
 admin.site.register(ProductSubCategories_2)

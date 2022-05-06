@@ -11,6 +11,7 @@ class Users(AbstractUser):
         ('derakhti', 'derakhti'),
         ('mlm', 'mlm'),
         ('taksathi', 'taksathi'),
+        ('taksathiAdmin', 'taksathiAdmin'),
     ]
 
     marital = [
@@ -38,7 +39,7 @@ class Users(AbstractUser):
     address = models.CharField(max_length=999,verbose_name='Neighbourhood')
     postalـcode = models.CharField(max_length=999,verbose_name='Postal code')
 
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name','national_code']
 
     def __str__(self):
         return self.first_name
