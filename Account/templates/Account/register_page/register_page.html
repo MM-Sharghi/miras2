@@ -1,56 +1,154 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'account/asset/style/style.css' %}">
+    <link rel="stylesheet" href="{% static 'account/asset/plugins/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+
 </head>
 <body>
-    <form method="post" action="">
-        {% csrf_token %}
-        <input type="text" placeholder="first_name" name="first_name">
-        <input type="text" placeholder="last_name" name="last_name">
-        <input type="text" placeholder="father_name" name="father_name">
-        <input type="text" placeholder="id_passport" name="id_passport">
-        <input type="text" placeholder="nationality" name="nationality">
-        <select name="gender" id="gender">
-          <option value="mard">آقا</option>
-          <option value="zan">خانوم</option>
-        </select>
-        <select name="role" id="role">
-          <option value="derakhti">درختی</option>
-          <option value="mlm">ام ال ام</option>
-          <option value="taksathi">تک سطحی</option>
-        </select>
-        <select name="marital_status" id="marital_status">
-          <option value="motahel">متاهل</option>
-          <option value="mojarad">مجرد</option>
-        </select>
-        <input type="text" placeholder="national_code" name="national_code">
-        <input type="text" placeholder="username" name="username">
-        <input type="text" placeholder="mobile1" name="mobile1">
-        <input type="text" placeholder="cityـcode" name="cityـcode">
-        <input type="text" placeholder="phone" name="phone">
-        <input type="text" placeholder="mobile2" name="mobile2">
-        <input type="date" placeholder="dateـofـbirth" name="dateـofـbirth">
-        <input type="text" placeholder="country" name="country">
-        <input type="text" placeholder="state" name="state">
-        <input type="text" placeholder="city" name="city">
-        <input type="text" placeholder="neighbourhood" name="neighbourhood">
-        <input type="text" placeholder="address" name="address">
-        <input type="text" placeholder="postalـcode" name="postalـcode">
-        <input type="text" placeholder="password" name="password">
+    <div class="main-div">
+        <form method="post">
+            {% csrf_token %}
+            <h2>مشخصات فردی</h2>
+            <div class="form-div">
+                <input class="input" type="text" name="first_name" id="first_name" placeholder="نام">
+                <div class="icon">
+                    <i class="fa fa-user color" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="form-div">
+                <input class="input" type="text" name="last_name" id="last_name" placeholder=" نام خانوادگی">
+                <div class=" icon">
+                    <i class="fa fa-user color" aria-hidden="true"></i>
+                </div>
+            </div>
 
-        <br>
-        <button type="submit">Send</button>
+            <div class="form-div">
+                <input class="input" type="text" name="username" id="username" placeholder="نام کاربری">
+            </div>
 
-        <br>
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </form>
+            <div class="form-div">
+                <input class="input" type="text" name="password" id="password" placeholder="گذرواژه">
+            </div>
+
+            <div class="form-div">
+                <input class="input" type="text" name="father_name" id="father_name" placeholder="نام پدر">
+                <div class=" icon">
+                    <i class="fa fa-user color" aria-hidden="true"></i>
+                </div>
+            </div>        <div class="form-div">
+                <input class="input" type="text" name="id_passport" id="id_passport" placeholder="شماره شناسنامه">
+                <div class="icon">
+                    <i class="fa fa-credit-card color" aria-hidden="true"></i>
+                </div>
+            </div>
+                <div class="form-div">
+                    <select name="nationality" class="input full-width">
+                        <option value="iran" >ایران</option>
+                    </select>
+                </div>
+            <div class="form-div">
+                <select name="gender" class="input full-width">
+                    <option value="mard">آقا</option>
+                    <option value="zan" >خانم</option>
+                </select>
+            </div>
+            <div  class="form-div">
+                <input class="input" type="text" name="national_code" id="national_code" placeholder="کد ملی">
+                <div class=" icon">
+                    <i class="fa fa-credit-card color" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="form-div">
+                <input class="input" type="text" name="mobile1" id="mobile1" placeholder="تلفن همراه 1">
+                <div class="icon">
+                    <i class="fa fa-mobile color" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="form-div">
+                <select name="marital_status" class="input full-width">
+                    <option value="mojarad">مجرد</option>
+                    <option value="motahel">متاهل</option>
+                </select>
+            </div>
+            <div class="form-div">
+                <select name="education" class="input full-width">
+                    <option value="diplom" >دیپلم</option>
+                    <option value="lisans" >لیسانس</option>
+                </select>
+            </div>
+            <div class="form-div">
+                <input class="input" type="text" name="cityـcode" id="cityـcode" placeholder="کد شهرستان">
+                <div class=" icon">
+                    <i class="fa fa-paper-plane color" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="form-div">
+                <input class="input" type="text" name="phone" id="phone" placeholder="تلفن ثابت">
+                <div class="icon">
+                    <i class="fa fa-phone color" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="form-div">
+                <input class="input" type="text" name="mobile2" id="mobile2" placeholder="تلفن همراه 2">
+                <div class="icon">
+                    <i class="fa fa-mobile color" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="form-div">
+                <input class="input date " type="number" name="year" id="" placeholder="سال">
+                <input class="input date b-inp" type="number" name="month" id=""  placeholder="ماه تولد">
+                <input class="input date b-inp2" type="number" name="dateـofـbirth" id=""  placeholder="روز ">
+            </div>
+
+            <h2> آدرس محل سکونت</h2>
+            <div class="form-div">
+                <select name="country" class="input full-width">
+                    <option >انخاب کشور</option>
+                    <option value="iran">ایران</option>
+                </select>
+            </div>
+            <div class="form-div">
+                <input class="input full-width" type="text" name="state" id="state" placeholder=" استان">
+            </div>
+            <div class="form-div">
+                <input class="input full-width" type="text" name="city" id="city" placeholder="  شهر">
+            </div>
+            <div class="form-div">
+                <input class="input full-width" type="text" name="neighbourhood" id="neighbourhood" placeholder="  محله">
+            </div>
+            <div class="form-div">
+                <input class="input" type="text" name="address" id="address" placeholder=" آدرس دقیق پستی">
+                <div class=" icon">
+                    <!-- <i class="icon-keyboard color"></i> -->
+                    <i class="fa fa-keyboard color" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="form-div">
+                <input class="input" type="text" name="postalـcode" id="postalـcode" placeholder="کد پستی">
+            </div>
+            <div class="form-div">
+
+                <button type="submit" class="login-btn">ثبت نام</button>
+            </div>
+        </form>
+    </div>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </body>
 </html>

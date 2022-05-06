@@ -4,13 +4,23 @@ from Users.models import Users
 from django.contrib.auth import login,logout
 from .forms import *
 
-def register_page(request):
+def register_page(request,type):
+    if type not in ['derakhti','mlm','taksathi']:
+        return redirect('Account:login_page')
+
     if request.method == "POST":
+        print(request.POST)
         form = AccountRegisterForms(request.POST)
         if form.is_valid():
             form.save()
             user = Users.objects.filter(username=form.cleaned_data['username']).first()
+            user.set_password(request.POST['password'])
+            user.role = type
+            user.save()
             login(request,user)
+
+            if user.role == 'taksathi':
+                return redirect('Taksathi:taksathi_panel_page')
 
         else:
             context = {
@@ -29,6 +39,8 @@ def login_page(request):
             user = Users.objects.filter(username=request.POST.get('username'),password=request.POST.get('password')).first()
             if user is not None:
                 login(request,user)
+                if user.role == 'taksathi':
+                    return redirect('Taksathi:taksathi_panel_page')
             else:
                 messages.error(request, 'اطلاعات اشتباه است')
                 return render(request, 'Account/login_page/login_page.html')

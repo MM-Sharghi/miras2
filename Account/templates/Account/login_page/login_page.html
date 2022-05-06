@@ -1,18 +1,31 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود کاربر</title>
+    <link rel="stylesheet" href="{% static 'account/asset/style/login.css' %}">
+
 </head>
 <body>
-    <div>
-        <form method="post" action="">
+    <div class="main-div">
+        <h2>ورودکاربر</h2>
+        <a class="a-style" href="">+میخواهم حساب کاربری بسازم</a>
+        <form method="post" >
             {% csrf_token %}
-            <input type="text" name="username" placeholder="username">
-            <input type="text" name="password" placeholder="password">
-            <br>
-            <button type="submit">Send</button>
-        </form>
+            <input class="input" type="text" name="username" id="username" placeholder="نام کاربری">
+            <input class="input" type="password" name="password" id="password" placeholder="رمز کاربری">
+            <div class="form-div">
+                <input type="checkbox" name="" id="" >
+                <p>من را بخاطر بسپار</p>
+            </div>
+            <button type="submit" class="login-btn">ورود به پنل</button>
+       </form>
+        <button  class="login-btn btn">فراموشی رمز عبور</button>
+
     </div>
 
     {% if messages %}

@@ -7,6 +7,7 @@ class ProductsSerializers(serializers.ModelSerializer):
         model = Products
         fields = '__all__'
 
+
 class OrdersSerializers(serializers.ModelSerializer):
     class Meta:
         model = ProductsOrders
@@ -32,6 +33,51 @@ class UserSerializers(serializers.ModelSerializer):
             instance.set_password(validated_data.get('password'))
         instance.save()
         return instance
+
+
+class TiketSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Tiket
+        fields = '__all__'
+        extra_kwargs = {
+            "support": {"error_messages": {"required": "This amount is required"}},
+        }
+
+
+class TiketSupportUpdateStatusSerializers(serializers.ModelSerializer):
+    id = serializers.IntegerField(required=True)
+    title = serializers.CharField(read_only=True,required=False)
+    user = serializers.CharField(required=True)
+    support = serializers.CharField(read_only=True,required=False)
+    status = serializers.BooleanField(required=True,error_messages={"required": "This amount is required"})
+    class Meta:
+        model = Tiket
+        fields = '__all__'
+
+
+
+    def update(self, instance, validated_data):
+        instance.status = validated_data.get('status', instance.status)
+        instance.save()
+        return instance
+
+
+class MessagesSupportSerializers(serializers.ModelSerializer):
+    status = serializers.ReadOnlyField()
+    class Meta:
+        model = Messages
+        fields = ['user','tiket','text','file']
+
+
+class MessagesUserSerializers(serializers.ModelSerializer):
+    status = serializers.ReadOnlyField()
+    class Meta:
+        model = Messages
+        fields = ['user','tiket','support','text','file']
+        extra_kwargs = {
+            "support": {"error_messages": {"required": "This amount is required"}},
+        }
+
 
 
 

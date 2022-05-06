@@ -31,6 +31,7 @@ class ProductMainCategories(models.Model):
         return f'{self.name}'
 
 class Products(models.Model):
+    user = models.ForeignKey(Users,on_delete=models.CASCADE,blank=True,null=True,verbose_name='USer')
     title = models.CharField(max_length=999,verbose_name='Title')
     slug = models.CharField(max_length=999,verbose_name='Slug')
     descriptions = models.CharField(max_length=999,verbose_name='Descriptions')
@@ -100,5 +101,33 @@ class ProductsOrders(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+
+
+class Tiket(models.Model):
+    title = models.CharField(max_length=999,verbose_name='Title')
+    user = models.ForeignKey(Users,on_delete=models.CASCADE,null=True,blank=True,verbose_name='User',related_name='tiket_user')
+    support = models.ForeignKey(Users,on_delete=models.CASCADE,null=False,blank=False,verbose_name='Support',related_name='tiket_support')
+    status = models.BooleanField(default=False,verbose_name='Status')
+    date = models.DateTimeField(auto_now_add=True,verbose_name='Date')
+
+    def __str__(self):
+        return self.title
+
+class Messages(models.Model):
+    tiket = models.ForeignKey(Tiket,on_delete=models.CASCADE,verbose_name='Tiket')
+    user = models.ForeignKey(Users,on_delete=models.CASCADE,verbose_name='User')
+    support = models.ForeignKey(Users,on_delete=models.CASCADE,null=True,blank=True,verbose_name='Support',related_name='message')
+    text = models.TextField(null=True,blank=True,verbose_name='Text')
+    file = models.FileField(upload_to='TiketFile',blank=True,null=True,verbose_name='File')
+    date = models.DateTimeField(auto_now_add=True,verbose_name='Date')
+
+
+    def status(self):
+        return self.tiket.status
+
+    def __str__(self):
+        return self.tiket.title
+
 
 
