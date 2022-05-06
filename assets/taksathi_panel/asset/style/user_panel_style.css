@@ -32,7 +32,15 @@ body {
 }
 
 .edit-prof-icon {
-    background-image: url(../icons/icon-42.png);
+    background-image: url(../icons/icons8-edit-48.png);
+    width: 61px;
+    background-repeat: round;
+    height: 54px;
+    display: block;
+    margin: 25px 8px;
+}
+.ticketing-icon{
+    background-image: url(../icons/icons8-two-tickets-50.png);
     width: 61px;
     background-repeat: round;
     height: 54px;
@@ -41,7 +49,7 @@ body {
 }
 
 .order-history-icon {
-    background-image: url(../icons/icon-52.png);
+    background-image: url(../icons/icons8-purchase-order-64.png);
     width: 61px;
     background-repeat: round;
     height: 54px;
@@ -93,25 +101,17 @@ body {
 }
 
 .comments-icon {
-    background-image: url(../icons/icon-46.png);
-    width: 61px;
+    background-image: url(../icons/icons8-comments-40.png);
+    width: 50px;
     background-repeat: round;
     height: 54px;
     display: block;
     margin: 25px 8px;
 }
 
-.comments-icon {
-    background-image: url(../icons/icon-47.png);
-    width: 61px;
-    background-repeat: round;
-    height: 54px;
-    display: block;
-    margin: 25px 8px;
-}
 
 .exit-icon {
-    background-image: url(../icons/icon-49.png);
+    background-image: url(../icons/icons8-exit-64.png);
     width: 61px;
     background-repeat: round;
     height: 54px;
@@ -167,8 +167,8 @@ body {
 
 .user-panel-input {
     width: 80%;
-    font-size: 25px;
-    border-radius: 10px;
+    font-size: 16px;
+    border-radius: 6px;
     display: block;
     margin: auto;
     border: 1px solid #707070;
@@ -186,8 +186,9 @@ body {
     border: none;
     height: 55px;
     margin-top: 4%;
+    margin-bottom: 25px;
     margin-right: 9%;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -905,6 +906,39 @@ body {
 @media screen and (min-width:300px) and (max-width: 720px) {
 .user-history-lefticon3{
     display: block;
+
+}
+
+.form-div{
+    width: 90% !important;
+    margin: auto !;
+    margin-top: 10px;
+    display: block !important;
+    direction: rtl;
+    align-items: center;
+    background-color: azure;
+
+}
+.form-box{
+    width: 100% !important;
+    margin: auto ;
+    margin-top: 10px;
+    display: flex;
+    direction: rtl;
+    align-items: center;
+}
+
+.send-teket{
+    border-radius: 6px;
+    width: 100% !important;
+    cursor: pointer;
+    height: 40px;
+    background-color: rgb(47, 61, 215);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    margin: auto;
+    margin-top: 10px;
 }
 }
 
@@ -964,8 +998,8 @@ body {
     }
     .user-panel-input {
         width: 80%;
-        font-size: 16px;
-        border-radius: 10px;
+        font-size: 12px;
+        border-radius: 4px;
         display: block;
         margin: auto;
         border: 1px solid #707070;
@@ -1134,4 +1168,101 @@ body {
         color: #ffd700;
 
     }
+    .teket-div p{
+        direction: rtl;
+    
+    }
+}
+
+.teket-div{
+    direction: rtl;
+    margin:auto;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    display: block;
+    margin-bottom: 100px;
+
+}
+.form-div{
+    width: 90%;
+    margin: auto !;
+    margin-top: 10px;
+    display: flex;
+    direction: rtl;
+    align-items: center;
+    background-color: azure;
+
+}
+.teket-p{
+    margin-right: 0;
+
+}
+.form-box{
+    width: 100%;
+    margin: auto !;
+    margin-top: 10px;
+    display: flex;
+    direction: rtl;
+    align-items: center;
+}
+
+.input{
+    width: 90%;
+    height: 35px;
+    border: 1px solid #707070;
+    border-radius: 7px;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+.textarea-input{
+    width: 90%;
+    height: 150px;
+    border: 1px solid #707070;
+    border-radius: 7px;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.send-teket{
+    border-radius: 6px;
+    width: 40%;
+    cursor: pointer;
+    height: 40px;
+    background-color: rgb(47, 61, 215);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    margin: auto;
+    margin-top: 10px;
+}
+.btn{
+    background-color: orange !important;
+}
+#snackbar {
+    width: 20%;
+    height: 60px;
+    /* color: #fff; */
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 20px;
+    position: fixed;
+    z-index: 15;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+.sucsses {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    /* background-color: #2ACB34;
+    border: 5px solid green    ; */
+}
+
+.error {
+    /* background-color: rgb(235, 26, 3); */
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
 }

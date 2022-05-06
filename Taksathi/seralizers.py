@@ -73,7 +73,7 @@ class MessagesUserSerializers(serializers.ModelSerializer):
     status = serializers.ReadOnlyField()
     class Meta:
         model = Messages
-        fields = ['user','tiket','support','text','file']
+        fields = ['user','tiket','support','status','text','file']
         extra_kwargs = {
             "support": {"error_messages": {"required": "This amount is required"}},
         }

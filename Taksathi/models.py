@@ -1,3 +1,4 @@
+from tkinter import N
 from extensions.optimization import photo_optimization
 from django.db import models
 from Users.models import Users
@@ -124,7 +125,10 @@ class Messages(models.Model):
 
 
     def status(self):
-        return self.tiket.status
+        if self.tiket.status:
+            return self.tiket.status
+        else:
+            return None
 
     def __str__(self):
         return self.tiket.title
