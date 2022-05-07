@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from .models import *
+from rest_framework.authtoken.models import Token
 
 def products_page(request):
     sliders = ProductsSliders.objects.all()
@@ -18,9 +19,11 @@ def products_page(request):
 def products_detail_page(request,id,slug):
     product = get_object_or_404(Products,id=id,slug=slug)
     similars = Products.objects.filter(maincategories__id__in=[p.id for p in product.maincategories.all()])
+    user_token = Token.objects.filter(user_id=request.user.id).first()
     context = {
         'product': product,
         'similars': similars,
+        'user_token': user_token,
     }
     return render(request,'Taksathi/products_detail_page/products_detail_page.html',context)
 
