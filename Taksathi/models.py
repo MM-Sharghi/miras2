@@ -44,6 +44,7 @@ class Products(models.Model):
     compounds = models.CharField(max_length=999,verbose_name='Compounds')
     licenseـissuer = models.CharField(max_length=999,verbose_name='License issuer')
     date = models.DateTimeField(auto_now_add=True)
+    limit = models.IntegerField(default=0,blank=False,null=False,verbose_name='Limit')
     status = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
@@ -95,7 +96,7 @@ class ProductsOrders(models.Model):
     description = models.TextField(blank=True,null=True,verbose_name='Description')
     price = models.IntegerField(blank=True, null=True, verbose_name='Price')
     product = models.ForeignKey(Products,on_delete=models.CASCADE,blank=False, null=False, verbose_name='Product ')
-    payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Payment Date')
+    payment_date = models.DateTimeField(auto_created=True, verbose_name='Payment Date')
     payment_status = models.BooleanField(default=False, verbose_name='Payment Status')
 
 

@@ -1,10 +1,14 @@
-from rest_framework import generics
+from rest_framework import generics,status
 from rest_framework.permissions import IsAuthenticated,IsTaksathiAdmin
 from rest_framework.authtoken.models import Token
 from .seralizers import *
 from .models import ProductsOrders,ProductsCarts,Products
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from extensions.taksathi.day import day
+from extensions.taksathi.week import week
+from extensions.taksathi.month import month
+from extensions.taksathi.year import year
 
 class carts_add(generics.CreateAPIView):
     serializer_class = OrdersSerializers
@@ -93,12 +97,81 @@ class products_filter_maincategory_list(generics.ListAPIView):
     serializer_class = ProductsSerializers
 
     def get_queryset(self):
+        from extensions.taksathi.day import day
+        day()
         id = self.request.query_params.get('id',False)
-        return Products.objects.filter(maincategories__id=id).all()
+        return Products.objects.filter(maincategories__id=id,status=True).all()
 
 
 
-class products_add(generics.CreateAPIView):
+#  Tak Sathi Admin
+
+class admin_products_orders_day(generics.ListAPIView):
+    serializer_class = ProductsSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get(self, request, *args, **kwargs):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Response({'total_price': day(token_info.user.id)})
+
+class admin_products_orders_week(generics.ListAPIView):
+    serializer_class = ProductsSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get(self, request, *args, **kwargs):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Response({'total_price': week(token_info.user.id)})
+
+class admin_products_orders_month(generics.ListAPIView):
+    serializer_class = ProductsSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get(self, request, *args, **kwargs):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Response({'total_price': month(token_info.user.id)})
+
+class admin_products_orders_year(generics.ListAPIView):
+    serializer_class = ProductsSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get(self, request, *args, **kwargs):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Response({'total_price': year(token_info.user.id)})
+
+class admin_products_list(generics.ListAPIView):
+    serializer_class = ProductsSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Products.objects.filter(user_id=token_info.user.id,status=True).all()
+
+class admin_products_purchased(generics.ListAPIView):
+    serializer_class = OrdersSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductsOrders.objects.filter(product__user__id=token_info.user.id,payment_status=True).all()
+
+
+class admin_products_comments_list(generics.ListAPIView):
+    serializer_class = ProductsCommentsSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductsComments.objects.filter(product__user__id=token_info.user.id).all()
+
+
+class admin_products_add(generics.CreateAPIView):
     serializer_class = ProductsSerializers
     permission_classes = [IsTaksathiAdmin]
 
@@ -115,7 +188,65 @@ class products_add(generics.CreateAPIView):
         else:
             return Response(data.errors)
 
-class tikets_add(generics.CreateAPIView):
+
+class admin_products_update(generics.UpdateAPIView):
+    serializer_class = ProductsUpdateSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+
+    def update(self, request, *args, **kwargs):
+        data = ProductsUpdateSerializers(data=request.data)
+        if data.is_valid():
+            user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+            token_info = Token.objects.filter(key=user_token).first()
+            product = Products.objects.filter(id=data.validated_data['id'],user_id=token_info.user.id).first()
+            if product is not None:
+                data.update(product,data.validated_data)
+                return Response({'message': 'با موفقیت بروز شد'})
+            else:
+                return Response({'message': 'وجود ندارد'})
+        else:
+            return Response(data.errors)
+
+
+class admin_products_delete(generics.CreateAPIView):
+    serializer_class = ProductsSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+
+    def post(self,request):
+        id = self.request.query_params.get('id',False)
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        product = Products.objects.filter(id=id,user_id=token_info.user.id).first()
+        if product is not None:
+            product.delete()
+            return Response({'message': 'حذف شد'})
+        else:
+            return Response({'message': 'وجود ندارد'},status=status.HTTP_400_BAD_REQUEST)
+
+class admin_tikets_list(generics.ListAPIView):
+    serializer_class = TiketSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Tiket.objects.filter(support_id=token_info.user.id).all()
+
+class admin_tikets_filter(generics.ListAPIView):
+    serializer_class = TiketSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        id = self.request.query_params.get('id')
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Messages.objects.filter(tiket_id=id,support_id=token_info.user.id).all()
+
+
+
+class admin_tikets_add(generics.CreateAPIView):
     serializer_class = MessagesSupportSerializers
     permission_classes = [IsTaksathiAdmin]
 
@@ -130,6 +261,43 @@ class tikets_add(generics.CreateAPIView):
             return Response({'message': 'با موفقیت اضافه شد'})
         else:
             return Response(data.errors)
+
+class admin_tikets_update_status(generics.UpdateAPIView):
+    serializer_class = TiketSupportUpdateStatusSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def update(self, request, *args, **kwargs):
+        data = TiketSupportUpdateStatusSerializers(data=request.data)
+        if data.is_valid():
+            user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+            token_info = Token.objects.filter(key=user_token).first()
+            if request.data.get('status'):
+                pass
+            else:
+                return Response({'status': 'این فیلد الزامی است'})
+            tiket = Tiket.objects.filter(id=data.validated_data['id'],user_id=data.validated_data['user']).first()
+            if tiket is None:
+                return Response({'message': 'اطلاعات وارد شده اشتباه است'})
+            data.update(tiket,data.validated_data)
+            return Response({'message': "با موفقیت بروز شد"})
+        else:
+            return Response(data.errors)
+
+
+
+
+
+# End Tak Sathi Admin
+
+
+
+
+
+
+
+
+
+
 
 
 class taksathi_panel_products_orders_list(generics.ListAPIView):
@@ -158,6 +326,24 @@ class taksathi_panel_user_edit_profile(generics.UpdateAPIView):
             return Response(data.errors)
 
 
+class taksathi_panel_tikets_list(generics.ListAPIView):
+    serializer_class = TiketSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Tiket.objects.filter(user_id=token_info.user.id).all()
+
+class taksathi_panel_tikets_filter(generics.ListAPIView):
+    serializer_class = TiketSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        id = self.request.query_params.get('id')
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return Messages.objects.filter(tiket_id=id,user_id=token_info.user.id).all()
 
 class taksathi_panel_tikets_new(generics.CreateAPIView):
     serializer_class = TiketSerializers
@@ -201,23 +387,3 @@ class taksathi_panel_tikets_add(generics.CreateAPIView):
 
 
 
-class tikets_update_status(generics.UpdateAPIView):
-    serializer_class = TiketSupportUpdateStatusSerializers
-    permission_classes = [IsAuthenticated]
-
-    def update(self, request, *args, **kwargs):
-        data = TiketSupportUpdateStatusSerializers(data=request.data)
-        if data.is_valid():
-            user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
-            token_info = Token.objects.filter(key=user_token).first()
-            if request.data.get('status'):
-                pass
-            else:
-                return Response({'status': 'این فیلد الزامی است'})
-            tiket = Tiket.objects.filter(id=data.validated_data['id'],user_id=data.validated_data['user']).first()
-            if tiket is None:
-                return Response({'message': 'اطلاعات وارد شده اشتباه است'})
-            data.update(tiket,data.validated_data)
-            return Response({'message': "با موفقیت بروز شد"})
-        else:
-            return Response(data.errors)
