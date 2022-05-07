@@ -22,8 +22,9 @@ from django.contrib import admin
 
 urlpatterns = [
     path('account/',include('Account.urls')),
-    path('',include('Taksathi.urls')),
-    path('api/',include('Taksathi.api_urls')),
+    path('taksathi/',include('Taksathi.urls')),
+    path('api/', include('Taksathi.api_urls')),
+    path('derakhti/',include('Derakhti.urls')),
     path('admin/', admin.site.urls),
 ]
 

@@ -17,13 +17,10 @@
 
 
 
-                        {% for ProductsPhoto  in products_photos %}
 
-                             <button type="button" class="dot-btndetails slide-activedetails" onclick="currentpic({{ forloop.counter }})">
-                             <img class="slidedetails" src="{{ product.image.url }}" alt="...">
-                             <img class="slidedetails" src="{{ ProductsPhoto.image.url }}" alt="...">
-                        {% endfor %}
-                            </button>
+
+                 <button type="button" class="dot-btndetails slide-activedetails" onclick="currentpic({{ forloop.counter }})">
+                 <img class="slidedetails" src="{{ product.image.url }}" alt="...">
 
                 </div>
 
@@ -57,7 +54,7 @@
                     </li>
                     <li style="display: flex; width: 100%;">
                         <p style="margin-top: -8px; margin-right: -1px;" class="form-title">
-                           {{ product.short_description }}
+
                         </p>
                     </li>
 
@@ -77,20 +74,17 @@
                         </div>
 
                         <div style="direction: ltr;" class="div-style">
-                            {% if product.discounted_price %}
-                                <div class="sec-price" dir="rtl">{{ product.discounted_price }} تومان</div>
-                                <div class="main-price" dir="rtl">{{ product.price }} تومان</div>
-                            {% else %}
-                                    <div class="sec-price" >{{ product.price }} تومان </div>
-                            {% endif %}
-
+                            <div class="sec-price" >{{ product.price }} تومان </div>
                         </div>
                     </li>
 
+
                     <li>
-                        <div class="pro-btn2">
-                            <button id="add-cart" class="form-btn2" type="button">افزودن به سبد خرید</button>
-                        </div>
+                        {% if request.user.is_authenticated %}
+                            <div class="pro-btn2">
+                                <button id="add-cart" class="form-btn2" type="button">افزودن به سبد خرید</button>
+                            </div>
+                        {% endif %}
                     </li>
                 </ol>
             </div>
@@ -128,7 +122,7 @@
                 <div id="firstdetails" class="detailstabcontent detailsactive">
                     <!-- <h3> معرفی</h3> -->
                     <p>
-                        {{ product.description }}
+                        {{ product.descriptions }}
                     </p>
                 </div>
 
@@ -136,15 +130,15 @@
                     <!-- <h3> جزئیات</h3> -->
                     <div class="detailstabdiv">
                         <p class="detailstabp">حجم</p>
-                        <p class="detailstabp">100ml</p>
+                        <p class="detailstabp">{{ product.volume }}</p>
                     </div>
                     <div class="detailstabdiv">
                         <p class="detailstabp">ترکیبات</p>
-                        <p class="detailstabp">  اسطوخودوس،جوز هندی گل شمعدانی، صمغ لامی، علف وتیور و گیاه پاتچولی</p>
+                        <p class="detailstabp">{{ product.compounds }}</p>
                     </div>
                     <div class="detailstabdiv">
                         <p class="detailstabp">صادرکننده مجوز</p>
-                        <p class="detailstabp"> سازمان غذا و دارو  </p>
+                        <p class="detailstabp"> {{ product.licenseـissuer }}  </p>
                     </div>
 
                 </div>
@@ -199,22 +193,24 @@
             <div class="p1-page">
                 <div id="product-container-id" class="product-container">
 
-                    <div class="product-box">
-                        <a href="#">
-                            <img class="image" src="{% static 'home/img/pic-14.png' %}" alt="">
-                        </a>
-                        <div class="details">
-
-                            <a href="#">
-                                <h2>میز چوبی</h2>
+                    {% for p in similars %}
+                        <div class="product-box">
+                            <a href="{% url 'Taksathi:products_detail_page' p.id p.slug %}">
+                                <img class="image" src="{{ p.image.url }}" alt="{{ p.title }}">
                             </a>
-            
-                            <div class="price">2.000.000T</div>
+                            <div class="details">
 
+                                <a href="#">
+                                    <h2>{{ p.title }}</h2>
+                                </a>
+
+                                <div class="price">{{ p.price }} تومان </div>
+
+
+                            </div>
 
                         </div>
-
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>
@@ -310,6 +306,7 @@ console.log("count");
 function getdata(){
     $.ajax({
         url:'http://127.0.0.1:8000/api/products/products-comments-list/',
+        url:'{% url "ApiTaksathi:admin_products_comments_list" %}?id={{ product.id  }}',
         success:(res)=>{
             console.log(res,'resqqq');
         
@@ -323,9 +320,9 @@ function getdata(){
 getdata()
 $('#add-cart').click(function(){
     $.ajax({
-        url:'http://127.0.0.1:8000/api/carts/carts-add/',
+        url: '{% url "ApiTaksathi:carts_add" %}',
         type:'post',
-        headers: {'Authorization': 'Token b492791febdded93e066086d8e6929697dd2735e'},
+        headers: {'Authorization': 'Token {{ user_token }}'},
         data:{
             id:1
         },
@@ -341,9 +338,9 @@ $('#add-cart').click(function(){
 function sendData(){
         let txt = $("#form-text").val()
         $.ajax({
-            url:"http://127.0.0.1:8000/api/products/products-comments-add/",
+            url:"{% url 'ApiTaksathi:products_comments_add' %}",
             type:"post",
-            headers: {'Authorization': 'Token b492791febdded93e066086d8e6929697dd2735e'},
+            headers: {'Authorization': 'Token {{ user_token }}'},
             data:{
                 user:3,
                 product:1,

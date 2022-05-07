@@ -57,6 +57,7 @@ class ProductsUpdateSerializers(serializers.Serializer):
 
 
 class OrdersSerializers(serializers.ModelSerializer):
+    product_image = serializers.ReadOnlyField()
     jdate = serializers.ReadOnlyField()
     class Meta:
         model = ProductsOrders

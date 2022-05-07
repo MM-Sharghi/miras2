@@ -110,6 +110,12 @@ class ProductsOrders(models.Model):
     payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Payment Date')
     payment_status = models.BooleanField(default=False, verbose_name='Payment Status')
 
+    def product_image(self):
+        if self.product.image.url:
+            return self.product.image.url
+        else:
+            return None
+
     def jdate(self):
         return django_jalali(self.payment_date)
 

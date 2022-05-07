@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Users',
     'Account',
     'Taksathi',
+    'Derakhti',
 
 ]
 
