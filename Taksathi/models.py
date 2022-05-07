@@ -1,4 +1,5 @@
 from extensions.optimization import photo_optimization
+from extensions.DateJalali import django_jalali
 from django.db import models
 from Users.models import Users
 
@@ -36,6 +37,9 @@ class Products(models.Model):
     slug = models.CharField(max_length=999,verbose_name='Slug')
     descriptions = models.CharField(max_length=999,verbose_name='Descriptions')
     image = models.ImageField(upload_to='Products',verbose_name='Image')
+    image1 = models.ImageField(upload_to='Products',blank=True,null=True,verbose_name='Image1')
+    image2 = models.ImageField(upload_to='Products',blank=True,null=True,verbose_name='Image2')
+    image3 = models.ImageField(upload_to='Products',blank=True,null=True,verbose_name='Image3')
     price = models.IntegerField(default=0)
     maincategories = models.ManyToManyField(ProductMainCategories,blank=False,verbose_name='Main Category')
     subCategories1 = models.ManyToManyField(ProductSubCategories_1,blank=False,verbose_name='Sub Category 1')
@@ -46,6 +50,9 @@ class Products(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     limit = models.IntegerField(default=0,blank=False,null=False,verbose_name='Limit')
     status = models.BooleanField(default=True)
+
+    def jdate(self):
+        return django_jalali(self.date)
 
     def save(self, *args, **kwargs):
         photo_optimization(self.image)
@@ -61,6 +68,8 @@ class ProductsComments(models.Model):
     status = models.BooleanField(default=False, verbose_name='Status')
     date = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='Date')
 
+    def user_fullname(self):
+        return f'{self.user.first_name} {self.user.last_name}'
 
     def __str__(self):
         return self.comment
@@ -85,6 +94,8 @@ class ProductsCarts(models.Model):
     payment_date = models.DateTimeField(auto_now_add=True,blank=True,null=True, verbose_name='Payment Date')
     payment_status = models.BooleanField(default=False, verbose_name='Payment Status')
 
+    def jdate(self):
+        return django_jalali(self.payment_date)
 
     def __str__(self):
         return f'{self.user}'
@@ -96,9 +107,11 @@ class ProductsOrders(models.Model):
     description = models.TextField(blank=True,null=True,verbose_name='Description')
     price = models.IntegerField(blank=True, null=True, verbose_name='Price')
     product = models.ForeignKey(Products,on_delete=models.CASCADE,blank=False, null=False, verbose_name='Product ')
-    payment_date = models.DateTimeField(auto_created=True, verbose_name='Payment Date')
+    payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Payment Date')
     payment_status = models.BooleanField(default=False, verbose_name='Payment Status')
 
+    def jdate(self):
+        return django_jalali(self.payment_date)
 
     def __str__(self):
         return f'{self.title}'
@@ -112,6 +125,9 @@ class Tiket(models.Model):
     status = models.BooleanField(default=False,verbose_name='Status')
     date = models.DateTimeField(auto_now_add=True,verbose_name='Date')
 
+    def jdate(self):
+        return django_jalali(self.date)
+
     def __str__(self):
         return self.title
 
@@ -123,9 +139,14 @@ class Messages(models.Model):
     file = models.FileField(upload_to='TiketFile',blank=True,null=True,verbose_name='File')
     date = models.DateTimeField(auto_now_add=True,verbose_name='Date')
 
+    def jdate(self):
+        return django_jalali(self.date)
 
     def status(self):
-        return self.tiket.status
+        if self.tiket.status:
+            return self.tiket.status
+        else:
+            return None
 
     def __str__(self):
         return self.tiket.title

@@ -31,3 +31,10 @@ def taksathi_panel_page(request):
     return render(request,'Taksathi/taksathi_panel_page/taksathi_panel_page.html',context)
 
 
+def carts_page(request):
+    context = {
+
+    }
+    return render(request,'Taksathi/carts/shoping-bag.html',context)
+
+

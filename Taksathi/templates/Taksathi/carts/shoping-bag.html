@@ -1,0 +1,596 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--styles-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./asset/style/new_style.css" />
+    <link rel="stylesheet" href="./asset/style/shopping-bag.css" />
+    <link rel="stylesheet" href="./asset/style/table-teket.css">
+
+    <link rel="stylesheet" href="./asset/plugins/fontawesome/css/all.min.css">
+
+    <!--/styles-->
+    <title>wellcome to C2|Home</title>
+</head>
+
+<body>
+    <!--header-->
+    <section id="">
+        <!--  MENU -->
+        <!----------------------------------search--------------------------------->
+        <div onclick="" id="search-box" class="">
+            <button onclick="myFunction2()" id="search-btn-close" class="search-btn-close">x</button>
+            <div class="main-div">
+                <input type="search" class="search-input" placeholder="جستجو" />
+                <button class="search-btn"><img style="width:20px; height: 20px;" src="./asset/icons/icon-19.png" alt=""></button>
+            </div>
+        </div>
+        <!-- ------------------------------------------------------------------------>
+
+        <nav class="header-nav">
+            <!-- responsive top menu -->
+            <div class="responsive-menu-top">
+                <div class="main-div2">
+                    <button class="search-btn2"><div class="search-btn-icon"></div>
+                    </button>
+
+                    <input type="search" class="search-input2" placeholder="جستجو..." />
+                </div>
+                <div class="header-nav-logo-resp">
+                    <a href="./index.html">
+                        <img class="header-nav-logo-img" src="./asset/img/main-logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- responsive top menu -->
+
+            <div class="header-nav-div">
+                <div class="header-nav-icon" onclick="menufunc()">
+
+                    <a href="#" aria-expanded="false">
+
+                        <div class="header-nav-icon-img"></div>
+                        <em class="droopmenu-topanim"></em>
+                    </a>
+                </div>
+                <div class="header-nav-logo">
+                    <a href="./index.html">
+                        <img class="header-nav-logo-img" src="./asset/img/main-logo.png" alt="">
+                    </a>
+                </div>
+
+                <div class="header-nav-left-icon">
+
+                    <div onclick="myFunction()" class="header-nav-left-icons search-box-responsiv">
+                        <a href="#">
+                            <div class="header-nav-left-icons-ic ic1"></div>
+                        </a>
+                    </div>
+                    <div class="tooltip header-nav-left-icons">
+                        <div class="menu-cover">
+                        </div>
+                        <a href="#">
+                            <div class="header-nav-left-icons-ic ic2"></div>
+                        </a>
+                        <div class="tooltiptext" style="margin-top: 25px;">
+                            <a class="" href="#">ورود</a>/
+                            <a class="" href="#">ثبت نام</a>
+                        </div>
+                    </div>
+                    <div class="header-nav-left-icons">
+                        <div class="menu-cover">
+                        </div>
+                        <a href="./cart.html">
+                            <div class="header-nav-left-icons-ic ic3"></div>
+                            <span class="cart-basket">
+                                0
+                              </span>
+                        </a>
+                    </div>
+                    <div class="header-nav-left-icons">
+                        <div class="menu-cover">
+                        </div>
+                        <a href="./cart.html">
+                            <div class="header-nav-left-icons-ic ic4"></div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <!--------------------------------------------list ----------------------->
+            <div id="menu-list" class="menu-list" style="z-index: 10;direction: rtl;margin-top: -5px;width: 100%; height: auto; position: absolute;display: none; ">
+
+                <div class="tabs">
+                    <button class=" tablinks active " data-valuetxt="first">
+                            <div class="menu-titr-icon titr-icon1"></div>
+                            <p  data-title="محصولات">محصولات</p>
+                        </button>
+                    <button class=" tablinks second-menu-btn-f " data-valuetxt="second">
+                            <div class="menu-titr-icon titr-icon2"></div>
+                            <p  data-title="خدمات "> خدمات</p>
+                        </button>
+                </div>
+
+                <div class="wrapper_tabcontent">
+
+                    <div id="first" class=" tabcontent active">
+                        <div class="block-div">
+
+                            <div class="header-nav-lists">
+                                <a href="#" class="header-nav-lists-a">پوشاک</a>
+                                <div class="header-nav-lists-content">
+
+                                    <ul class="nav-ul">
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">لباس مردانه</a>
+                                            <p></p>
+                                        </li>
+
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">کفش  مردانه</a>
+                                            <p class="header-nav-lists-content-li">
+                                                <a href="#" class="">کفش  روزمره</a>
+                                                <a href="#" class=" ">کفش رسمی</a>
+                                            </p>
+                                        </li>
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">اکسسوری مردانه</a>
+                                            <p></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-nav-lists">
+                                <a href="#" class="nav-link alfa header-nav-lists-a">آشپزخانه</a>
+                                <div class="header-nav-lists-content">
+                                    <ul class="nav-ul">
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">  صوتی تصویری</a>
+                                            <p></p>
+                                        </li>
+
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#"> دکراتیو </a>
+                                            <p class="header-nav-lists-content-li">
+                                                <a href="#" class="">آینه</a>
+                                                <a href="#" class=" ">پرده</a>
+                                            </p>
+                                        </li>
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">موادشوینده</a>
+                                            <p></p>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-div">
+                            <div class="header-nav-lists">
+                                <a href="#" class="nav-link alfa header-nav-lists-a">الکترونیک  </a>
+                                <div class="header-nav-lists-content">
+
+
+                                    <ul class="nav-ul">
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">  لپتاپ</a>
+                                            <p></p>
+                                        </li>
+
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#"> گوشی </a>
+                                            <p class="header-nav-lists-content-li">
+
+                                            </p>
+                                        </li>
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">دوربین</a>
+                                            <p class="header-nav-lists-content-li">
+                                                <a href="#" class="">دوربین چاپ فوری</a>
+                                                <a href="#" class=" "> دوربین دیجیتال</a>
+                                            </p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <div class="header-nav-lists">
+                                <a href="#" class="nav-link alfa header-nav-lists-a">الکترونیک  </a>
+                                <div class="header-nav-lists-content">
+
+
+                                    <ul class="nav-ul">
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">  لپتاپ</a>
+                                            <p></p>
+                                        </li>
+
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#"> گوشی </a>
+                                            <p class="header-nav-lists-content-li">
+
+                                            </p>
+                                        </li>
+                                        <li class="nav-ul-li">
+                                            <input type="checkbox" checked>
+                                            <i class="nav-ul-li-i"></i>
+                                            <a href="#">دوربین</a>
+                                            <p class="header-nav-lists-content-li">
+                                                <a href="#" class="">دوربین چاپ فوری</a>
+                                                <a href="#" class=" "> دوربین دیجیتال</a>
+                                            </p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabs">
+                        <button class=" tablinks second-menu-btn " data-valuetxt="second">
+                            <div class="menu-titr-icon titr-icon2"></div>
+                            <p  data-title="خدمات "> خدمات</p>
+                        </button>
+                    </div>
+
+
+
+                    <div id="second" class="tabcontent">
+                        <div class=" header-nav-lists  right-one">
+                            <a href="#" class="nav-link alfa header-nav-lists-a">الکترونیک  </a>
+                            <div class="header-nav-lists-content">
+                                <ul class="nav-ul">
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">  لپتاپ</a>
+                                        <p></p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#"> گوشی </a>
+                                        <p class="header-nav-lists-content-li">
+
+                                        </p>
+                                    </li>
+                                    <li class="nav-ul-li">
+                                        <input type="checkbox" checked>
+                                        <i class="nav-ul-li-i"></i>
+                                        <a href="#">دوربین</a>
+                                        <p class="header-nav-lists-content-li">
+                                            <a href="#" class="">دوربین چاپ فوری</a>
+                                            <a href="#" class=" "> دوربین دیجیتال</a>
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </nav>
+        <!--  MENU -->
+
+    </section>
+
+    <!--header-->
+    <div dir="rtl">
+        <h2 class="shopping-bag-title">سبد خرید</h2>
+        <div class="all-factors">
+            <div class="factor">
+                <p class="factor-title">پیش فاکتور</p>
+                <div class="scroll-bar">
+                    <div class="factor-product">
+                        <img class="factor-product-img" src="./asset/img/pic-29.png" alt="">
+                        <div class="factor-product-detail">
+                            <a href="#">بانکه ادویه</a>
+                            <div class="color-size">
+                                <div class="product-color" style="background-color: #D7C19E;"></div>
+                                <div class="size">
+                                    <p>بزرگ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-number">
+                            <p class="price-product">990,000</p>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="factor-product">
+                        <img class="factor-product-img" src="./asset/img/pic-29.png" alt="">
+                        <div class="factor-product-detail">
+                            <a href="#">بانکه ادویه</a>
+                            <div class="color-size">
+                                <div class="product-color" style="background-color: #D7C19E;"></div>
+                                <div class="size">
+                                    <p>بزرگ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-number">
+                            <p class="price-product">990,000</p>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="factor-product">
+                        <img class="factor-product-img" src="./asset/img/pic-29.png" alt="">
+                        <div class="factor-product-detail">
+                            <a href="#">بانکه ادویه</a>
+                            <div class="color-size">
+                                <div class="product-color" style="background-color: #D7C19E;"></div>
+                                <div class="size">
+                                    <p>بزرگ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-number">
+                            <p class="price-product">990,000</p>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="factor-product">
+                        <img class="factor-product-img" src="./asset/img/pic-29.png" alt="">
+                        <div class="factor-product-detail">
+                            <a href="#">بانکه ادویه</a>
+                            <div class="color-size">
+                                <div class="product-color" style="background-color: #D7C19E;"></div>
+                                <div class="size">
+                                    <p>بزرگ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-number">
+                            <p class="price-product">990,000</p>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="factor-product">
+                        <img class="factor-product-img" src="./asset/img/pic-29.png" alt="">
+                        <div class="factor-product-detail">
+                            <a href="#">بانکه ادویه</a>
+                            <div class="color-size">
+                                <div class="product-color" style="background-color: #D7C19E;"></div>
+                                <div class="size">
+                                    <p>بزرگ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-number">
+                            <p class="price-product">990,000</p>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="short-offer">
+                <div class="short-factor">
+                    <p class="factor-title">خلاصه فاکتور</p>
+                    <div class="all-kidd-price">
+                        <div class="kidd-price">
+                            <p class="kidd-price-title">مبلغ کل:</p>
+                            <div class="price-detail">
+                                <p>T</p>
+                                <p>1,980,000</p>
+                            </div>
+                        </div>
+                        <div class="kidd-price">
+                            <p class="kidd-price-title">مبلغ تخفیف:</p>
+                            <div class="price-detail">
+                                <p>T</p>
+                                <p>990,000</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="kidd-price">
+                            <p class="kidd-price-title">مبلغ قابل پرداخت:</p>
+                            <div class="price-detail green-color">
+                                <p>T</p>
+                                <p>990,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-box">
+                    <p class="offer-box-title">کد تخفیف</p>
+                    <input class="offer-input" type="text" placeholder="کد تخفیف">
+                    <button class="offer-btn" type="submit">اعمال کد</button>
+                </div>
+            </div>
+        </div>
+        <div class="address-info">
+            <p class="address-info-title">اطلاعات ارسال</p>
+            <div class="address-scroll">
+                <div class="address-info-detail">
+                    <input class="address-info-checkbox" type="checkbox" id="address1">
+                    <label for="address1" class="address-info-p"><p class="address-p-one">خانه</p><p class="current-address">تهران - خیابان - کوچه - شهر - استان - پلاک - واحد - سلام - تهران - خیابان - کوچه - شهر - استان - پلاک - واحد - سلام</p></label>
+                </div>
+                <div class="address-info-detail">
+                    <input class="address-info-checkbox" type="checkbox" id="address1">
+                    <label for="address1" class="address-info-p"><p class="address-p-one">خانه</p><p class="current-address">تهران - خیابان - کوچه - شهر - استان - پلاک - واحد - سلام - تهران - خیابان - کوچه - شهر - استان - پلاک - واحد - سلام</p></label>
+                </div>
+                <div class="address-info-detail">
+                    <input class="address-info-checkbox" type="checkbox" id="address1">
+                    <label for="address1" class="address-info-p"><p class="address-p-one">خانه</p><p class="current-address">تهران - خیابان - کوچه - شهر - استان - پلاک - واحد - سلام - تهران - خیابان - کوچه - شهر - استان - پلاک - واحد - سلام</p></label>
+                </div>
+
+            </div>
+            <button type="submit" class="add-address">ثبت آدرس جدید</button>
+        </div>
+        <button type="submit" class="payment-btn">پرداخت سفارش</button>
+    </div>
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-box">
+            <br>
+            <br>
+            <br>
+            <div class="main-logo-footer">
+                <a class="main-logo-footer-a" href="./index.html">
+                    <div class="main-logo-footer-img" alt=""></div>
+                </a>
+            </div>
+            <div class="loremtxt">
+
+                <h3 class="lorem">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                </h3>
+            </div>
+            <div class="links">
+                <div class="last_article">
+                    <ol>
+                        <li class="head title"><a class="bot-title" href="#"> آخرین مقالات</a></li>
+                        <li class="links-kid"><a href="#"> مقاله 1</a></li>
+                        <li class="links-kid"><a href="#"> مقاله 2</a></li>
+                        <li class="links-kid"><a href="#"> مقاله 3</a></li>
+                        <li class="links-kid"><a href="#"> مقاله 4</a></li>
+                    </ol>
+                </div>
+
+                <div class="buy-web">
+                    <ol>
+                        <li class="head title"><a class="bot-title" href="#"> خرید از سایت</a></li>
+                        <li class="links-kid"><a href="#"> روش استفاده از خدمات</a></li>
+                        <li class="links-kid"><a href="#"> روش خرید محصولات</a></li>
+                        <li class="links-kid"><a href="#"> سوالات متداول خریدار</a></li>
+                        <li class="links-kid"><a href="#"> محصول1</a></li>
+                    </ol>
+                </div>
+                <div class="sell-web">
+                    <ol>
+                        <li class="head title"><a class="bot-title" href="#"> فروش در سایت</a></li>
+                        <li class="links-kid"><a href="#"> ثبت نام تامین کننده</a></li>
+                        <li class="links-kid"><a href="#"> ورود تامین کننده</a></li>
+                        <li class="links-kid"><a href="#"> سوالات متداول تامین کننده</a></li>
+                        <li class="links-kid"><a href="#"> آموزش فروش</a></li>
+                    </ol>
+                </div>
+                <div class="company-name">
+                    <ol>
+                        <li class="head title"><a href="#"> همراه با نام شرکت</a></li>
+                        <li class="links-kid"><a href="#"> درباره ما</a></li>
+                        <li class="links-kid"><a href="#"> تماس با ما</a></li>
+                        <li class="links-kid"><a href="#"> قوانین و مقررات</a></li>
+                        <li class="media">
+                            <div class="medialogo">
+                                <a href="#">
+                                    <div class="facebook-icon" alt=""></div>
+                                </a>
+                            </div>
+                            <div class="medialogo">
+                                <a href="#">
+                                    <div class="instagram-icon" alt=""></div>
+                                </a>
+                            </div>
+                            <div class="medialogo">
+                                <a href="#">
+                                    <div class="telegram-icon" alt=""></div>
+                                </a>
+                            </div>
+                            <div class="medialogo">
+                                <a href="#">
+                                    <div class="whatsapp-icon" alt=""></div>
+                                </a>
+                            </div>
+                            <div class="medialogo">
+                                <a href="#">
+                                    <div class="youtube-icon" alt=""></div>
+                                </a>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="red-line">
+
+                <div class="div call">
+                    <div class="phone" alt=""></div>
+                    <p class="div-p">021-234324</p>
+                </div>
+                <div class="div loc">
+                    <div class="location" alt=""></div>
+                    <p class="div-p">تهران -خیابان - کوچه</p>
+                </div>
+                <div class="div">
+                    <div class="message" alt=""></div>
+                    <p class="div-p">test@test.com</p>
+                </div>
+
+            </div>
+            <div class="botlane">
+                <div class="validation-logo">
+                    <a href="#"><img class="valid-logo" src="./asset/img/pic-15.png" alt=""></a>
+                    <a href="#"><img class="valid-logo" src="./asset/img/pic-16.png" alt=""></a>
+                    <a href="#"><img class="valid-logo" src="./asset/img/pic-17.png" alt=""></a>
+                </div>
+                <div class="application ">
+                    <h3 class="application-text" id="h3">دانلود اپلیکیشن</h3>
+                    <div class="app-img">
+                        <a href="#"><img class="applogo" src="./asset/img/appstore.png" alt=""></a>
+                        <a href="#"><img class="applogo" src="./asset/img/googleplay.png" alt=""></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="botlane-txt">
+                <p class="text-center">حق چاپ © 2022 . تمامی حقوق محفوظ است.</p>
+                <p class="dotweb">
+                    <a href="https://dotweb.ir/">Dotweb.ir</a> طراحی شده توسط
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
