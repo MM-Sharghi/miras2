@@ -97,8 +97,6 @@ class products_filter_maincategory_list(generics.ListAPIView):
     serializer_class = ProductsSerializers
 
     def get_queryset(self):
-        from extensions.taksathi.day import day
-        day()
         id = self.request.query_params.get('id',False)
         return Products.objects.filter(maincategories__id=id,status=True).all()
 

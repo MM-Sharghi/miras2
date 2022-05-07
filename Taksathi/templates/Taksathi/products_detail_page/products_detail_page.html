@@ -306,10 +306,17 @@ console.log("count");
 function getdata(){
     $.ajax({
         url:'http://127.0.0.1:8000/api/products/products-comments-list/',
-        url:'{% url "ApiTaksathi:admin_products_comments_list" %}?id={{ product.id  }}',
+        // url:'{% url "ApiTaksathi:admin_products_comments_list" %}?id={{ product.id  }}',
         success:(res)=>{
-            console.log(res,'resqqq');
-        
+            console.log(res,'resqwwwqq');
+            $('#detailstabdiv3').append(`
+                <div class="detailstabdiv22">
+                    <p>علی علیزاده</p>
+                    <p>تیر 22</p>
+                </div>
+                <p class="detailstabdiv22-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+            `)
+    
 
         },
         error:(err)=>{

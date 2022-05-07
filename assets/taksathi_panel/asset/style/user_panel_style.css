@@ -1266,3 +1266,32 @@ body {
     background-color: #f8d7da;
     border-color: #f5c6cb;
 }
+.page-number {
+    display: flex;
+    justify-content: space-evenly;
+}
+.page {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 32px;
+    cursor: pointer;
+    transition: .3s ease;
+    line-height: 62px;
+}
+#page2 {
+    background-color: #F26A4F;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .page {
+        width: 45px;
+        height: 45px;
+        margin: auto;
+        font-size: 25px;
+        line-height: 48px;
+    }
+}
