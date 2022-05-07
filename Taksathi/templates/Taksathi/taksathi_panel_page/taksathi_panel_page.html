@@ -39,11 +39,13 @@
                 <div class="ticketing-icon"></div>
                 <p>  تیکتینگ</p>
             </div>
-            
-            <div class="panels-details" onclick="SelectPanel(3)">
-                <div class="order-history-icon"></div>
-                <p>سابقه سفارش </p>
+            <div id="p-order">
+                <div id="product-order" class="panels-details" onclick="SelectPanel(3)">
+                    <div id="" class="order-history-icon"></div>
+                    <p>سابقه سفارش </p>
+                </div>
             </div>
+          
             <div class="panels-details" onclick="SelectPanel(4)">
                 <div class="comments-icon"></div>
                 <p>نظرات</p>
@@ -60,13 +62,10 @@
             </div>
             <div id="edit-acount" class="user-panel-tab panel-page">
                 <h3 class="user-panel-title">ویرایش حساب کاربری</h3>
-                <input class="user-panel-input" type="text" placeholder="نام و نام خانوادگی">
-                <input class="user-panel-input" type="text" placeholder="شماره تماس">
-                <input class="user-panel-input" type="text" placeholder=" شماره تماس">
-                <input class="user-panel-input" type="text" placeholder="ایمیل">
-                <input class="user-panel-input" type="text" placeholder="رمز عبور فعلی">
-                <input class="user-panel-input" type="text" placeholder="رمز عبور جدید">
-                <button type="button" class="user-panel-btn">ویرایش</button>
+                <input id="ph-num1" class="user-panel-input" type="text" placeholder="شماره تماس1">
+                <input id="ph-num2" class="user-panel-input" type="text" placeholder="شماره تماس2   ">
+                <input id="pass" class="user-panel-input" type="text" placeholder="رمز عبور ">
+                <button id="edit-acount-btn" type="button" class="user-panel-btn">ویرایش</button>
             </div>
 
             <div id="edit-acount" class="user-panel-tab panel-page">
@@ -85,196 +84,31 @@
                     </div>
                     
                   </div>
-                  <div id="snackbar" class=""></div>
 
             </div>
+            <div id="snackbar" class=""></div>
+
             
             <div id="order-history" class="order-history panel-page">
                 <h3 class="user-panel-title">سابقه سفارش</h3>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right">
-                            <div class="user-history-box-right-div">
-                                <img src="./asset/img/pic-29.png" class="user-history-img">
-                                <img src="./asset/img/pic-32.png" class="user-history-img">
-                                <img src="./asset/img/pic-13.png" class="user-history-img">    
-                            </div>
-                           <h3 class="user-history-text">سفارش 1</h3>
-                        </div>
-                        <div class="  user-history-box-left">
-                            <div class="user-history-lefticon"></div>
-                            <div class="user-history-text-div">
-                                <h3 class="user-history-text">dl-sadd13f </h3>
-                                <h3 class="user-history-text"> 990,000 </h3>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="div-line"></div>
-                </div>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right">
-                            <div class="user-history-box-right-div">
-                                <img src="./asset/img/pic-29.png" class="user-history-img">
-                                <img src="./asset/img/pic-32.png" class="user-history-img">
-                                <img src="./asset/img/pic-13.png" class="user-history-img">    
-                            </div>
-                           <h3 class="user-history-text">سفارش 1</h3>
-                        </div>
-                        <div class="  user-history-box-left">
-                            <div class="user-history-lefticon"></div>
-                            <div class="user-history-text-div">
-                                <h3 class="user-history-text">dl-sadd13f </h3>
-                                <h3 class="user-history-text"> 990,000 </h3>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="div-line"></div>
-                </div>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right">
-                            <div class="user-history-box-right-div">
-                                <img src="./asset/img/pic-29.png" class="user-history-img">
-                                <img src="./asset/img/pic-32.png" class="user-history-img">
-                                <img src="./asset/img/pic-13.png" class="user-history-img">    
-                            </div>
-                           <h3 class="user-history-text">سفارش 1</h3>
-                        </div>
-                        <div class="  user-history-box-left">
-                            <div class="user-history-lefticon"></div>
-                            <div class="user-history-text-div">
-                                <h3 class="user-history-text">dl-sadd13f </h3>
-                                <h3 class="user-history-text"> 990,000 </h3>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="div-line"></div>
-                </div>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right">
-                            <div class="user-history-box-right-div">
-                                <img src="./asset/img/pic-29.png" class="user-history-img">
-                                <img src="./asset/img/pic-32.png" class="user-history-img">
-                                <img src="./asset/img/pic-13.png" class="user-history-img">    
-                            </div>
-                           <h3 class="user-history-text">سفارش 1</h3>
-                        </div>
-                        <div class="  user-history-box-left">
-                            <div class="user-history-lefticon"></div>
-                            <div class="user-history-text-div">
-                                <h3 class="user-history-text">dl-sadd13f </h3>
-                                <h3 class="user-history-text"> 990,000 </h3>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="div-line"></div>
-                </div>
 
-
+                <div class="page-number" dir="ltr">
+                    <span id="page1" class="page1 page"></span>
+                    <span id="page2" class="page2 page"></span>
+                    <span id="page3" class="page2 page"></span>
+                </div>
             </div>
 
             <div id="comments" class="comments panel-page">
                 <h3 class="user-panel-title"> نظرات</h3>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right4">
-                            <img src="./asset/img/pic-29.png" class="user-comments-img" />
-                            <div class="user-comments-text">
-                                <h2>بانکه چوبی </h2>
-                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="user-history-lefticon3"></div>
-
-                        <div class="  user-history-box-left4">
-                            <div>
-                                <p>22تیر </p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="div-line"></div>
-                </div>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right4">
-                            <img src="./asset/img/pic-29.png" class="user-comments-img" />
-                            <div class="user-comments-text">
-                                <h2>بانکه چوبی </h2>
-                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="user-history-lefticon3"></div>
-
-                        <div class="  user-history-box-left4">
-                            <div>
-                                <p>22تیر </p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="div-line"></div>
-                </div>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right4">
-                            <img src="./asset/img/pic-29.png" class="user-comments-img" />
-                            <div class="user-comments-text">
-                                <h2>بانکه چوبی </h2>
-                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="user-history-lefticon3"></div>
-
-                        <div class="  user-history-box-left4">
-                            <div>
-                                <p>22تیر </p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="div-line"></div>
-                </div>
-                <div class="user-history-mainbox">
-                    <div class="user-history-box">
-                        <div class=" user-history-box-right4">
-                            <img src="./asset/img/pic-29.png" class="user-comments-img" />
-                            <div class="user-comments-text">
-                                <h2>بانکه چوبی </h2>
-                                <p class="user-comments-text-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="user-history-lefticon3"></div>
-
-                        <div class="  user-history-box-left4">
-                            <div>
-                                <p>22تیر </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            
+           
 
             </div>
 
             <script>
                               
-function message(type,msg) {
+                
+                              function message(type,msg) {
     var succ = type
     var messageText = msg
     var snackbar = document.getElementById('snackbar')
@@ -299,6 +133,133 @@ setTimeout(function(){
 
     // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
   }
+
+
+
+
+                $('#edit-acount-btn').click(function(){ 
+                let phNum1= $('#ph-num1').val()
+                let phNum2=  $('#ph-num2').val()
+                let pass = $('#pass').val()
+                // console.log(fullName,phNum2 , phNum , curentPass,newPass,emil);
+
+                $.ajax({
+                    url:'http://127.0.0.1:8000/api/tak-s-panel/user/user-edit-profile/',
+                    type:"put",
+                    headers: {'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'},
+                    data:{
+                        mobile1 :phNum1,
+                        password:pass
+                            
+                        },
+                        success:(res)=>{
+                            console.log( res,'res');
+                            if(phNum1=='' && pass == '' || phNum1 == '' || pass==''){
+                                message('error','پرکردن این فیلد اجباری است')
+                                console.log('xxxxxx');
+
+                                return
+                            }
+                          
+                            else{
+                                message('sucsses',res.message)
+                            }
+                       
+
+                        },
+                        error:(err)=>{
+                            console.log(err,'err');
+                        }
+                })
+
+                })
+
+                $('#p-order').click(function(){
+                    
+                    $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-panel/products/products-orders-list/',
+                        // type:"post",
+                        headers: {'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'},
+                        // data:{
+                                
+                        //     },
+                            success:(res)=>{
+                                console.log( res,'res')
+                                $('#order-history').append(`
+                                <div class="user-history-mainbox">
+                                    <div class="user-history-box">
+                                        <div class=" user-history-box-right">
+                                            <div class="user-history-box-right-div">
+                                                <img src="./asset/img/pic-29.png" class="user-history-img">
+                                                <img src="./asset/img/pic-32.png" class="user-history-img">
+                                                <img src="./asset/img/pic-13.png" class="user-history-img">    
+                                            </div>
+                                        <h3 class="user-history-text"> ${res.results[0].title}</h3>
+                                        </div>
+                                        <div class="  user-history-box-left">
+                                            <div class="user-history-lefticon"></div>
+                                            <div class="user-history-text-div">
+                                                <h3 class="user-history-text">dl-sadd13f </h3>
+                                                <h3 class="user-history-text">${res.results[0].price}</h3>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="div-line"></div>
+                                </div>
+                                `)
+                           
+    
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                    })
+    
+                    })
+
+                    function getdata(){
+                        $.ajax({
+                            url:'http://127.0.0.1:8000/api/products/products-comments-list/?id=1',
+                            success:(res)=>{
+                                console.log(res,'rehhs');
+                                $('#comments').append(`
+                                    <div class="user-history-mainbox">
+                                        <div class="user-history-box">
+                                            <div class=" user-history-box-right4">
+                                                <img src="./asset/img/pic-29.png" class="user-comments-img" />
+                                                <div class="user-comments-text">
+                                                    <h2> ${res.results[0].product}</h2>
+                                                    <p class="user-comments-text-p">
+                                                        ${res.results[0].comment}
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                            <div class="user-history-lefticon3"></div>
+
+                                            <div class="  user-history-box-left4">
+                                                <div>
+                                                    <p>${res.results[0].date}</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="div-line"></div>
+                                    </div>
+                                
+                               
+                                `)
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+                    }
+getdata()
+
+
                 $('#send-ticket').click(function(){
                     var tiketTitle = $('#title-tiket').val()
                     let created 
@@ -349,6 +310,7 @@ setTimeout(function(){
                             if(res.message =='با موفقیت اضافه شد'){
                                 message('sucsses',res.message)
                             }
+                            
                         },
                         error:(err)=>{
                             console.log(err,'err');
