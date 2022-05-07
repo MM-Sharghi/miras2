@@ -169,18 +169,7 @@
 
                                 </div>
                             </li>
-                            <div class="detailstabdiv3">
-                                <p>ثبت امتیاز شما :</p>
-                                <div class="detailsrate2">
-
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-
-                                </div>
-                            </div>
+                 
                             <!-- <li> -->
                             <div class="pro-btn22">
                                 <button onclick=" sendData()" class="form-btn" type="button">ارسال نظر</button>
@@ -320,22 +309,10 @@ console.log("count");
 
 function getdata(){
     $.ajax({
-        url:'http://127.0.0.1:8000/api/products/products-comments-list/?id=1',
+        url:'http://127.0.0.1:8000/api/products/products-comments-list/',
         success:(res)=>{
-            console.log(res,'res');
-            $('#detailstabdiv3').append(`
-            <div class="detailstabdiv22">
-                            <p> ${res.results[0].date}</p>
-                            <p style="margin: 50px -50px 0 0 ;">${res.results[0].comment}</p>
-                        </div>
-                        <div class="detailsrate">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-            `)
+            console.log(res,'resqqq');
+        
 
         },
         error:(err)=>{
