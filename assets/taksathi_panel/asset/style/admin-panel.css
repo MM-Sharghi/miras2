@@ -400,7 +400,7 @@ p {
     display: block;
 }
 
-.acc-inputs input {
+.acc-inputs input ,select {
     width: 80%;
     font-size: 25px;
     border-radius: 10px;

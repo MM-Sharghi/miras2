@@ -203,14 +203,20 @@
                         <div><input id="product-descriptions" class="services-inp" type="text" placeholder="توضیحات محصول"></div>
                     </div>
                     <div class="acc-inputs">
-                        <div><input id="product-grouping" class="services-inp" type="text" placeholder="دسته بندی"></div>
+                        <select id="main-categorys" class="services-inp" name="node-advance-tree" id="node-part">
+                            <option class="services-inp" value="arian">دسته بندی</option>  
+                        </select>
                     </div>
                     <div class="acc-inputs">
-                        <div><input id="product-subordinate1"class="services-inp" type="text" placeholder="زیر دسته1"></div>
+                        <select id="product-subordinate1" class="services-inp" name="node-advance-tree" id="node-part">
+                            <option class="services-inp" value="arian">زیردسته1 </option>  
+                        </select>
                     </div>
                     <div class="acc-inputs">
-                        <div><input id="product-subordinate2"class="services-inp" type="text" placeholder="زیر دسته2"></div>
-                    </div>
+                        <select id="product-subordinate2" class="services-inp" name="node-advance-tree" id="node-part">
+                            <option class="services-inp" value="arian">زیردسته2 </option>  
+                        </select>
+                   </div>
                     <div class="acc-inputs">
                         <div><input id="product-compounds" class="services-inp" type="number" placeholder="ترکیبات محصول"></div>
                     </div>
@@ -267,7 +273,7 @@
 
             <div id="p-comment" class="panel-page complaint-page">
                 <div class="seller-account-title">
-                    <p> یدگاه ها</p>
+                    <p> دیدگاه ها</p>
                 </div>
             
           
@@ -335,29 +341,93 @@
 
         </div>
     </div>
-    <!-- <div class="background"></div>
-    <div class="question-box qu-off">
-        <div class="close-icon" onclick="trash(2)"></div>
-        <div class="trash-icon-big"></div>
-        <p>آیا مطمئن هستید میخواهید محصول را حذف کنید؟</p>
-        <div class="question-btn">
-            <button class="yes-btn" type="submit">بله</button>
-            <button class="no-btn" type="submit" onclick="trash(2)">خیر</button>
-        </div>
-    </div>
-    <div class="question-box-two qu-two-off">
-        <div class="close-icon" onclick="exit(2)"></div>
-        <div class="close-icon-big"></div>
-        <p>آیا مطمئن هستید میخواهید خارج شوید</p>
-        <div class="question-btn">
-            <button class="yes-btn" type="submit">بله</button>
-            <button class="no-btn" type="submit" onclick="exit(2)">خیر</button>
-        </div>
-    </div> -->
+  
     <script>
+        var mainCateId , subCateId1 , subCateId2
+      
+        var mUrl = 'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-main_categories/'
+        var subUrl1 = 'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-sub_categories1/'
+        var subUrl2 = 'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-sub_categories2/'
+        function getMainCategorys(mUrl){
+           
+            $.ajax({
+                        url:mUrl,
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res,'res cate');
+                                
+                                $('#main-categorys').append(`
+                                <option class="services-inp" > ${res.results[0].name}</option>
+                                `)
+                                mainCateId = res.results[0].id
+                                if(res.next){
+                                    let nextUrl = res.next
+                                    getMainCategorys(nextUrl)
+                                }
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+
+                    }
 
 
-               
+                    getMainCategorys(mUrl)
+                    function getSubCategory1(subUrl1){
+                        $.ajax({
+                        url: subUrl1,
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res,'res cate1111');
+                             
+                                $('#product-subordinate1').append(`
+                                <option class="services-inp" > ${res.results[0].name}</option>
+                                `)
+                                subCateId1 = res.results[0].id
+                                if(res.next){
+                                    let nextUrl = res.next
+                                    getSubCategory1(nextUrl)
+                                }
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+                    }
+
+
+                    getSubCategory1(subUrl1)
+                      function getSubCategory2(subUrl2){
+
+                        $.ajax({
+                        url:subUrl2,
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                // console.log( res.results[0],'res cate');
+                                $('#product-subordinate2').append(`
+                                <option class="services-inp" > ${res.results[0].name}</option>
+                                `)
+
+                              subCateId2=  res.results[0].id
+                              if(res.next){
+                                    let nextUrl = res.next
+                                    getSubCategory2(nextUrl)
+                                }
+                            },
+
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+                      }
+                      getSubCategory2(subUrl2)
+
+
+        
 function message(type,msg) {
                 var succ = type
                 var messageText = msg
@@ -447,13 +517,12 @@ var mmm
                     // let upImg = $('#upload').val()
                     let productName = $('#product-name').val()
                     let productDescriptions = $('#product-descriptions').val()
-                    let productGrouping = $('#product-grouping').val()
-                    let productSubordinate1 = $('#product-subordinate1').val()
-                    let productSubordinate2 = $('#product-subordinate2').val()
+                    // let mainCateId = $('##main-categorys').val()
+                    // let subCateId1 = $('#product-subordinate1').val()
+                    // let subCateId2 = $('#product-subordinate2').val()
                     let productCompounds = $('#product-compounds').val()
                     let productVolume = $('#product-volume').val()
                     let productLicenseIssuer = $('#product-license-issuer').val()
-                    
                     $.ajax({
                     url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-add/',
                     type:"post",
@@ -461,9 +530,9 @@ var mmm
                     data:{
                         title:productName,
                         descriptions:productDescriptions,
-                        subCategories1:productSubordinate1,
-                        maincategories:productGrouping,
-                        subCategories2:productSubordinate2,
+                        subCategories1:subCateId1,
+                        maincategories:mainCateId,
+                        subCategories2:subCateId2,
                         volume:productVolume,
                         compounds:productCompounds,
                         image:mmm,
@@ -472,8 +541,8 @@ var mmm
                         success:(res)=>{
                             console.log( res,'res');
                           
-                            if(productName=='' && productDescriptions == ''&& productGrouping == '' && productSubordinate1 =='' && productSubordinate2=='' && productCompounds == '' && productVolume =='' && productLicenseIssuer ==''
-                            || productName == '' || productDescriptions=='' || productGrouping=='' || productSubordinate1=='' || productSubordinate2=='' || productCompounds ==  '' || productVolume== '' || productLicenseIssuer ==  '' )
+                            if(productName=='' && productDescriptions == ''&& mainCateId == '' && subCateId1 =='' && subCateId2=='' && productCompounds == '' && productVolume =='' && productLicenseIssuer ==''
+                            || productName == '' || productDescriptions=='' || mainCateId=='' || subCateId1=='' || subCateId2=='' || productCompounds ==  '' || productVolume== '' || productLicenseIssuer ==  '' )
                             {
                                 message('error','پرکردن این فیلد اجباری است')
                                 console.log('xxxxxx');
@@ -665,15 +734,94 @@ var mmm
                         })
                 }
                 getSell()
-
+                var chartDataAry = []
                 $('#daily').click(function(){
                        $.ajax({
                         url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-orders-day/',
                         headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
                   
                             success:(res)=>{
-                                console.log( res,'rwwwwwwwwes');
-                            
+                                console.log( res.total_price,'rwwwwwwwwes');
+
+
+                                chartDataAry.push(res.total_price.map(item =>{
+                                    return item
+                                }))
+                                console.log('aaaaa',chartDataAry[0]);
+
+// ============================CHART ==========================
+                                // var xValues =  ["مهر","آبان","آذر","دی","بهمن","اسفند"] ;
+                                // xValues.classList.add('chart-text-style')
+                                console.log(chartDataAry);
+
+                                new Chart("myChart", {
+                                type: "line",
+                                data: {
+                                    // labels: xValues,
+                                    datasets: [{
+                                    lineTension: 0,
+                                    data:res.total_price,
+                                    borderColor: "#EC6666",
+                                    fill: false
+                                    }
+                                ]
+                                },
+                                options: {
+                                    legend: {display: false},
+                                    scales: {
+                                    yAxes: [{ticks: {min: 0, max:50}}],
+                                
+                                    }
+                                }
+                                });
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+
+                })  
+
+                $('#Weekly').click(function(){
+                       $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-orders-week/',
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res.total_price,'rwwwwwwwwes');
+
+
+                                chartDataAry.push(res.total_price.map(item =>{
+                                    return item
+                                }))
+                                console.log('aaaaa',chartDataAry[0]);
+
+// ============================CHART ==========================
+                                var xValues =  ["1","2","3","4","5","6","7"] ;
+                                // xValues.classList.add('chart-text-style')
+                                console.log(chartDataAry);
+
+                                new Chart("myChart", {
+                                type: "line",
+                                data: {
+                                    labels: xValues,
+                                    datasets: [{
+                                    lineTension: 0,
+                                    data:res.total_price,
+                                    borderColor: "#EC6666",
+                                    fill: false
+                                    }
+                                ]
+                                },
+                                options: {
+                                    legend: {display: false},
+                                    scales: {
+                                    yAxes: [{ticks: {min: 0, max:50}}],
+                                
+                                    }
+                                }
+                                });
 
                             },
                             error:(err)=>{
@@ -683,6 +831,103 @@ var mmm
 
                 })
   
+                $('#monthly').click(function(){
+                       $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-orders-month/',
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res.total_price,'rwwwwwwwwes');
+
+
+                                chartDataAry.push(res.total_price.map(item =>{
+                                    return item
+                                }))
+                                console.log('aaaaa',chartDataAry[0]);
+
+// ============================CHART ==========================
+                                var xValues =  ["1","2","3","4","5","6","7","8","9","10"] ;
+                                // xValues.classList.add('chart-text-style')
+                                console.log(chartDataAry);
+
+                                new Chart("myChart", {
+                                type: "line",
+                                data: {
+                                    labels: xValues,
+                                    datasets: [{
+                                    lineTension: 0,
+                                    data:res.total_price,
+                                    borderColor: "#EC6666",
+                                    fill: false
+                                    }
+                                ]
+                                },
+                                options: {
+                                    legend: {display: false},
+                                    scales: {
+                                    yAxes: [{ticks: {min: 0, max:50}}],
+                                
+                                    }
+                                }
+                                });
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+
+                })
+  
+                $('#yearly').click(function(){
+                       $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-orders-year/',
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res.total_price,'rwwwwwwwwes');
+
+
+                                chartDataAry.push(res.total_price.map(item =>{
+                                    return item
+                                }))
+                                console.log('aaaaa',chartDataAry[0]);
+
+// ============================CHART ==========================
+                                var xValues =  ["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"] ;
+                                // xValues.classList.add('chart-text-style')
+                                console.log(chartDataAry);
+
+                                new Chart("myChart", {
+                                type: "line",
+                                data: {
+                                    labels: xValues,
+                                    datasets: [{
+                                    lineTension: 0,
+                                    data:res.total_price,
+                                    borderColor: "#EC6666",
+                                    fill: false
+                                    }
+                                ]
+                                },
+                                options: {
+                                    legend: {display: false},
+                                    scales: {
+                                    yAxes: [{ticks: {min: 0, max:50}}],
+                                
+                                    }
+                                }
+                                });
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+
+                })
+  
+
 //======================= trash alert ==================================
 
 function trash(n) {
@@ -744,30 +989,6 @@ function panel(n) {
     StyPanel[panelpage - 1].classList.add("border");
 }
 
-// ============================CHART ==========================
-var xValues =  ["مهر","آبان","آذر","دی","بهمن","اسفند"] ;
-// xValues.classList.add('chart-text-style')
-
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      lineTension: 0,
-      data:[0,500,0,500,750],
-      borderColor: "#EC6666",
-      fill: false
-    }
-]
-  },
-  options: {
-    legend: {display: false},
-    scales: {
-      yAxes: [{ticks: {min: 0, max:750}}],
-   
-    }
-  }
-});
 
 
     </script>
