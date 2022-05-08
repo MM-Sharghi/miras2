@@ -24,7 +24,7 @@ class carts_add(generics.CreateAPIView):
             else: pass
             cart = ProductsCarts.objects.filter(user_id=token_info.user.id).first()
             product = Products.objects.filter(id=data.validated_data['product'].id).first()
-            ProductsOrders.objects.create(title=product.title,description=product.descriptions,price=product.price,cart_id=cart.id,product_id=product.id)
+            ProductsOrders.objects.create(shopper_id=token_info.user.id,title=product.title,description=product.descriptions,price=product.price,cart_id=cart.id,product_id=product.id)
             return Response({'message': 'اضافه شد'})
         else:
             return Response(data.errors)
@@ -148,6 +148,37 @@ class admin_products_list(generics.ListAPIView):
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
         return Products.objects.filter(user_id=token_info.user.id,status=True).all()
+
+
+class admin_main_categories(generics.ListAPIView):
+    serializer_class = ProductMainCategoriesSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductMainCategories.objects.all()
+
+
+class admin_sub_categories1(generics.ListAPIView):
+    serializer_class = ProductSubCategories_1Serializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductSubCategories_1.objects.all()
+
+
+class admin_sub_categories2(generics.ListAPIView):
+    serializer_class = ProductSubCategories_2Serializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductSubCategories_2.objects.all()
+
 
 class admin_products_purchased(generics.ListAPIView):
     serializer_class = OrdersSerializers
@@ -291,13 +322,6 @@ class admin_tikets_update_status(generics.UpdateAPIView):
 
 
 
-
-
-
-
-
-
-
 class taksathi_panel_products_orders_list(generics.ListAPIView):
     serializer_class = OrdersSerializers
     permission_classes = [IsAuthenticated]
@@ -305,7 +329,7 @@ class taksathi_panel_products_orders_list(generics.ListAPIView):
     def get_queryset(self):
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        return ProductsOrders.objects.filter(payment_status=True).all().order_by('id')
+        return ProductsOrders.objects.filter(shopper_id=token_info.user.id,payment_status=True).all().order_by('id')
 
 
 class taksathi_panel_user_edit_profile(generics.UpdateAPIView):

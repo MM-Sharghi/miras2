@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--styles-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./asset/style/new_style.css" />
+    <link rel="stylesheet" href="./asset/style/products.css" />
+    <link rel="stylesheet" href="{% static 'taksathi_panel/asset/style/admin-panel.css' %}" />
+
+    <link rel="stylesheet" href="./asset/style/admin-panel.css">
+    <link rel="stylesheet" href="./asset/plugins/fontawesome/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <!--/styles-->
+    <title>wellcome to C2|Home</title>
+</head>
+
+<body>
+    <!--header-->
+    <section id="">
+        <!--  MENU -->
+        <!----------------------------------search--------------------------------->
+        <div onclick="" id="search-box" class="">
+            <button onclick="myFunction2()" id="search-btn-close" class="search-btn-close">x</button>
+            <div class="main-div">
+                <input type="search" class="search-input" placeholder="جستجو" />
+                <button class="search-btn"><img style="width:20px; height: 20px;" src="./asset/icons/icon-19.png" alt=""></button>
+            </div>
+        </div>
+        <!-- ------------------------------------------------------------------------>
+
+        <div class="top-navbar">
+            <div class="search-profile">
+                <div class="admin-prof">
+
+                    <img src="./asset/img/pic-50.png" alt="">
+                    <div class="admin-prof-name">
+                        <p>سلام</p>
+                        <p>مهران</p>
+                    </div>
+
+                </div>
+
+                <div class="container">
+                    <input type="text" placeholder="Search...">
+                    <div class="search"></div>
+                </div>
+
+            </div>
+            <div class="admin-top-bar-all-img">
+                <div class="sherakat-icon"></div>
+                <div class="admin-angle-icon"></div>
+            </div>
+        </div>
+        <!--  MENU -->
+
+    </section>
+
+    <!--header-->
+
+
+    <!--script-->
+    <div class="all-panels">
+        <div class="panel">
+
+            <div class="panels-details" onclick="SelectPanel(1)">
+                <div class="edit-prof-icon"></div>
+                <p>ویرایش حساب کاربری</p>
+            </div>
+            
+            <div class="panels-details" onclick="SelectPanel(2)">
+                <div class="sale-icon"></div>
+                <p>فروش</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(3)">
+                <div class="product-add-icon"></div>
+                <p>افزودن محصول</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(4)">
+                <div class="product-list-icon"></div>
+                <p>لیست محصول</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(5)">
+                <div class="accounting-icon"></div>
+                <p>حسابداری</p>
+            </div>
+
+            <div class="panels-details" onclick="SelectPanel(6)">
+                <div class="customer-satisfaction-icon"></div>
+                <p>رضایت مشتری</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(7)">
+                <div class="ticketing-icon"></div>
+                <p>  تیکتینگ</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(8)">
+                <div class="chart-icon"></div>
+                <p> انتخاب نمودار</p>
+            </div>
+        </div>
+        <div class="panel-details">
+            <div class="panel-page seller-account">
+                <div class="seller-account-title">
+                    <p>حساب کاربری</p>
+                </div>
+                <div>
+                    <div class="acc-inputs"><input type="text" placeholder="نام و نام خانوادگی"></div>
+                </div>
+                <div class="acc-inputs">
+                    <div><input type="text" placeholder="شماره تماس"></div>
+                </div>
+                <div class="acc-inputs">
+                    <div><input type="text" placeholder="نام شرکت"></div>
+                </div>
+                <div class="acc-inputs">
+                    <div><input type="text" placeholder="ایمیل"></div>
+                </div>
+                <div class="acc-inputs">
+                    <div><input type="number" placeholder="کد ملی"></div>
+                </div>
+                <div class="acc-inputs">
+                    <div><input type="number" placeholder="رمز عبور فعلی"></div>
+                </div>
+                <div class="acc-inputs">
+                    <div><input type="number" placeholder="رمز عبور جدید"></div>
+                </div>
+                <div class="acc-btn"><button type="submit">ویرایش</button></div>
+            </div>
+
+            <div class="panel-page clientele-page">
+                <div class="seller-account-title">
+                    <p>فروش</p>
+                </div>
+                <div class="list-products-header">
+                    <div class="list-filters">
+                        <div class="filter-part2 filter">
+                            <span class="filter-part2-btn">مرتب سازی<div class="ordering-img"></div></span>
+                            <div class="filter-part2-dropdown">
+                                <span class="filter-dropdown-txt">گرانترین</span>
+                                <span class="filter-dropdown-txt">ارزانترین</span>
+                                <span class="filter-dropdown-txt">پرفروش ترین</span>
+                                <span class="filter-dropdown-txt">پرطرفدارترین</span>
+                                <span class="filter-dropdown-txt">مرتبط ترین</span>
+                                <span class="filter-dropdown-txt">جدید ترین</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-list">
+                        <form action="">
+                            <input class="filter-part4-btn-input" type="text" placeholder="جستوجو" name="search">
+                            <button class="filter-part4-btn" type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="all-forosh-tablet">
+                    <div class="forosh-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <p class="fc-text2">لباس خز</p>
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r3">
+                            <p class="fc-text1">کد مشتری</p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+                        <div class="fc fc-r5">
+                            <p class="fc-text1">وضعیت </p>
+                            <p class="fc-text2">ارسال فیش</p>
+                        </div>
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                    <div class="forosh-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <p class="fc-text2">لباس خز</p>
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r3">
+                            <p class="fc-text1">کد مشتری</p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+                        <div class="fc fc-r5">
+                            <p class="fc-text1">وضعیت </p>
+                            <p class="fc-text2">ارسال فیش</p>
+                        </div>
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                    <div class="forosh-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <p class="fc-text2">لباس خز</p>
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r3">
+                            <p class="fc-text1">کد مشتری</p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+                        <div class="fc fc-r5">
+                            <p class="fc-text1">وضعیت </p>
+                            <p class="fc-text2">ارسال فیش</p>
+                        </div>
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                    <div class="forosh-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <p class="fc-text2">لباس خز</p>
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r3">
+                            <p class="fc-text1">کد مشتری</p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+                        <div class="fc fc-r5">
+                            <p class="fc-text1">وضعیت </p>
+                            <p class="fc-text2">ارسال فیش</p>
+                        </div>
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="all-forosh">
+                    <div class="top-table">
+                        <div>
+                            <p>#</p>
+                        </div>
+                        <div>
+                            <p>تصویر</p>
+                        </div>
+                        <div>
+                            <p>نام مشتری</p>
+                        </div>
+                        <div>
+                            <p>کد مشتری</p>
+                        </div>
+                        <div>
+                            <p>دفعات خرید</p>
+                        </div>
+                        <div>
+                            <p>ویرایش</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-cli">
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>علی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>2</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                        <div class="client-icon">
+                        </div>
+                    </div>
+                    <div class="mid-table-cli">
+                        <div>
+                            <p>2</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>تقی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>5</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                        <div class="client-icon">
+                        </div>
+                    </div>
+                    <div class="mid-table-cli">
+                        <div>
+                            <p>3</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>نقی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>15</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                        <div class="client-icon">
+                        </div>
+                    </div>
+                    <div class="mid-table-cli">
+                        <div>
+                            <p>4</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>رضا</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>11</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                        <div class="client-icon">
+                        </div>
+                    </div>
+                    <div class="mid-table-cli">
+                        <div>
+                            <p>5</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>ممد</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                        <div class="client-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-page add-products">
+                <div class="seller-account-title">
+                    <p>افزودن محصول</p>
+                </div>
+                <div class="add-details">
+                    <div>
+                        <p>افزودن تصویر </p>
+                    </div>
+                    <div class="add-icons">
+                        <div class="add-icon"></div>
+                        <div class="add-icon"></div>
+                        <div class="add-icon"></div>
+                        <div class="add-icon"></div>
+                        <div class="add-icon"></div>
+                        <div class="add-icon"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input class="services-inp" type="text" placeholder="نام محصول"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input class="services-inp" type="text" placeholder="کد محصول"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input class="services-inp" type="text" placeholder="دسته بندی"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input class="services-inp" type="text" placeholder="زیر دسته"></div>
+                    </div>
+                    <div class="property acc-inputs">
+                        <label class="property-select" for="slct">
+                              <select id="slct" required="required">
+                                    <option value="" disabled="disabled" selected="selected">تعیین ویژگی</option>
+                                    <option value="#">رنگ</option>
+                                    <option value="#">سایز</option>
+                                </select>
+                                <svg>
+                                   <use xlink:href="#select-arrow-down"></use>
+                                </svg>
+                        </label>
+                        <!-- SVG Sprites-->
+                        <svg class="sprites">
+                            <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                            <polyline points="1 1 5 5 9 1"></polyline>
+                            </symbol>
+                        </svg>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input class="services-inp" type="number" placeholder="قیمت"></div>
+                    </div>
+                    <div class="add-btn"><button type="submit">افزودن</button></div>
+                </div>
+
+            </div>
+
+
+            <div class="panel-page list-products">
+                <div class="seller-account-title">
+                    <p>لیست محصول</p>
+                </div>
+                <div class="list-products-header">
+                    <div class="list-filters">
+                        <div class="filter-part2 filter">
+                            <span class="filter-part2-btn">مرتب سازی<div class="ordering-img"></div></span>
+                            <div class="filter-part2-dropdown">
+                                <span class="filter-dropdown-txt">گرانترین</span>
+                                <span class="filter-dropdown-txt">ارزانترین</span>
+                                <span class="filter-dropdown-txt">پرفروش ترین</span>
+                                <span class="filter-dropdown-txt">پرطرفدارترین</span>
+                                <span class="filter-dropdown-txt">مرتبط ترین</span>
+                                <span class="filter-dropdown-txt">جدید ترین</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-list">
+                        <form action="">
+                            <input class="filter-part4-btn-input" type="text" placeholder="جستوجو" name="search">
+                            <button class="filter-part4-btn" type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="all-forosh-tablet">
+                    <div class="all-service-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <img class="fc-img" src="./asset/img/pic-26.png" alt="">
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد خدمت </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                    <div class="all-service-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <img class="fc-img" src="./asset/img/pic-26.png" alt="">
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد خدمت </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                    <div class="all-service-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <img class="fc-img" src="./asset/img/pic-26.png" alt="">
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد خدمت </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                    <div class="all-service-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">نام </p>
+                            <img class="fc-img" src="./asset/img/pic-26.png" alt="">
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد خدمت </p>
+                            <p class="fc-text2">224sdfd4</p>
+                        </div>
+
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">1400/12/01</p>
+                        </div>
+
+                        <div class="fc fc-r6">
+                            <div class="trash-forosh-icon"></div>
+                            <div class="edit-forosh-icon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="all-service-info-tables">
+                    <div class="top-table">
+                        <div>
+                            <p>#</p>
+                        </div>
+                        <div>
+                            <p>تصویر</p>
+                        </div>
+                        <div>
+                            <p>نام محصول</p>
+                        </div>
+                        <div>
+                            <p>کد محصول</p>
+                        </div>
+                        <div>
+                            <p>قیمت</p>
+                        </div>
+                        <div>
+                            <p>تاریخ</p>
+                        </div>
+                        <div>
+                            <p>ویرایش</p>
+                        </div>
+                    </div>
+                    <div class="mid-table">
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>صندلی چوبی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>990,000</p>
+                        </div>
+                        <div>
+                            <p>1400/09/12</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mid-table">
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>صندلی چوبی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>990,000</p>
+                        </div>
+                        <div>
+                            <p>1400/09/12</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mid-table">
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>صندلی چوبی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>990,000</p>
+                        </div>
+                        <div>
+                            <p>1400/09/12</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mid-table">
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>صندلی چوبی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>990,000</p>
+                        </div>
+                        <div>
+                            <p>1400/09/12</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mid-table">
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>صندلی چوبی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>990,000</p>
+                        </div>
+                        <div>
+                            <p>1400/09/12</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="panel-page accounting-page">
+                <div class="seller-account-title">
+                    <p>حسابداری</p>
+                </div>
+                <div class="list-products-header">
+                    <div class="list-filters">
+                        <div class="filter-part2 filter">
+                            <span class="filter-part2-btn">مرتب سازی<div class="ordering-img"></div></span>
+                            <div class="filter-part2-dropdown">
+                                <span class="filter-dropdown-txt">گرانترین</span>
+                                <span class="filter-dropdown-txt">ارزانترین</span>
+                                <span class="filter-dropdown-txt">پرفروش ترین</span>
+                                <span class="filter-dropdown-txt">پرطرفدارترین</span>
+                                <span class="filter-dropdown-txt">مرتبط ترین</span>
+                                <span class="filter-dropdown-txt">جدید ترین</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-list">
+                        <form action="">
+                            <input class="filter-part4-btn-input" type="text" placeholder="جستوجو" name="search">
+                            <button class="filter-part4-btn" type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="accounting-page-tablet">
+                    <div class="accounting-page-top">
+                        <div class="title-top-accounting">
+                            <p class="tl-t-ac">جدول تراز سالیانه</p>
+                            <div class="all-taraz-card">
+                                <div class="taraz-card">
+                                    <div class="tc-r1 tc">
+                                        <p class="tc-text-one">حساب</p>
+                                        <p class="tc-text-two">بهای تمام شده کالای فروخته شده</p>
+                                    </div>
+                                    <div class="tc-r2 tc">
+                                        <p class="tc-text-one">تراز</p>
+                                        <p class="tc-text-two">850,000T</p>
+                                    </div>
+                                </div>
+                                <div class="taraz-card">
+                                    <div class="tc-r1 tc ">
+                                        <p class="tc-text-one">حساب</p>
+                                        <p class="tc-text-two">بهای تمام شده کالای فروخته شده</p>
+                                    </div>
+                                    <div class="tc-r2 tc">
+                                        <p class="tc-text-one">تراز</p>
+                                        <p class="tc-text-two">850,000T</p>
+                                    </div>
+                                </div>
+                                <div class="taraz-card">
+                                    <div class="tc-r1 tc">
+                                        <p class="tc-text-one">حساب</p>
+                                        <p class="tc-text-two">بهای تمام شده کالای فروخته شده</p>
+                                    </div>
+                                    <div class="tc-r2 tc">
+                                        <p class="tc-text-one">تراز</p>
+                                        <p class="tc-text-two">850,000T</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-top-accounting">
+                            <p class="tl-t-ac">جدول فروش</p>
+                            <div class="all-taraz-card">
+                                <div class="taraz-card">
+                                    <div class="tc-r1 tc">
+                                        <p class="tc-text-one">خریدها</p>
+                                        <p class="tc-text-two">سلام</p>
+                                    </div>
+                                    <div class="tc-r2 tc">
+                                        <p class="tc-text-one">کد محصول</p>
+                                        <p class="tc-text-two">DFW4-4554</p>
+                                    </div>
+                                    <div class="tc-r3 tc">
+                                        <p class="tc-text-one">فاکتور</p>
+                                        <p class="tc-text-two">1341<a>(چاپ)</a></p>
+                                    </div>
+                                </div>
+                                <div class="taraz-card">
+                                    <div class="tc-r1 tc">
+                                        <p class="tc-text-one">خریدها</p>
+                                        <p class="tc-text-two">سلام</p>
+                                    </div>
+                                    <div class="tc-r2 tc">
+                                        <p class="tc-text-one">کد محصول</p>
+                                        <p class="tc-text-two">DFW4-4554</p>
+                                    </div>
+                                    <div class="tc-r3 tc">
+                                        <p class="tc-text-one">فاکتور</p>
+                                        <p class="tc-text-two">1341<a>(چاپ)</a></p>
+                                    </div>
+                                </div>
+                                <div class="taraz-card">
+                                    <div class="tc-r1 tc">
+                                        <p class="tc-text-one">خریدها</p>
+                                        <p class="tc-text-two">سلام</p>
+                                    </div>
+                                    <div class="tc-r2 tc">
+                                        <p class="tc-text-one">کد محصول</p>
+                                        <p class="tc-text-two">DFW4-4554</p>
+                                    </div>
+                                    <div class="tc-r3 tc">
+                                        <p class="tc-text-one">فاکتور</p>
+                                        <p class="tc-text-two">1341<a>(چاپ)</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accounting-page-pc">
+                    <div class="top-table-acc">
+                        <div class="hesab">
+                            <p>حساب</p>
+                        </div>
+                        <div class="taraz">
+                            <p>تراز</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc">
+                        <div>
+                            <p>بهای تمام شده کالای فروختته شده</p>
+                        </div>
+                        <div>
+                            <p>850,000T</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc">
+                        <div>
+                            <p>فروش</p>
+                        </div>
+                        <div>
+                            <p>990,000T</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc">
+                        <div>
+                            <p>هزینه</p>
+                        </div>
+                        <div>
+                            <p>990,000T</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc">
+                        <div>
+                            <p>در امد</p>
+                        </div>
+                        <div>
+                            <p>990,000T</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc">
+                        <div>
+                            <p>زیان</p>
+                        </div>
+                        <div>
+                            <p>990,000T</p>
+                        </div>
+                    </div>
+                    <div class="acc-btn"><button type="submit">پرینت</button></div>
+                    <div class="top-table-acc">
+                        <div>
+                            <p>خرید ها</p>
+                        </div>
+                        <div>
+                            <p>محصول</p>
+                        </div>
+                        <div>
+                            <p>فاکتور</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc-bot">
+                        <div>
+                            <p>بهای ت</p>
+                        </div>
+                        <div>
+                            <p>DFW4-4554</p>
+                        </div>
+                        <div>
+                            <p>1341 <a href="#">(چاپ)</a></p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc-bot">
+                        <div>
+                            <p>بهای ت</p>
+                        </div>
+                        <div>
+                            <p>DFW4-4554</p>
+                        </div>
+                        <div>
+                            <p>1341 <a href="#">(چاپ)</a></p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc-bot">
+                        <div>
+                            <p>بهای ت</p>
+                        </div>
+                        <div>
+                            <p>DFW4-4554</p>
+                        </div>
+                        <div>
+                            <p>1341 <a href="#">(چاپ)</a></p>
+                        </div>
+                    </div>
+                    <div class="mid-table-acc-bot">
+                        <div>
+                            <p>بهای ت</p>
+                        </div>
+                        <div>
+                            <p>DFW4-4554</p>
+                        </div>
+                        <div>
+                            <p>1341 <a href="#">(چاپ)</a></p>
+                        </div>
+                    </div>
+                    <div class="acc-btn"><button type="submit">پرینت</button></div>
+                </div>
+            </div>
+
+            <div class="panel-page complaint-page">
+                <div class="seller-account-title">
+                    <p>رضایت مشتری</p>
+                </div>
+                <div class="complaint-box">
+                    <div class="complaint-div-img"><img class="complaint-img" src="./asset/img/pic-50.png" alt=""></div>
+                    <div>
+                        <div class="top-complaintbox">
+                            <div class="name-complaintbox">
+                                <p>نادیه نجم آبادی</p>
+                            </div>
+                            <button class="download-complaintbox">دانلود فایل ارسالی</button>
+                        </div>
+                        <div class="text-user-msg">
+                            <p>من اصلا راضی نیستم محصول پلمپ نبود وقتی ارسال شد دست دوم بود</p>
+                        </div>
+                    </div>
+                    <div class="complaint-vote">
+                        <div><i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i></div>
+                        <button class="handling">رسیدگی</button>
+                    </div>
+                </div>
+                <div class="complaint-box">
+                    <div class="complaint-div-img"><img class="complaint-img" src="./asset/img/pic-50.png" alt=""></div>
+                    <div>
+                        <div class="top-complaintbox">
+                            <div class="name-complaintbox">
+                                <p>نادیه نجم آبادی</p>
+                            </div>
+                            <button class="download-complaintbox">دانلود فایل ارسالی</button>
+                        </div>
+                        <div class="text-user-msg">
+                            <p>من اصلا راضی نیستم محصول پلمپ نبود وقتی ارسال شد دست دوم بود</p>
+                        </div>
+                    </div>
+                    <div class="complaint-vote">
+                        <div><i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i></div>
+                        <button class="handling">رسیدگی</button>
+                    </div>
+                </div>
+                <div class="complaint-box">
+                    <div class="complaint-div-img"><img class="complaint-img" src="./asset/img/pic-50.png" alt=""></div>
+                    <div>
+                        <div class="top-complaintbox">
+                            <div class="name-complaintbox">
+                                <p>نادیه نجم آبادی</p>
+                            </div>
+                            <button class="download-complaintbox">دانلود فایل ارسالی</button>
+                        </div>
+                        <div class="text-user-msg">
+                            <p>من اصلا راضی نیستم محصول پلمپ نبود وقتی ارسال شد دست دوم بود</p>
+                        </div>
+                    </div>
+                    <div class="complaint-vote">
+                        <div><i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i></div>
+                        <button class="handling">رسیدگی</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-page complaint-page">
+              
+                <div class="teket-div">
+                    <h2>سیستم پشتیبانی</h2>
+                    <p class="teket-p">موضوع تیکت</p>
+                    <input class="input" type="text" name="" id="" placeholder="موضوع تیکت را وارد کنید ">
+                    <p class="teket-p">پیام</p>
+                    <textarea class="textarea-input" type="password" name="" id="" placeholder=" متن پیام را وارد کنید"></textarea>
+                    <div class="form-div">
+                        <div class="form-box">
+                            <input type="file" name="" id="" >
+                            <button type="submit" class="send-teket"> ارسال تیکت </button>
+                        </div>
+                       
+                    </div>
+                    
+                  </div>
+            </div>
+            <div class="panel-page clientele-page">
+
+                <div class="list-products-header chart-main">
+                    <!-- <div class="services-panel-title">
+                        <p>  انتخاب نمودار</p>
+                    </div>
+                    <div class="chart-serch">
+                        <div class="search-list chart-serch-div">
+                            <form class="chart-serch-inp" action="">
+                                <input class="filter-part4-btn-input chart-serch-inp2" type="text" placeholder="جستوجو" name="search">
+                                <button class="filter-part4-btn" type="submit"><img src="./asset/icons/icon-27.png" alt=""></button>
+                            </form>
+                        </div>
+                    </div>
+
+                   <div class="chart-heder">
+                        <div class="list-filters chart-filter">
+                            <div class="filter-part2 filter-part22 filter">
+                                <span class="filter-part2-btn"> خدمات<img src="./asset/icons/icon-28.png" alt=""></span>
+                                <div class="filter-part2-dropdown">
+                                    <span class="filter-dropdown-txt">گرانترین</span>
+                                    <span class="filter-dropdown-txt">ارزانترین</span>
+                                    <span class="filter-dropdown-txt">پرفروش ترین</span>
+                                    <span class="filter-dropdown-txt">پرطرفدارترین</span>
+                                    <span class="filter-dropdown-txt">مرتبط ترین</span>
+                                    <span class="filter-dropdown-txt">جدید ترین</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-filters chart-filter">
+                            <div class="filter-part2 filter-part22 filter">
+                                <span class="filter-part2-btn"> بازه زمانی<img src="./asset/icons/icon-28.png" alt=""></span>
+                                <div class="filter-part2-dropdown">
+                                    <span class="filter-dropdown-txt">گرانترین</span>
+                                    <span class="filter-dropdown-txt">ارزانترین</span>
+                                    <span class="filter-dropdown-txt">پرفروش ترین</span>
+                                    <span class="filter-dropdown-txt">پرطرفدارترین</span>
+                                    <span class="filter-dropdown-txt">مرتبط ترین</span>
+                                    <span class="filter-dropdown-txt">جدید ترین</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                    <div class="chart-stye">
+                        <div class="services-panel-title">
+                            <p> نمودار ارایه خدمات</p>
+                        </div>
+                        <p class="chart-txt">نمودار ارائه خدمات در 6 ماه گذشته در 6 ماهه دوم سال</p>
+                        <canvas id="myChart" style="width:100%;"></canvas>
+                        <div class="chart-bottom">
+                            <div class="chart-div">
+                                <p>نظافت</p>
+                                <div class="chart-color color-red"></div>
+                            </div>
+                            <div class="chart-div">
+                                <p>کارواش</p>
+                                <div class="chart-color color-blue"></div>
+                            </div>
+                            <div class="chart-div">
+                                <p>اداری</p>
+                                <div class="chart-color color-light-blue"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="background"></div>
+    <div class="question-box qu-off">
+        <div class="close-icon" onclick="trash(2)"></div>
+        <div class="trash-icon-big"></div>
+        <p>آیا مطمئن هستید میخواهید محصول را حذف کنید؟</p>
+        <div class="question-btn">
+            <button class="yes-btn" type="submit">بله</button>
+            <button class="no-btn" type="submit" onclick="trash(2)">خیر</button>
+        </div>
+    </div>
+    <div class="question-box-two qu-two-off">
+        <div class="close-icon" onclick="exit(2)"></div>
+        <div class="close-icon-big"></div>
+        <p>آیا مطمئن هستید میخواهید خارج شوید</p>
+        <div class="question-btn">
+            <button class="yes-btn" type="submit">بله</button>
+            <button class="no-btn" type="submit" onclick="exit(2)">خیر</button>
+        </div>
+    </div> -->
+    <script src="./js/seller-panel (1).js"></script>
+</body>
+
+
+</html>
