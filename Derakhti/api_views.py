@@ -287,3 +287,31 @@ class places_list(generics.ListAPIView):
         token_info = Token.objects.filter(key=user_token).first()
         return MainUser.objects.filter(Owner_id=token_info.user.id, payment_status=True).all().order_by('id')
 
+
+class places_list_filter(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        username = self.request.query_params.get('username',False)
+        result = []
+        m = MainUser.objects.filter(payment_status=True,Owner__username=username).all()
+        for k in m:
+            R = Rusers.objects.filter(main__user_id=k.user.id).first()
+            if R is not None:
+                active_right = Rusers.objects.filter(main__Owner_id=R.main.user.id,main__payment_status=True).count()
+            L = Lusers.objects.filter(main__user_id=k.user.id).first()
+            if L is not None:
+                active_left = Lusers.objects.filter(main__Owner_id=L.main.user.id,main__payment_status=True).all().count()
+
+            if R and L:
+                result.append({f'{k.user.id}': {f'R': {'admin': R.main.admin.username,'owner': R.main.Owner.username,f'user': k.user.username,'active_right': active_right},f'L': {'admin': L.main.admin.username,'owner': L.main.Owner.username,f'user': k.user.username,'active_left': active_left}} })
+            elif R is not None and L is None:
+                result.append({f'{k.user.id}': {f'R': {'admin': R.main.admin.username,'owner': R.main.Owner.username,f'user': k.user.username,'active_right': active_right}}})
+
+            elif L is not None and R is None:
+                result.append({f'{k.user.id}': {f'L': {'admin': L.main.admin.username,'owner': L.main.Owner.username,f'user': k.user.username,'active_left': active_left}} })
+
+            else:
+                return Response({'result': None})
+        return Response(result)
+

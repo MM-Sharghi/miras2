@@ -83,7 +83,7 @@ class MainUserSerializers(serializers.ModelSerializer):
     user = serializers.CharField(required=False)
     identifierـcode = serializers.CharField(required=False)
     r_or_l = serializers.BooleanField(required=False)
-    RALL = serializers.ReadOnlyField()
+    RL_aLL = serializers.ReadOnlyField()
     class Meta:
         model = MainUser
         fields = '__all__'
