@@ -25,6 +25,7 @@ urlpatterns = [
     path('taksathi/',include('Taksathi.urls')),
     path('api/', include('Taksathi.api_urls')),
     path('derakhti/',include('Derakhti.urls')),
+    path('api/derakhti/',include('Derakhti.api_urls')),
     path('admin/', admin.site.urls),
 ]
 

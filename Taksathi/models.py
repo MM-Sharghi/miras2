@@ -103,6 +103,7 @@ class ProductsCarts(models.Model):
 
 class ProductsOrders(models.Model):
     cart = models.ForeignKey(ProductsCarts, on_delete=models.CASCADE,blank=True,null=True,verbose_name='Cart')
+    shopper = models.ForeignKey(Users, on_delete=models.CASCADE,blank=True,null=True,verbose_name='shopper')
     title = models.CharField(blank=True,null=True,max_length=999, verbose_name='Title')
     description = models.TextField(blank=True,null=True,verbose_name='Description')
     price = models.IntegerField(blank=True, null=True, verbose_name='Price')
@@ -115,6 +116,9 @@ class ProductsOrders(models.Model):
             return self.product.image.url
         else:
             return None
+
+    def user_address(self):
+        return self.shopper.address
 
     def jdate(self):
         return django_jalali(self.payment_date)

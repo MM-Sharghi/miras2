@@ -58,6 +58,7 @@ class ProductsUpdateSerializers(serializers.Serializer):
 
 class OrdersSerializers(serializers.ModelSerializer):
     product_image = serializers.ReadOnlyField()
+    user_address = serializers.ReadOnlyField()
     jdate = serializers.ReadOnlyField()
     class Meta:
         model = ProductsOrders
@@ -73,6 +74,8 @@ class ProductsCommentsSerializers(serializers.ModelSerializer):
 
 
 class UserSerializers(serializers.ModelSerializer):
+    mobile1 = serializers.CharField(required=False)
+    password = serializers.CharField(required=False)
     jdate = serializers.ReadOnlyField()
     class Meta:
         model = Users

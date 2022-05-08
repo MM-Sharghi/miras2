@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 
 def derakhti_page(request):
-    ruser = Rusers.objects.filter(main__user__id=2).all()
-    print(ruser)
-
+    if request.user.is_authenticated:
+        return render(request,'derakhti/derakhti_page/derakhti_page.html')
+    else:
+        return redirect('Account:login_page')

@@ -24,7 +24,7 @@ class carts_add(generics.CreateAPIView):
             else: pass
             cart = ProductsCarts.objects.filter(user_id=token_info.user.id).first()
             product = Products.objects.filter(id=data.validated_data['product'].id).first()
-            ProductsOrders.objects.create(title=product.title,description=product.descriptions,price=product.price,cart_id=cart.id,product_id=product.id)
+            ProductsOrders.objects.create(shopper_id=token_info.user.id,title=product.title,description=product.descriptions,price=product.price,cart_id=cart.id,product_id=product.id)
             return Response({'message': 'اضافه شد'})
         else:
             return Response(data.errors)
@@ -97,8 +97,6 @@ class products_filter_maincategory_list(generics.ListAPIView):
     serializer_class = ProductsSerializers
 
     def get_queryset(self):
-        from extensions.taksathi.day import day
-        day()
         id = self.request.query_params.get('id',False)
         return Products.objects.filter(maincategories__id=id,status=True).all()
 
@@ -297,9 +295,6 @@ class admin_tikets_update_status(generics.UpdateAPIView):
 
 
 
-
-
-
 class taksathi_panel_products_orders_list(generics.ListAPIView):
     serializer_class = OrdersSerializers
     permission_classes = [IsAuthenticated]
@@ -307,7 +302,7 @@ class taksathi_panel_products_orders_list(generics.ListAPIView):
     def get_queryset(self):
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        return ProductsOrders.objects.filter(payment_status=True).all().order_by('id')
+        return ProductsOrders.objects.filter(shopper_id=token_info.user.id,payment_status=True).all().order_by('id')
 
 
 class taksathi_panel_user_edit_profile(generics.UpdateAPIView):
