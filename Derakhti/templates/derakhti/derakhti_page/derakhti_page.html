@@ -1,311 +1,19 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+ {% load static %}
+
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--styles-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./asset/style/new_style.css" />
-    <link rel="stylesheet" href="./asset/style/arian-panel.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'js/treant-js-master/Treant.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'asset/style/arian-panel.css' %}">
+    <link rel="stylesheet" href="{% static 'Derakhti/asset/css/derakhti-panel.css' %}" />
 
-    <link rel="stylesheet" href="./asset/plugins/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="./js/treant-js-master/Treant.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <!--/styles-->
-    <title>wellcome to C2|Home</title>
+    <title></title>
 </head>
 
-<body>
-    <!--header-->
-    <section id="">
-        <!--  MENU -->
-        <!----------------------------------search--------------------------------->
-        <div onclick="" id="search-box" class="">
-            <button onclick="myFunction2()" id="search-btn-close" class="search-btn-close">x</button>
-            <div class="main-div">
-                <input type="search" class="search-input" placeholder="جستجو" />
-                <button class="search-btn"><img style="width:20px; height: 20px;" src="./asset/icons/icon-19.png" alt=""></button>
-            </div>
-        </div>
-        <!-- ------------------------------------------------------------------------>
-
-        <nav class="header-nav">
-            <!-- responsive top menu -->
-            <div class="responsive-menu-top">
-                <div class="main-div2">
-                    <button class="search-btn2"><div class="search-btn-icon"></div>
-                    </button>
-
-                    <input type="search" class="search-input2" placeholder="جستجو..." />
-                </div>
-                <div class="header-nav-logo-resp">
-                    <a href="./index.html">
-                        <img class="header-nav-logo-img" src="./asset/img/main-logo.png" alt="">
-                    </a>
-                </div>
-            </div>
-            <!-- responsive top menu -->
-
-            <div class="header-nav-div">
-                <div class="header-nav-icon" onclick="menufunc()">
-
-                    <a href="#" aria-expanded="false">
-
-                        <div class="header-nav-icon-img"></div>
-                        <em class="droopmenu-topanim"></em>
-                    </a>
-                </div>
-                <div class="header-nav-logo">
-                    <a href="./index.html">
-                        <img class="header-nav-logo-img" src="./asset/img/main-logo.png" alt="">
-                    </a>
-                </div>
-
-                <div class="header-nav-left-icon">
-
-                    <div onclick="myFunction()" class="header-nav-left-icons search-box-responsiv">
-                        <a href="#">
-                            <div class="header-nav-left-icons-ic ic1"></div>
-                        </a>
-                    </div>
-                    <div class="tooltip header-nav-left-icons">
-                        <div class="menu-cover">
-                        </div>
-                        <a href="#">
-                            <div class="header-nav-left-icons-ic ic2"></div>
-                        </a>
-                        <div class="tooltiptext" style="margin-top: 25px;">
-                            <a class="" href="#">ورود</a>/
-                            <a class="" href="#">ثبت نام</a>
-                        </div>
-                    </div>
-                    <div class="header-nav-left-icons">
-                        <div class="menu-cover">
-                        </div>
-                        <a href="./cart.html">
-                            <div class="header-nav-left-icons-ic ic3"></div>
-                            <span class="cart-basket">
-                                0
-                              </span>
-                        </a>
-                    </div>
-                    <div class="header-nav-left-icons">
-                        <div class="menu-cover">
-                        </div>
-                        <a href="./cart.html">
-                            <div class="header-nav-left-icons-ic ic4"></div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <!--------------------------------------------list ----------------------->
-            <div id="menu-list" class="menu-list" style="z-index: 10;direction: rtl;margin-top: -5px;width: 100%; height: auto; position: absolute;display: none; ">
-
-                <div class="tabs">
-                    <button class=" tablinks active " data-valuetxt="first">
-                            <div class="menu-titr-icon titr-icon1"></div>
-                            <p  data-title="محصولات">محصولات</p>
-                        </button>
-                    <button class=" tablinks second-menu-btn-f " data-valuetxt="second">
-                            <div class="menu-titr-icon titr-icon2"></div>
-                            <p  data-title="خدمات "> خدمات</p>
-                        </button>
-                </div>
-
-                <div class="wrapper_tabcontent">
-
-                    <div id="first" class=" tabcontent active">
-                        <div class="block-div">
-
-                            <div class="header-nav-lists">
-                                <a href="#" class="header-nav-lists-a">پوشاک</a>
-                                <div class="header-nav-lists-content">
-
-                                    <ul class="nav-ul">
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">لباس مردانه</a>
-                                            <p></p>
-                                        </li>
-
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">کفش  مردانه</a>
-                                            <p class="header-nav-lists-content-li">
-                                                <a href="#" class="">کفش  روزمره</a>
-                                                <a href="#" class=" ">کفش رسمی</a>
-                                            </p>
-                                        </li>
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">اکسسوری مردانه</a>
-                                            <p></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="header-nav-lists">
-                                <a href="#" class="nav-link alfa header-nav-lists-a">آشپزخانه</a>
-                                <div class="header-nav-lists-content">
-                                    <ul class="nav-ul">
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">  صوتی تصویری</a>
-                                            <p></p>
-                                        </li>
-
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#"> دکراتیو </a>
-                                            <p class="header-nav-lists-content-li">
-                                                <a href="#" class="">آینه</a>
-                                                <a href="#" class=" ">پرده</a>
-                                            </p>
-                                        </li>
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">موادشوینده</a>
-                                            <p></p>
-                                        </li>
-                                    </ul>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-div">
-                            <div class="header-nav-lists">
-                                <a href="#" class="nav-link alfa header-nav-lists-a">الکترونیک  </a>
-                                <div class="header-nav-lists-content">
-
-
-                                    <ul class="nav-ul">
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">  لپتاپ</a>
-                                            <p></p>
-                                        </li>
-
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#"> گوشی </a>
-                                            <p class="header-nav-lists-content-li">
-
-                                            </p>
-                                        </li>
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">دوربین</a>
-                                            <p class="header-nav-lists-content-li">
-                                                <a href="#" class="">دوربین چاپ فوری</a>
-                                                <a href="#" class=" "> دوربین دیجیتال</a>
-                                            </p>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                            <div class="header-nav-lists">
-                                <a href="#" class="nav-link alfa header-nav-lists-a">الکترونیک  </a>
-                                <div class="header-nav-lists-content">
-
-
-                                    <ul class="nav-ul">
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">  لپتاپ</a>
-                                            <p></p>
-                                        </li>
-
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#"> گوشی </a>
-                                            <p class="header-nav-lists-content-li">
-
-                                            </p>
-                                        </li>
-                                        <li class="nav-ul-li">
-                                            <input type="checkbox" checked>
-                                            <i class="nav-ul-li-i"></i>
-                                            <a href="#">دوربین</a>
-                                            <p class="header-nav-lists-content-li">
-                                                <a href="#" class="">دوربین چاپ فوری</a>
-                                                <a href="#" class=" "> دوربین دیجیتال</a>
-                                            </p>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tabs">
-                        <button class=" tablinks second-menu-btn " data-valuetxt="second">
-                            <div class="menu-titr-icon titr-icon2"></div>
-                            <p  data-title="خدمات "> خدمات</p>
-                        </button>
-                    </div>
-
-
-
-                    <div id="second" class="tabcontent">
-                        <div class=" header-nav-lists  right-one">
-                            <a href="#" class="nav-link alfa header-nav-lists-a">الکترونیک  </a>
-                            <div class="header-nav-lists-content">
-                                <ul class="nav-ul">
-                                    <li class="nav-ul-li">
-                                        <input type="checkbox" checked>
-                                        <i class="nav-ul-li-i"></i>
-                                        <a href="#">  لپتاپ</a>
-                                        <p></p>
-                                    </li>
-                                    <li class="nav-ul-li">
-                                        <input type="checkbox" checked>
-                                        <i class="nav-ul-li-i"></i>
-                                        <a href="#"> گوشی </a>
-                                        <p class="header-nav-lists-content-li">
-
-                                        </p>
-                                    </li>
-                                    <li class="nav-ul-li">
-                                        <input type="checkbox" checked>
-                                        <i class="nav-ul-li-i"></i>
-                                        <a href="#">دوربین</a>
-                                        <p class="header-nav-lists-content-li">
-                                            <a href="#" class="">دوربین چاپ فوری</a>
-                                            <a href="#" class=" "> دوربین دیجیتال</a>
-                                        </p>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </nav>
-        <!--  MENU -->
-
-    </section>
-
-    <!--header-->
+<body dir="rtl" onload="SelectPanel(1)">
     <div class="main-content-userpanel">
         <div class="panel">
             <div class="panels-details" onclick="SelectPanel(1)">
@@ -344,17 +52,14 @@
                 <div class="comments-icon"></div>
                 <p>فروشگاه صنایع دستی</p>
             </div>
-            <div class="panels-details" onclick="exit(1)">
+            <div class="panels-details">
                 <div class="exit-icon"></div>
                 <p>خروج</p>
             </div>
         </div>
 
         <div class="panel-details">
-            <div class="panels-two">
-                <p>پنل کاربری</p>
-            </div>
-            <div id="edit-acount" class="user-panel-tab panel-page">
+            <div id="edit-acount" class="user-panel-tab panel-page" style="display: block;">
                 <div class="introduced-code">
                     <div class="profile-icon1"></div>
                     <div class="code-introducted-all">
@@ -389,16 +94,6 @@
                 </div>
                 <div class="profile-line-three">
                     <div class="chart-profile">
-                        <div class="title-of-network">
-                            <div class="network-icon1"></div>
-                            <div class="profile-line-two-two-all-text">
-                                <p class="text-of-panel">تعداد افراد زیر مجموعه شما :</p>
-                                <p class="text-of-panel">2</p>
-                            </div>
-                        </div>
-                        <div class="chart-part"></div>
-                    </div>
-                    <div class="chart-profile">
                         <div class="title-of-reward">
                             <div class="money-icon1"></div>
                             <div class="profile-line-two-three-all-text">
@@ -406,7 +101,23 @@
                                 <p class="text-of-panel">0</p>
                             </div>
                         </div>
-                        <div class="chart-part"></div>
+                        <div class="chart-part">
+                            <div class="chart-part">
+                                <div class="chart-stye">
+                                    <div class="chart-bottom">
+                                        <div class="chart-div">
+                                            <p>مانده</p>
+                                            <div class="chart-color orange-color"></div>
+                                        </div>
+                                        <div class="chart-div">
+                                            <p>تسویه شده</p>
+                                            <div class="chart-color blue-color"></div>
+                                        </div>
+                                    </div>
+                                    <canvas id="myChartTwo"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="reward-box">
                         <div class="reward-main-part">
@@ -427,27 +138,11 @@
                             <div class="msg-part">
                                 <div class="red-circle"></div>
                                 <p class="text-of-panel text-not-reward">در حال حاضر شما پیامی ندارید</p>
-
                             </div>
                         </div>
                     </div>
-                    <div class="chart-profile">
-                        <div class="title-of-reward">
-                            <div class="user-icon1"></div>
-                            <div class="profile-line-two-three-all-text">
-                                <p class="text-of-panel">تعداد کاربران کل :</p>
-                                <p class="text-of-panel">0</p>
-                                <p class="text-of-panel">/</p>
-                                <p class="text-of-panel">جانمایی شده :</p>
-                                <p class="text-of-panel">0</p>
-                            </div>
-                        </div>
-                        <div class="chart-part"></div>
-                    </div>
-
                 </div>
             </div>
-
             <div id="edit-acount" class="user-panel-tab panel-page">
                 <p class="title-of-panel-one">اطلاعات پایه و ویرایش</p>
                 <div class="edit-list-box">
@@ -530,7 +225,6 @@
 
                 <button class="cancel-info-edit-list-box">انصراف از پلن های رزرو شرکت تلفیق هنر</button>
             </div>
-
             <div id="order-history" class="order-history panel-page">
                 <div class="top-info-acc">
                     <p class="info-acc-title">تکمیل اطلاعات حساب</p>
@@ -560,8 +254,8 @@
                         </div>
                         <div class="bank-cart">
                             <div class="bank-name">
-                                <p>کارت</p>
-                                <p>بانک ملت</p>
+                                <p> کارت</p>
+                                <p> بانک ملت </p>
                             </div>
                             <div class="bank-info-one">
                                 <p>کارت به نام :</p>
@@ -596,13 +290,12 @@
                     </div>
                 </div>
             </div>
-
             <div id="comments" class="comments panel-page">
                 <div class="top-tree-advanced">
                     <p class="title-tree-advanced">انتخاب نود جاری</p>
                     <select name="node-advance-tree" id="node-part">
-                        <option value="arian">arian</option>
-                    </select>
+                    <option value="arian">arian</option>
+                </select>
                 </div>
                 <div class="number-place-box">
                     <div class="number-of-place">
@@ -622,9 +315,7 @@
                         <p>5</p>
                     </div>
                 </div>
-                <div class="advance-tree-chart">
-                    <div id="tree-simple" style="width:335px; height: 160px"> </div>
-                </div>
+
             </div>
             <div id="comments" class="comments panel-page">
                 <div class="tik-checkbox-contract">
@@ -642,7 +333,7 @@
                     <p class="intoduction-contract">مقدمه</p>
                     <p class="text-contract">رسالت اصلی هلدینگ تلفیق مینا و خاتم هوشمند که از این پس با نام اختصار (تلفیق هنر)خوانده می شود رونق دادن هر چه بیشتر به صنایع دستی کشور جهت تولید،توزیع و صادرات آن می باشد.از آنجایی که تبدیل به هلدینگ شدیم در کنار فعالیت اصلی خود محصولات
                         متنوع دیگری را نیز جهت ارائه به خریداران گرامی مهیا نموده ایم البته تمام محصولات مدنظر قابلیت صادرات دارند و شما می توانید در اکثر نقاط دنیا با مراجعه به<mark> میز کار خود که به صورت رایگان در اختیارتان گذارده می شود
-                        </mark>اقدام به خرید،فروش و یا بازاریابی آن نمایید</p>
+                    </mark>اقدام به خرید،فروش و یا بازاریابی آن نمایید</p>
                     <ol class="text-contract">
                         <li>هریک از خریداران و بازاریابان موظف هستند قبل از اقدام به بازاریابی و شرکت در طرح درآمدی، اساسنامه داخلی و طرح درآمدزایی شرکت که در وب سایت موجود می باشد را با دقت مطالعه نمایند و همچنین ملزم به اجرای کلیه بندهای آن می باشند</li>
                         <li>مادامی که شرکت به فعالیت خود ادامه دهد شما میتوانید با افزایش فروش کالاهای صنایع دستی و همینطور فروش حجمی، دیگر بسته های کالایی از پاداش های اعلام شده بهره مند شوید.</li>
@@ -656,16 +347,17 @@
                     <p>ضمن آرزوی توفیق روزافزون در امر بازاریابی برای شما عزیزان در ادامه ابتدا به شرایط بازپس گیری محصول و سپس به توضیح شرایط درآمد زایی می پردازیم.</p>
                     <mark class="text-contract">استرداد کالا (Buy back)
 
-                        در ابتدا لازم است بدانید هرکالایی که از شرکت خرید می کنید قابل بازگردان به شرکت بوده و با سه روش قابل استرداد می باشد.
-
-                        روش اول:</mark>
+                    در ابتدا لازم است بدانید هرکالایی که از شرکت خرید می کنید قابل بازگردان به شرکت بوده و با سه روش قابل استرداد می باشد.
+                    
+                    روش اول:</mark>
                     <p class="text-contract green-text">هرخریداری از یک تا دو هفته زمان برای فسخ خرید دارد: از آنجایی که پاداش های حاصل از فروش، بصورت هفتگی محاسبه و حدود یک ماه یکبار به حساب مشتریان واریز می گردد، همه اشخاص ، از یک هفته تا دوهفته فرصت دارند که از خرید انصراف داده و خواستار
                         استرداد مبلغ خود گردند،بدین صورت از هفته ای که خرید انجام می شود و یک هفته بعد از آن فرصت در خواست استرداد می باشد .</p>
                     <p class="text-contract">نکته:اگر هر خریداری از لحظه خرید ویا در طول هفته استرداد،اقدام به لغو خرید خود نماید،تا سه ماه بعد از آن قادر به خرید مجدد از روی سایت شرکت نخواهد بود. از ابتدای روز دوشنبه تا انتهای روز یک شنبه هفته بعد از آن را در سیستم تلفیق هنر
                         بصورت یک هفته کاری، در نظر گرفتیم.</p>
                     <p class="text-contract yellow-text">روش دوم:</p>
                     <p class="text-contract green-text">در صورتی که مشتری بعد از پایان فرصت اولیه ، اقدام به استرداد وجه نماید در صورتی که آن کالا سالم باشد،شرکت بعنوان خریدار مجدد کالا،آن محصول را با کسر هزینه های بازاریابی، انبار داری، ارسال، و هزینه های جانبی دوباره از آن مشتری بازخرید
-                        می نماید</p>
+                        می نماید
+                    </p>
                     <p class="text-contract yellow-text">روش سوم:</p>
                     <p class="text-contract green-text">اگر از تاریخ خرید صنایع دستی،شش ماه گذشت و در این مدت نتوانستید هیچ درآمدی به دست بیاورید. این روش بطور استثنائی و فقط در هلدینگ تلفیق هنر ارائه می گردد:در راستای حمایت از مشتریان و ‌بازاریابان محترم که شش ماه از تاریخ خرید آنها گذشته
                         و خریدار هیچ مبلغی بعنوان پاداش دریافت نکرده باشد،می تواند کالای خود را در صورتی که سالم بوده به شرکت عودت داده و کل مبلغ خود را دریافت نماید</p>
@@ -687,35 +379,35 @@
                     <p class="text-contract red-text">A رده های اعلامی به شرح زیر می باشد:</p>
                     <pre class="text-contract yellow-text">
 
-                        1-راهبر                        4-شایسته               7-محقق                    10-مدرس تولید                      13-مدیر جلسات
+                    1-راهبر                        4-شایسته               7-محقق                    10-مدرس تولید                      13-مدیر جلسات
+                    
+                    2-وزیر                        5-مشاور                  8-ارشد                      11-مدرس فروش                     14-فعال
+                    
+                    3-سفیر                      6-رایزن                   9-مدیر                      12-مدرس شبکه                      15-آغازگر</pre>
 
-                        2-وزیر                        5-مشاور                  8-ارشد                      11-مدرس فروش                     14-فعال
-
-                        3-سفیر                      6-رایزن                   9-مدیر                      12-مدرس شبکه                      15-آغازگر</pre>
-                </div>
-                <p class="text-contract red-text">نکته:</p>
-                <p class="text-contract">از آنجایی که در هر سطح از فروش %8 کل مبلغ فروش بعنوان پاداش به بازاریاب تعلق می گیرد و تا ۷سطح هم امکان گسترش لایه های فروش وجود دارد و مبلغ در کل برای شرکت %56 از حجم فروش را شامل می شود،(چون کالای صنایع دستی قابلیت بیشتری برای ارائه
-                    سود دارد ما میتوانیم در مورد این کالا تا 56% پاداش بدهیم ولی در مورد دیگر کالاهای ارائه شده، طبق آیین نامه تبصره ماده 87 حداکثر 40% مبلغ فروش، به بازاریابان پاداش اختصاص می گیرد) بیشتر از آن حتی یک سطح دیگر هم قابل پرداخت بصورت درصد
-                    از حجم فروش برای بازاریابان نخواهد بود و اگر باشد حتما شرکت را با ورشکستگی مواجه می کند،چون شرکت باید با %44 باقی مانده محصولات و خدمات تولید شده را ارائه نموده و هزینه های سرشار خود را پوشش دهد</p>
-                <p class="text-contract red-text">نکته:</p>
-                <p class="text-contract">
-                    با توجه به نوع خرید مشتریان در مجموعه شما، سطوح محاسبه می گردد از آنجایی که هر مشتری می تواند یک ،دو و یا سه امتیاز کالا را خرید نماید، در صورتی که یک مشتری اقدام به خرید سه امتیاز کالا نماید آن سه امتیاز کالا برای شما، یک سطح محاسبه می شود، اگر دو امتیاز
-                    کالا هم بخرد،باز یک سطح محسوب شده و اگر تنها یک امتیاز کالا را هم بخرد باز یک سطح برای شما محاسبه می گردد
-                </p>
-                <p class="text-contract red-text">نکته: </p>
-                <p class="text-contract">بخاطر اینکه بازاریابان دیگر را مجبور به خرید مازاد نکنند و ‌از این جهت به شرکت آسیبی وارد نگردد،حداکثر هر مشتری می تواند ۳ امتیاز کالا از شرکت خرید نماید</p>
-                <ol class="text-contract">
-                    <li> در سایر رسته های کالایی، هر بازاریاب، فقط می تواند در هر مرحله، مبلغ دو میلیون و دویست هزار تومان از پلن خرید مجدد برای هر میز کار خود استفاده نماید.
-                    </li>
-                    <li>
-                        امکان خرید بیشتر از سه امتیاز کالا برای مشتریان فراهم است، ولی در ازای خرید مازاد مشتریان، هیچ پاداشی به شبکه ی فروش تعلق نمی گیرد و فقط آن خریدار می تواند از خرید مازاد خود، 40% درآمد بصورت تخفیف داشته باشد. که بعد از تکمیل مراحل خرید، آن مبلغ به حساب
-                        مشتریان بازگردانده می شود.
-                    </li>
-                </ol>
-                <p class="text-contract yellow-text"><b>نکته:</b></p>
-                <p class="text-contract yellow-text"><b>پاداش در یک بازو:</b></p>
-                <pre class="text-contract">
-                        شما می توانید با اختیار خود، از پاداش تا سه سطح فروش ایجاد شده در یک بازو هم  بهره مند شوید.
+                    <p class="text-contract red-text">نکته:</p>
+                    <p class="text-contract">از آنجایی که در هر سطح از فروش %8 کل مبلغ فروش بعنوان پاداش به بازاریاب تعلق می گیرد و تا ۷سطح هم امکان گسترش لایه های فروش وجود دارد و مبلغ در کل برای شرکت %56 از حجم فروش را شامل می شود،(چون کالای صنایع دستی قابلیت بیشتری برای ارائه
+                        سود دارد ما میتوانیم در مورد این کالا تا 56% پاداش بدهیم ولی در مورد دیگر کالاهای ارائه شده، طبق آیین نامه تبصره ماده 87 حداکثر 40% مبلغ فروش، به بازاریابان پاداش اختصاص می گیرد) بیشتر از آن حتی یک سطح دیگر هم قابل پرداخت بصورت
+                        درصد از حجم فروش برای بازاریابان نخواهد بود و اگر باشد حتما شرکت را با ورشکستگی مواجه می کند،چون شرکت باید با %44 باقی مانده محصولات و خدمات تولید شده را ارائه نموده و هزینه های سرشار خود را پوشش دهد</p>
+                    <p class="text-contract red-text">نکته:</p>
+                    <p class="text-contract">
+                        با توجه به نوع خرید مشتریان در مجموعه شما، سطوح محاسبه می گردد از آنجایی که هر مشتری می تواند یک ،دو و یا سه امتیاز کالا را خرید نماید، در صورتی که یک مشتری اقدام به خرید سه امتیاز کالا نماید آن سه امتیاز کالا برای شما، یک سطح محاسبه می شود، اگر دو امتیاز
+                        کالا هم بخرد،باز یک سطح محسوب شده و اگر تنها یک امتیاز کالا را هم بخرد باز یک سطح برای شما محاسبه می گردد
+                    </p>
+                    <p class="text-contract red-text">نکته: </p>
+                    <p class="text-contract">بخاطر اینکه بازاریابان دیگر را مجبور به خرید مازاد نکنند و ‌از این جهت به شرکت آسیبی وارد نگردد،حداکثر هر مشتری می تواند ۳ امتیاز کالا از شرکت خرید نماید</p>
+                    <ol class="text-contract">
+                        <li> در سایر رسته های کالایی، هر بازاریاب، فقط می تواند در هر مرحله، مبلغ دو میلیون و دویست هزار تومان از پلن خرید مجدد برای هر میز کار خود استفاده نماید.
+                        </li>
+                        <li>
+                            امکان خرید بیشتر از سه امتیاز کالا برای مشتریان فراهم است، ولی در ازای خرید مازاد مشتریان، هیچ پاداشی به شبکه ی فروش تعلق نمی گیرد و فقط آن خریدار می تواند از خرید مازاد خود، 40% درآمد بصورت تخفیف داشته باشد. که بعد از تکمیل مراحل خرید، آن مبلغ به حساب
+                            مشتریان بازگردانده می شود.
+                        </li>
+                    </ol>
+                    <p class="text-contract yellow-text"><b>نکته:</b></p>
+                    <p class="text-contract yellow-text"><b>پاداش در یک بازو:</b></p>
+                    <pre class="text-contract">
+                    شما می توانید با اختیار خود، از پاداش تا سه سطح فروش ایجاد شده در یک بازو هم  بهره مند شوید.
 
 به این صورت که در سطح اول تا یک امتیاز
 
@@ -724,337 +416,341 @@
 و سطح سوم تا چهار امتیاز
 
 برای شما محاسبه می گردد.
-                    </pre>
-                <ol class="text-contract">
-                    <li>به طور مثال وقتی با 132.000.000 ریال فروش، مبلغ 10.560.000 ریال درآمد داشته باشید در واقع از هر 22.000.000 ریال توانستید به صورت 8% حجم فروش ، مبلغ 1.760.000 ریال دریافت کنید، سپس اگر اعلام کنید که می خواهید پاداش در یک سطح را دریافت
-                        نمایید. شرکت در ازای هر 22.000.000 ریال فروش ایجاد شده در یک بازو به شما 1.760.000 ریال پرداخت می کند و در صورتی که به مبلغ 132.000.000 ریال برسید میزان پرداختهای خود را از پاداش 10.560.000 ریال کسر نموده و الباقی آن را به حساب
-                        شما واریز می کند این پرداختی در یک بازو و فقط تا 3 سطح امکان پذیر می باشد.</li>
-                    <li>کسانی که درخواست دریافت پاداش در یک بازو را داشته باشند در صورتی که بعد از شش ماه نتوانند بازوهای دیگر را فعال نمایند، نمی توانند از روش بازپس گیری 6 ماه بعد از تاریخ خرید استفاده نمایند.</li>
-                    <li>
-                        کسانی که درخواست دریافت پاداش در یک بازو را داشته باشند، پاداشهای خود را فقط هر یک ماه یکبار دریافت خواهند نمود.</li>
-                </ol>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p class="text-contract red-text">جزئیات طرح پاداش دهی:</p>
-                <p class="text-contract mid-line">مرحله اول</p>
-                <p class="text-contract mid-line">هر مرحله دارای هفت پله می باشد</p>
-                <table>
-                    <tr>
-                        <th> مرحله اول</th>
-                    </tr>
-                    <tr>
-                        <th>ردیف</th>
-                        <th>حجم فروش کالا</th>
-                        <th>مبلغ پاداش (ریال)
-                        </th>
+                </pre>
+                    <ol class="text-contract">
+                        <li>به طور مثال وقتی با 132.000.000 ریال فروش، مبلغ 10.560.000 ریال درآمد داشته باشید در واقع از هر 22.000.000 ریال توانستید به صورت 8% حجم فروش ، مبلغ 1.760.000 ریال دریافت کنید، سپس اگر اعلام کنید که می خواهید پاداش در یک سطح را
+                            دریافت نمایید. شرکت در ازای هر 22.000.000 ریال فروش ایجاد شده در یک بازو به شما 1.760.000 ریال پرداخت می کند و در صورتی که به مبلغ 132.000.000 ریال برسید میزان پرداختهای خود را از پاداش 10.560.000 ریال کسر نموده و الباقی آن
+                            را به حساب شما واریز می کند این پرداختی در یک بازو و فقط تا 3 سطح امکان پذیر می باشد.</li>
+                        <li>کسانی که درخواست دریافت پاداش در یک بازو را داشته باشند در صورتی که بعد از شش ماه نتوانند بازوهای دیگر را فعال نمایند، نمی توانند از روش بازپس گیری 6 ماه بعد از تاریخ خرید استفاده نمایند.</li>
+                        <li>
+                            کسانی که درخواست دریافت پاداش در یک بازو را داشته باشند، پاداشهای خود را فقط هر یک ماه یکبار دریافت خواهند نمود.</li>
+                    </ol>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p class="text-contract red-text">جزئیات طرح پاداش دهی:</p>
+                    <p class="text-contract mid-line">مرحله اول</p>
+                    <p class="text-contract mid-line">هر مرحله دارای هفت پله می باشد</p>
+                    <table>
+                        <tr>
+                            <th> مرحله اول</th>
+                        </tr>
+                        <tr>
+                            <th>ردیف</th>
+                            <th>حجم فروش کالا</th>
+                            <th>مبلغ پاداش (ریال)
+                            </th>
+                            <tr>
+                                <td>1</td>
+                                <td><pre>66.000.000 ریال حجم فروش در بازوی راست             66.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                                <td>10.560.000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><pre>132.000.000 ریال حجم فروش در بازوی راست             132.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                                <td>10.560.000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><pre>198.000.000 ریال حجم فروش در بازوی راست             198.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                                <td>10.560.000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><pre>264.000.000 ریال حجم فروش در بازوی راست             264.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                                <td>5.280.000</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><pre>330.000.000 ریال حجم فروش در بازوی راست             330.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                                <td>10.560.000</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><pre>396.000.000 ریال حجم فروش در بازوی راست             396.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                                <td>10.560.000</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><pre>462.000.000 ریال حجم فروش در بازوی راست             462.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                                <td>10.560.000</td>
+                            </tr>
+                        </tr>
+                    </table>
+                    <br>
+                    <p class="text-contract mid-line">هر مرحله دارای هفت پله می باشد</p>
+                    <table>
+                        <tr>
+                            <th>
+                                مرحله دوم
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>ردیف</th>
+                            <th>حجم فروش کالا</th>
+                            <th>مبلغ پاداش (ریال)
+                            </th>
+                        </tr>
                         <tr>
                             <td>1</td>
-                            <td><pre>66.000.000 ریال حجم فروش در بازوی راست             66.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td><pre>528.000.000 ریال حجم فروش در بازوی راست             528.000.000 ریال حجم فروش در بازوی چپ</pre></td>
                             <td>10.560.000</td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><pre>132.000.000 ریال حجم فروش در بازوی راست             132.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td><pre>594.000.000 ریال حجم فروش در بازوی راست             594.000.000 ریال حجم فروش در بازوی چپ</pre></td>
                             <td>10.560.000</td>
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td><pre>198.000.000 ریال حجم فروش در بازوی راست             198.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td><pre>660.000.000 ریال حجم فروش در بازوی راست             660.000.000 ریال حجم فروش در بازوی چپ</pre></td>
                             <td>10.560.000</td>
                         </tr>
                         <tr>
                             <td>4</td>
-                            <td><pre>264.000.000 ریال حجم فروش در بازوی راست             264.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td><pre>726.000.000 ریال حجم فروش در بازوی راست             726.000.000 ریال حجم فروش در بازوی چپ</pre></td>
                             <td>5.280.000</td>
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td><pre>330.000.000 ریال حجم فروش در بازوی راست             330.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td><pre>792.000.000 ریال حجم فروش در بازوی راست             792.000.000 ریال حجم فروش در بازوی چپ</pre></td>
                             <td>10.560.000</td>
                         </tr>
                         <tr>
                             <td>6</td>
-                            <td><pre>396.000.000 ریال حجم فروش در بازوی راست             396.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td><pre>858.000.000 ریال حجم فروش در بازوی راست             858.000.000 ریال حجم فروش در بازوی چپ</pre></td>
                             <td>10.560.000</td>
                         </tr>
                         <tr>
                             <td>7</td>
-                            <td><pre>462.000.000 ریال حجم فروش در بازوی راست             462.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td><pre>924.000.000 ریال حجم فروش در بازوی راست             924.000.000 ریال حجم فروش در بازوی چپ</pre></td>
                             <td>10.560.000</td>
                         </tr>
-                    </tr>
-                </table>
-                <br>
-                <p class="text-contract mid-line">هر مرحله دارای هفت پله می باشد</p>
-                <table>
-                    <tr>
-                        <th>
-                            مرحله دوم
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>ردیف</th>
-                        <th>حجم فروش کالا</th>
-                        <th>مبلغ پاداش (ریال)
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><pre>528.000.000 ریال حجم فروش در بازوی راست             528.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><pre>594.000.000 ریال حجم فروش در بازوی راست             594.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><pre>660.000.000 ریال حجم فروش در بازوی راست             660.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><pre>726.000.000 ریال حجم فروش در بازوی راست             726.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>5.280.000</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><pre>792.000.000 ریال حجم فروش در بازوی راست             792.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><pre>858.000.000 ریال حجم فروش در بازوی راست             858.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><pre>924.000.000 ریال حجم فروش در بازوی راست             924.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                </table>
-                <br>
-                <p class="text-contract mid-line">مرحله سوم</p>
-                <p class="text-contract mid-line">هر مرحله دارای هفت پله می باشد</p>
-                <br>
-                <table>
-                    <tr>
-                        <th>مرحله سوم</th>
-                    </tr>
-                    <tr>
-                        <th>ردیف</th>
-                        <th>حجم فروش کالا</th>
-                        <th>مبلغ پاداش (ریال)
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><pre>990.000.000 ریال حجم فروش در بازوی راست             990.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><pre>1.056.000.000 ریال حجم فروش در بازوی راست             1.056.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><pre>1.122.000.000 ریال حجم فروش در بازوی راست             1.122.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><pre>1.188.000.000 ریال حجم فروش در بازوی راست             1.188.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>5.280.000</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><pre>1.254.000.000 ریال حجم فروش در بازوی راست             1.254.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><pre>1.320.000.000 ریال حجم فروش در بازوی راست             1.320.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><pre>1.386.000.000 ریال حجم فروش در بازوی راست             1.386.000.000 ریال حجم فروش در بازوی چپ</pre></td>
-                        <td>10.560.000</td>
-                    </tr>
-                </table>
-                <p class="text-contract red-text">نکته:</p>
-                <ol class="text-contract">
-                    <li>کلیه پاداش ها به صورت بیست و یک روز یکبار محاسبه و هر یک ماه یکبار به حساب بانکی بازاریابان واریز می گردد ( آغاز محاسبه کاری روز دوشنبه و پایان محاسبه کاری، روز یک شنبه می باشد)</li>
-                </ol>
-                <p class="text-contract blue-text mid-line">((قدرت تصاعد کمک میکند که شما به راحتی به مراحل بالای درآمدی هلدینگ تلفیق هنر برسید))</p>
-                <p class="text-contract red-text">میز کار : </p>
-                <p class="text-contract">از آنجایی که هر میز کار فقط در ازای خرید محصولات صنایع دستی و به صورت رایگان در اختیار بازاریاب قرار می گیرد، هیچ بازاریابی حق ندارد جایگاه خود را به دیگری واگذار نماید و هیچ گونه جابه جایی در ساختار فروش ایشان ایجاد نمی شود .</p>
-                <ol class="text-contract">
-                    <li>در میزکار می توانید کلیه فروش های انجام شده توسط مجموعه بازاریابان خود را مشاهده و با جداولی که طراحی شده می توانید میزان پاداش محاسبه شده را راستی آزمایی نموده و همینطور سایر اطلاعات لازم نیز از طریق میز کار به رویت شما می رسد.</li>
-                </ol>
-                <p class="text-contract red-text">شفاف سازی: </p>
-                <p class="text-contract">از آنجایی که باید میزان پاداش بازاریابان ، هزینه های جانبی شرکت ، هزینه تولید کالا ها و سود شرکت ، به صورت واضح و قابل ارائه باشد ، هرکدام از بازاریابان که از ابتدای مهر ماه هرسال تا پایان شهریور ماه سال بعدی ، پتانسیل فروش از محصولات
-                    صنایع دستی و یا دیگر محصولات ارائه شده را داشته باشد ولی نتواند فروشهای ۳ امتیاز در هر یک از بازوها را تکمیل نماید و از پتانسیل فروش خود پاداشی دریافت ننماید ، این ظرفیت پتانسیل فروش به مدت یک سال بعد از آن برای بازاریاب ذخیره و بازاریاب
-                    فقط تا پایان شهریور ماه سال آتی آن فرصت دارد تا با افزایش فروش از پتانسیل های ذخیره شده بهره مند و پاداش دریافت نماید ، در صورتی که طی این مدت نتواند از پتانسیل فروش خود بهره مند شود، پتانسیل های ذخیره شده ایشان حذف می گردد</p>
-                <p class="text-contract red-text">خرید مجدد: </p>
-                <p class="text-contract">همانطور که قبلا اشاره شده بسته کالاهای متفاوت در هلدینگ تلفیق هنر ارائه می گردد:</p>
-                <pre class="text-contract">
-                    * خرید مجدد، بصورت اجباری نیست، در صورتی که از سیستم خرید مجدد استفاده نکنید، همچنان می توانید از پلن صنایع دستی (پلن مادر) بهره برداری نموده ولی از سایر پلن ها محروم می گردید.
+                    </table>
+                    <br>
+                    <p class="text-contract mid-line">مرحله سوم</p>
+                    <p class="text-contract mid-line">هر مرحله دارای هفت پله می باشد</p>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>مرحله سوم</th>
+                        </tr>
+                        <tr>
+                            <th>ردیف</th>
+                            <th>حجم فروش کالا</th>
+                            <th>مبلغ پاداش (ریال)
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><pre>990.000.000 ریال حجم فروش در بازوی راست             990.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td>10.560.000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><pre>1.056.000.000 ریال حجم فروش در بازوی راست             1.056.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td>10.560.000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><pre>1.122.000.000 ریال حجم فروش در بازوی راست             1.122.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td>10.560.000</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><pre>1.188.000.000 ریال حجم فروش در بازوی راست             1.188.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td>5.280.000</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><pre>1.254.000.000 ریال حجم فروش در بازوی راست             1.254.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td>10.560.000</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><pre>1.320.000.000 ریال حجم فروش در بازوی راست             1.320.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td>10.560.000</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><pre>1.386.000.000 ریال حجم فروش در بازوی راست             1.386.000.000 ریال حجم فروش در بازوی چپ</pre></td>
+                            <td>10.560.000</td>
+                        </tr>
+                    </table>
+                    <p class="text-contract red-text">نکته:</p>
+                    <ol class="text-contract">
+                        <li>کلیه پاداش ها به صورت بیست و یک روز یکبار محاسبه و هر یک ماه یکبار به حساب بانکی بازاریابان واریز می گردد ( آغاز محاسبه کاری روز دوشنبه و پایان محاسبه کاری، روز یک شنبه می باشد)</li>
+                    </ol>
+                    <p class="text-contract blue-text mid-line">((قدرت تصاعد کمک میکند که شما به راحتی به مراحل بالای درآمدی هلدینگ تلفیق هنر برسید))</p>
+                    <p class="text-contract red-text">میز کار : </p>
+                    <p class="text-contract">از آنجایی که هر میز کار فقط در ازای خرید محصولات صنایع دستی و به صورت رایگان در اختیار بازاریاب قرار می گیرد، هیچ بازاریابی حق ندارد جایگاه خود را به دیگری واگذار نماید و هیچ گونه جابه جایی در ساختار فروش ایشان ایجاد نمی شود .</p>
+                    <ol class="text-contract">
+                        <li>در میزکار می توانید کلیه فروش های انجام شده توسط مجموعه بازاریابان خود را مشاهده و با جداولی که طراحی شده می توانید میزان پاداش محاسبه شده را راستی آزمایی نموده و همینطور سایر اطلاعات لازم نیز از طریق میز کار به رویت شما می رسد.</li>
+                    </ol>
+                    <p class="text-contract red-text">شفاف سازی: </p>
+                    <p class="text-contract">از آنجایی که باید میزان پاداش بازاریابان ، هزینه های جانبی شرکت ، هزینه تولید کالا ها و سود شرکت ، به صورت واضح و قابل ارائه باشد ، هرکدام از بازاریابان که از ابتدای مهر ماه هرسال تا پایان شهریور ماه سال بعدی ، پتانسیل فروش از محصولات
+                        صنایع دستی و یا دیگر محصولات ارائه شده را داشته باشد ولی نتواند فروشهای ۳ امتیاز در هر یک از بازوها را تکمیل نماید و از پتانسیل فروش خود پاداشی دریافت ننماید ، این ظرفیت پتانسیل فروش به مدت یک سال بعد از آن برای بازاریاب ذخیره
+                        و بازاریاب فقط تا پایان شهریور ماه سال آتی آن فرصت دارد تا با افزایش فروش از پتانسیل های ذخیره شده بهره مند و پاداش دریافت نماید ، در صورتی که طی این مدت نتواند از پتانسیل فروش خود بهره مند شود، پتانسیل های ذخیره شده ایشان حذف
+                        می گردد</p>
+                    <p class="text-contract red-text">خرید مجدد: </p>
+                    <p class="text-contract">همانطور که قبلا اشاره شده بسته کالاهای متفاوت در هلدینگ تلفیق هنر ارائه می گردد:</p>
+                    <pre class="text-contract">
+                * خرید مجدد، بصورت اجباری نیست، در صورتی که از سیستم خرید مجدد استفاده نکنید، همچنان می توانید از پلن صنایع دستی (پلن مادر) بهره برداری نموده ولی از سایر پلن ها محروم می گردید.
 
-*طی مراحل وجدولی که ذکر شده هر بازاریاب می تواند ازکالاهای متنوع ارائه شده خرید مجدد نموده و در ازای آن ، درآمد خود را افزایش دهد.
+*طی مراحل وجدولی که ذکر شده هر بازاریاب می تواند ازکالاهای متنوع ارائه شده خرید مجدد نموده و در ازای آن ، درآمد خود را افزایش دهد. 
 
-*این خرید ها از کالاهای مصرفی،تزئینی و خدماتی می باشند
+*این خرید ها از کالاهای مصرفی،تزئینی و خدماتی می باشند 
 
 *هر خریداری بعد از دریافت میز کار می تواند خرید های مجددی انجام دهد_ کالاهای متنوعی برای این قسمت در نظرگرفته شده تا شما علیرغم درآمد خود در پلن صنایع دستی ، بتوانید کالای مورد نیاز خود را انتخاب نموده و از این طریق به دیگر کالاهای ارزشمند کشورمان نیز کمک شایان جهت ایجاد بازار فروش نموده و از درآمد حاصل شده درآن پلن ها هم بهره مند شوید.
-                </pre>
-                <p class="text-contract">نکته: </p>
-                <p class="text-contract yellow-text">همه خرید های بعدی نیز مانند جدول های قبل، پاداشی قابل محاسبه داشته ودر هر سطح از حجم فروش به بازاریاب مربوطه 8% تا سطح ۷ تعلق میگیرد</p>
-                <p class="text-contract"> و بعد از آن طبق توضیحات صفحه 3 میتواند حداکثر حدود 500.000.000 ریال به صورت هر 3 هفته یکبار بابت خدماتی که به مجموعه ارائه دهید از شرکت پاداش دریافت نمایید</p>
-                <p class="text-contract"><b>اولین گروه:</b></p>
-                <pre class="text-contract">        -بازاریابانی که پاداش از لحظه ورود تا ۳۰۰ امتیاز کالا، دریافت می نمایند</pre>
-                <pre class="text-contract">برای خریدار تازه وارد، سال به دوقسمت تقسیم شده
+            </pre>
+                    <p class="text-contract">نکته: </p>
+                    <p class="text-contract yellow-text">همه خرید های بعدی نیز مانند جدول های قبل، پاداشی قابل محاسبه داشته ودر هر سطح از حجم فروش به بازاریاب مربوطه 8% تا سطح ۷ تعلق میگیرد</p>
+                    <p class="text-contract"> و بعد از آن طبق توضیحات صفحه 3 میتواند حداکثر حدود 500.000.000 ریال به صورت هر 3 هفته یکبار بابت خدماتی که به مجموعه ارائه دهید از شرکت پاداش دریافت نمایید</p>
+                    <p class="text-contract"><b>اولین گروه:</b></p>
+                    <pre class="text-contract">        -بازاریابانی که پاداش از لحظه ورود تا ۳۰۰ امتیاز کالا، دریافت می نمایند</pre>
+                    <pre class="text-contract">برای خریدار تازه وارد، سال به دوقسمت تقسیم شده
 
-                    1-از ابتدای فروردین ماه تا انتهای شهریور ماه
+                1-از ابتدای فروردین ماه تا انتهای شهریور ماه 
+               
+               2-از ابتدای مهرماه تا انتهای اسفند ماه
+               
+               * در هر کدام از این دو قسمت که ورود نمایید تا پایان آن قسمت از خرید مجدد معاف می باشید ولی با ورود به قسمت دوم ، می توانید یکی از بسته کالاهای ارائه شده روی سایت را بخرید، سیستم بیشتر از آن اجازه خرید مجدد نمی دهد.</pre>
 
-                   2-از ابتدای مهرماه تا انتهای اسفند ماه
+                    <p class="text-contract red-text">نکته:</p>
+                    <p class="text-contract">در صورتی که تا اتمام زمان معافیت، مجموعه شما از سایر کالاها خرید نماید، ابتدا تا سقف 2.200.000تومان از پاداش مربوط به شما در فروشگاه برای خرید محاسبه شده و مابقی آ‌ن به صورت نقدی به حسابتان واریز می گردد تا قبل از پایان مهلت معافیت،
+                        هرخریدی که مجموعه انجام دهد به شما پاداش تعلق می گیرد ولی بعد از پایان مهلت معافیت ، ابتدا باید خودتان خرید نموده باشید تا پاداش خرید هایی که توسط مجموعه شما انجام می گردد برای شما محاسبه و واریز شود این مورد در همه مراحل خرید
+                        مجدد مصداق میکند</p>
+                    <ol class="text-contract">
+                        <li>اگر در ابتدا با سه امتیاز، دو امتیاز و یا یک امتیاز خرید، شروع نموده باشید. تفاوتی نداشته و فقط کافیست در هر جایگاه خود بصورت مجدد، فقط یک امتیاز 22.000.000 ریال خرید نمایید.</li>
+                        <li> برای بهره مند شدن از دیگر پلن های شرکت ، در صورتی که مدت معافیت شما تمام شود ، موظف هستید قبل از مجموعه خود اقدام به خرید مجدد نمایید</li>
+                        <li>در صورتی که خرید مجدد انجام ندهید، فقط پاداشهای پلن صنایع دستی را دریافت نموده و از دیگر پاداشهایی که در پلن های متنوع در نظر گرفته شده محروم می شوید.</li>
+                    </ol>
+                    <p class="text-contract"><b>گروه دوم:</b></p>
+                    <p class="text-contract red-text">بازاریابانی که پاداش از ۳۰۰ تا ۹۰۰ امتیاز کالا، دریافت می نمایند</p>
+                    <pre class="text-contract">هرسال برای این دسته از بازاریابان به سه قسمت چهارماهه تقسیم می شود: 
 
-                   * در هر کدام از این دو قسمت که ورود نمایید تا پایان آن قسمت از خرید مجدد معاف می باشید ولی با ورود به قسمت دوم ، می توانید یکی از بسته کالاهای ارائه شده روی سایت را بخرید، سیستم بیشتر از آن اجازه خرید مجدد نمی دهد.</pre>
+                ۱- ازابتدای فروردین تا انتهای تیر ماه 
+                
+                ۲-  از ابتدای مرداد تا انتهای ابان ماه 
+                
+                ۳- از ابتدای آذر ماه تا انتهای اسفند ماه</pre>
+                    <ol class="text-contract">
+                        <li> هر بازاریابی که در هر کدام از این سه قسمت به این مرحله برسد، تا پایان آن قسمت از خرید مجدد معاف می باشد مثال : اگر در ماه شهریور بتواند پاداش 300 امتیاز را دریافت نماید تا پایان آبان ماه، نیازی به خرید مجدد برای محاسبه ی پاداش
+                            خود ندارد اما از ابتدای آذر ماه تا انتهای اسفند ماه فرصت دارد که خرید مجدد انجام داده تا پاداش های ایشان محاسبه شده وبه حسابش واریز گردد.</li>
+                        <li> خرید مجدد در این مرحله مبلغ 22.000.000 ریال می باشد که فقط مربوط به آن جایگاهی است که به این مرحله رسیده مثال: اگر شما در ابتدا 3یا 2 امتیاز خرید کرده باشید و فقط یک امتیاز از جایگاه های خود را به مرحله بعد برسانید، موظف بوده برای
+                            استفاده از پلن های دیگر شرکت، همان یک امتیاز را با شرایط جدید خرید مجدد نمایید، و برای امتیازات دیگرتان در صورتی که بخواهید از درآمد سایر پلن ها استفاده کنید می توانید با شرایط مرحله قبل خرید مجدد نمایید.</li>
+                    </ol>
+                    <p class="text-contract"><b>گروه سوم:</b></p>
+                    <p class="text-contract red-text"> بازاریابانی که پاداش از ۹۰۰ تا ۳۶۰۰ امتیاز کالا، دریافت می نمایند.</p>
+                    <p class="text-contract">هر سال برای این دسته از بازاریابان به چهار قسمت سه ماهه تبدیل می گردد: 1- از ابتدای فروردین ماه تا انتهای خرداد ماه 2- از ابتدای تیر ماه تا انتهای شهریور ماه ۳- از ابتدای مهر ماه تا انتهای آذر ماه 4- از ابتدای دی ماه تا انتهای اسفند
+                        ماه
+                    </p>
+                    <pre class="text-contract">هر سال برای این دسته از بازاریابان به چهار قسمت سه ماهه تبدیل می گردد: 
 
-                <p class="text-contract red-text">نکته:</p>
-                <p class="text-contract">در صورتی که تا اتمام زمان معافیت، مجموعه شما از سایر کالاها خرید نماید، ابتدا تا سقف 2.200.000تومان از پاداش مربوط به شما در فروشگاه برای خرید محاسبه شده و مابقی آ‌ن به صورت نقدی به حسابتان واریز می گردد تا قبل از پایان مهلت معافیت، هرخریدی
-                    که مجموعه انجام دهد به شما پاداش تعلق می گیرد ولی بعد از پایان مهلت معافیت ، ابتدا باید خودتان خرید نموده باشید تا پاداش خرید هایی که توسط مجموعه شما انجام می گردد برای شما محاسبه و واریز شود این مورد در همه مراحل خرید مجدد مصداق میکند</p>
-                <ol class="text-contract">
-                    <li>اگر در ابتدا با سه امتیاز، دو امتیاز و یا یک امتیاز خرید، شروع نموده باشید. تفاوتی نداشته و فقط کافیست در هر جایگاه خود بصورت مجدد، فقط یک امتیاز 22.000.000 ریال خرید نمایید.</li>
-                    <li> برای بهره مند شدن از دیگر پلن های شرکت ، در صورتی که مدت معافیت شما تمام شود ، موظف هستید قبل از مجموعه خود اقدام به خرید مجدد نمایید</li>
-                    <li>در صورتی که خرید مجدد انجام ندهید، فقط پاداشهای پلن صنایع دستی را دریافت نموده و از دیگر پاداشهایی که در پلن های متنوع در نظر گرفته شده محروم می شوید.</li>
-                </ol>
-                <p class="text-contract"><b>گروه دوم:</b></p>
-                <p class="text-contract red-text">بازاریابانی که پاداش از ۳۰۰ تا ۹۰۰ امتیاز کالا، دریافت می نمایند</p>
-                <pre class="text-contract">هرسال برای این دسته از بازاریابان به سه قسمت چهارماهه تقسیم می شود:
+                1- از ابتدای فروردین ماه تا انتهای خرداد ماه
+                
+                2- از ابتدای تیر ماه تا انتهای شهریور ماه 
+                
+                ۳- از ابتدای مهر ماه تا انتهای آذر ماه 
+                
+                4- از ابتدای دی ماه تا انتهای اسفند ماه</pre>
+                    <ol class="text-contract">
+                        <li>باز هم مانند موارد قبل ،هر بازاریابی که در هر کدام از این چهار قسمت موفق به دریافت پاداش 9۰۰ امتیاز گردد تا پایان آن قسمت از خرید مجدد معاف می باشد</li>
+                        <li>با شروع قسمت بعد، آن بازاریاب موظف است از بسته کالاهای مصرفی یا تزئینی یا خدماتی ارائه شده مبلغ 22.000.000 ریال خرید کند</li>
+                        <li>مانند مرحله قبل، اگر بیشتر از یک امتیاز در ابتدا خرید کرده اید، فقط برای آن امتیازی که به این مرحله رسیده، باید با شرایط مرحله جدید خرید نمایید و سایر امتیازات شما با مراحل قبلی قابل خرید مجدد می باشد.</li>
+                    </ol>
+                    <p class="text-contract"><b>گروه چهارم:</b></p>
+                    <p class="text-contract red-text">بازاریابانی که پاداش از ۳۶۰۰ تا ۷۲۰۰ امتیاز کالا، دریافت می نمایند</p>
+                    <pre class="text-contract">هر سال برای این دسته از بازاریابان به 6 قسمت دو ماهه تبدیل می گردد : 
 
-                    ۱- ازابتدای فروردین تا انتهای تیر ماه
+                ۱- از ابتدای فروردین ماه تا انتهای اردیبهشت ماه 
+                
+                ۲- از ابتدای خردادماه تا انتهای تیرماه 
+                
+                ۳- از ابتدای مردادماه تا انتهای شهریور ماه 
+                
+                ۴- از ابتدای مهرماه تا انتهای ابان ماه
+                
+                ۵- از ابتدای آذرماه تا انتهای دی ماه 
+                
+                ۶- ازابتدای بهمن ماه تا انتهای اسفند ماه</pre>
+                    <ol class="text-contract">
+                        <li>همانند مراحل قبل هربازاریابی که در هرکدام از این ۶ قسمت موفق به دریافت پاداش 36۰۰ امتیاز فروش کالا بشود تا پایان آن قسمت از خرید مجدد معاف می باشد</li>
+                        <li>با شروع قسمت بعد، آن بازاریاب موظف است از بسته کالاهای تزئینی ، مصرفی ویا خدماتی ارائه شده 22.000.000ریال برای امتیازاتی که به این مرحله رسیده خرید نماید .</li>
+                    </ol>
+                    <p class="text-contract"><b>گروه پنجم:</b></p>
+                    <p class="text-contract red-text">بازاریابانی که بیشتر از ۷۲۰۰ امتیاز کالا،پاداش دریافت می نمایند</p>
+                    <pre class="text-contract">هرسال برای این دسته از بازاریابان به ۱۲ قسمت یک ماهه تبدیل می گردد: 
 
-                    ۲-  از ابتدای مرداد تا انتهای ابان ماه
+                که از فروردین تا اسفند خواهد بود و هر قسمت یک ماه کامل می باشد</pre>
+                    <ol class="text-contract">
+                        <li>همانند مراحل قبل هر بازاریابی که در هر کدام از این 12 قسمت ، موفق به دریافت پاداش 7200 امتیاز فروش کالا بشود، تا پایان آن قسمت از خرید مجدد معاف می باشد.</li>
+                        <li>با شروع ماه بعد از آن، بازاریاب موظف است از بسته کالاهای تزئینی یا مصرفی یا خدماتی ارائه شده مبلغ 22.000.000ریال برای امتیازی که به این مرحله رسیده، خرید نماید.</li>
+                    </ol>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p class="text-contract red-text"><b>نکات مهم </b></p>
+                    <ol class="text-contract">
+                        <li>در صورتی که خرید مجدد هر بازاریاب انجام نگیرد، جایگاه درآمدزایی آن بازاریاب، فقط می تواند از درآمد حاصل در پلن صنایع دستی (یورویی و ریالی) بهره مند شود.</li>
+                        <li>در صورتی که خرید مجدد مجموعه یک بازاریاب، قبل از ایشان انجام گیرد، پاداش آن خرید برای بازاریابان مرتبطی که بعد از ایشان اقدام به خرید می نمایند، محاسبه نمی شود.</li>
+                        <li>در صورتی که یک بازاریاب قبل از پایان یک مرحله، موفق به ورود در مراحل بعدی شود، شرایط مرحله جدید بر ایشان حاکم می باشد. </li>
+                        <li>تکرار: اگر بخواهید از پاداش دیگر پلن ها بهره مند شوید، باید قبل از مجموعه خود اقدام به خرید نمایید. فقط در صورتی پاداش خریدهای قبل از خود را دریافت می کنید که در حالت معافیت یکی از مراحل باشید.</li>
+                        <li>اگر یک بازاریاب در مرحله خرید مجدد از کالاهای پلن A خرید نماید و مجموعه ایشان از کالاهای B و یا سایر خرید نماید، ابتدا تا دو میلیون و دویست هزار تومان از درآمد ایشان جهت پراخت برای کالای B، در نظر گرفته شده و مازاد آن به حساب بازاریاب
+                            واریز می گردد.</li>
+                        <li>اگر تا پایان یک مرحله، میزان پاداش دریافتی بازاریاب نتواند به مبلغ دومیلیون ودویست هزار تومان برای گروه B برسد، در پایان آن مرحله به میزان مبلغ مانده، برای ایشان کالا ارسال می شود، در صورتی که کالای انتخابی قادر به بخش شدن در چندین
+                            مرحله پولی نباشد، بازاریاب موظف است برای استفاده از مانده حساب خود، الباقی پول کالای گروه B را به صورت نقدی به حساب شرکت واریز نموده تا شرکت، کالای ایشان را ارسال نماید.</li>
+                        <li>از آنجایی که بازاریاب در هر مرحله،فقط موظف به خرید از یک رسته کالا جهت فعال نمودن پلن پاداش خرید مجدد خود می باشد، در صورتی که از گروه A این خرید را انجام داده باشد و با خرید مجموعه خود در گروه B مبلغ دومیلیون و دویست هزار تومان
+                            آن پلن را هم خرید نماید، خرید گروه B ایشان هم در پاداش مجموعه مرتبطش در شبکه بازاریابی، محاسبه می گردد.</li>
+                        <li>در هر مرحله از مراحل خرید مجدد، برای هر یک از جایگاه هایی که به صورت رایگان در اختیار دارید، فقط می توانید بصورت نقدی مبلغ 2.200.000 تومان خرید کنید. </li>
+                        <li>تا مدت پایان یک مرحله، تنها راه استفاده از دیگر رسته های کالایی، فقط از طریق پاداش دریافتی می باشد که از آن هم فقط در ازای خرید دومیلیون و دویست هزار تومان در هر مرحله حاصل می گردد.</li>
+                        <li>تا قبل از خرید برای هر امتیاز در هر مرحله (البته بعد از در نظر گرفتن زمان معافیت) هیچ پتانسیل فروشی هم برای بازاریابان محاسبه نمی گردد.</li>
+                        <li>خرید های مجدد، قابل استرداد نیستند: از آنجایی که این دست خریدها، اجباری نیست و برای استفاده پاداش فروش دیگر پلن ها در نظر گرفته شده، هر فرد بازاریاب بعد از پایان مهلت معافیت، موظف به خرید، قبل از مجموعه خود می باشد، تا بتواند از
+                            پاداش حاصل از فروش مجموعه خود بهره مند گردد، بنابراین خرید های انجام شده در این بخش قابل استرداد نمی باشد.</li>
+                        <li><pre>    برای همه بازاریابان معظم تلفیق هنر در صورتی که یک رسته کالایی دیگر را طبق جدول اعلامی خرید مجدد نمایند ، تمام بسته کالاهای  ارائه شده بصورت پیش فرض فعال می باشد و در صورتی که مجموعه بازاریابان ایشان از همه این بسته کالایی اقدام به خرید کنند.پاداش حاصل از آن فروش، برای آن بازاریاب بعد از کسر هزینه کالا، محاسبه می گردد.
 
-                    ۳- از ابتدای آذر ماه تا انتهای اسفند ماه</pre>
-                <ol class="text-contract">
-                    <li> هر بازاریابی که در هر کدام از این سه قسمت به این مرحله برسد، تا پایان آن قسمت از خرید مجدد معاف می باشد مثال : اگر در ماه شهریور بتواند پاداش 300 امتیاز را دریافت نماید تا پایان آبان ماه، نیازی به خرید مجدد برای محاسبه ی پاداش خود
-                        ندارد اما از ابتدای آذر ماه تا انتهای اسفند ماه فرصت دارد که خرید مجدد انجام داده تا پاداش های ایشان محاسبه شده وبه حسابش واریز گردد.</li>
-                    <li> خرید مجدد در این مرحله مبلغ 22.000.000 ریال می باشد که فقط مربوط به آن جایگاهی است که به این مرحله رسیده مثال: اگر شما در ابتدا 3یا 2 امتیاز خرید کرده باشید و فقط یک امتیاز از جایگاه های خود را به مرحله بعد برسانید، موظف بوده برای
-                        استفاده از پلن های دیگر شرکت، همان یک امتیاز را با شرایط جدید خرید مجدد نمایید، و برای امتیازات دیگرتان در صورتی که بخواهید از درآمد سایر پلن ها استفاده کنید می توانید با شرایط مرحله قبل خرید مجدد نمایید.</li>
-                </ol>
-                <p class="text-contract"><b>گروه سوم:</b></p>
-                <p class="text-contract red-text"> بازاریابانی که پاداش از ۹۰۰ تا ۳۶۰۰ امتیاز کالا، دریافت می نمایند.</p>
-                <p class="text-contract">هر سال برای این دسته از بازاریابان به چهار قسمت سه ماهه تبدیل می گردد: 1- از ابتدای فروردین ماه تا انتهای خرداد ماه 2- از ابتدای تیر ماه تا انتهای شهریور ماه ۳- از ابتدای مهر ماه تا انتهای آذر ماه 4- از ابتدای دی ماه تا انتهای اسفند ماه</p>
-                <pre class="text-contract">هر سال برای این دسته از بازاریابان به چهار قسمت سه ماهه تبدیل می گردد:
+                    مثال:اگر بازاریاب، خرید مجدد خود را از دسته (الف) انجام دهد و بازاریابان مجموعه ایشان، خرید مجدد خود را از دسته کالای(ب)انجام دهد،طبق پلن درآمدزایی در ازای هر6 امتیاز آن پاداش دریافت می نماید، اما در درجه اول از پاداش دریافتی ایشان، مبلغ کالای(ب) کسر شده و مازاد آن به حساب بانکی ایشان واریز می گردد. و در ازای کسر مبلغ کالا برای آن بازاریاب، کالای دسته (ب) نیز ارسال می شود.</pre></li>
+                    </ol>
+                    <ol class="text-contract">
+                        <li>پلن صنایع دستی در خارج از کشور که با طرح یورویی می شناسیم همچون پلن صنایع دستی داخل ایران، نیازی به خرید مجدد برای فعال نمودن ندارد و سیستم به صورت خودکار در صورتی که مجموعه ایشان اقدام به فروش نمایند فقط برای یکبار از پاداش ایشان
+                            مبلغ کالای یورویی را کسر و اجازه واریز مابقی آن را به حساب ایشان می دهد.</li>
+                        <li>همه پلن های الحاقی نیز مانند پلن اصلی، امکان سیو به مدت یک تا دو سال را دارند و پتانسیل های درآمدی آنها از یک تا دوسال برایشان محفوظ است.</li>
+                    </ol>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p class="text-contract"><b>(تضمین حمایت)</b>
+                    </p>
+                    <br>
+                    <pre class="text-contract">چون شرکت فروشهای خود را بعد از شش ماه با مبلغ به فروش رسانده باز خرید می کند، از هر پاداشی که به بازاریابان تعلق می گیرد مبلغ 10% را نگه داشته تا در صورتی که عودت کالا مربوط به آن بازاریاب باشد مبلغ عودت داده، از آن مشتری کسر گردد.
 
-                    1- از ابتدای فروردین ماه تا انتهای خرداد ماه
-
-                    2- از ابتدای تیر ماه تا انتهای شهریور ماه
-
-                    ۳- از ابتدای مهر ماه تا انتهای آذر ماه
-
-                    4- از ابتدای دی ماه تا انتهای اسفند ماه</pre>
-                <ol class="text-contract">
-                    <li>باز هم مانند موارد قبل ،هر بازاریابی که در هر کدام از این چهار قسمت موفق به دریافت پاداش 9۰۰ امتیاز گردد تا پایان آن قسمت از خرید مجدد معاف می باشد</li>
-                    <li>با شروع قسمت بعد، آن بازاریاب موظف است از بسته کالاهای مصرفی یا تزئینی یا خدماتی ارائه شده مبلغ 22.000.000 ریال خرید کند</li>
-                    <li>مانند مرحله قبل، اگر بیشتر از یک امتیاز در ابتدا خرید کرده اید، فقط برای آن امتیازی که به این مرحله رسیده، باید با شرایط مرحله جدید خرید نمایید و سایر امتیازات شما با مراحل قبلی قابل خرید مجدد می باشد.</li>
-                </ol>
-                <p class="text-contract"><b>گروه چهارم:</b></p>
-                <p class="text-contract red-text">بازاریابانی که پاداش از ۳۶۰۰ تا ۷۲۰۰ امتیاز کالا، دریافت می نمایند</p>
-                <pre class="text-contract">هر سال برای این دسته از بازاریابان به 6 قسمت دو ماهه تبدیل می گردد :
-
-                    ۱- از ابتدای فروردین ماه تا انتهای اردیبهشت ماه
-
-                    ۲- از ابتدای خردادماه تا انتهای تیرماه
-
-                    ۳- از ابتدای مردادماه تا انتهای شهریور ماه
-
-                    ۴- از ابتدای مهرماه تا انتهای ابان ماه
-
-                    ۵- از ابتدای آذرماه تا انتهای دی ماه
-
-                    ۶- ازابتدای بهمن ماه تا انتهای اسفند ماه</pre>
-                <ol class="text-contract">
-                    <li>همانند مراحل قبل هربازاریابی که در هرکدام از این ۶ قسمت موفق به دریافت پاداش 36۰۰ امتیاز فروش کالا بشود تا پایان آن قسمت از خرید مجدد معاف می باشد</li>
-                    <li>با شروع قسمت بعد، آن بازاریاب موظف است از بسته کالاهای تزئینی ، مصرفی ویا خدماتی ارائه شده 22.000.000ریال برای امتیازاتی که به این مرحله رسیده خرید نماید .</li>
-                </ol>
-                <p class="text-contract"><b>گروه پنجم:</b></p>
-                <p class="text-contract red-text">بازاریابانی که بیشتر از ۷۲۰۰ امتیاز کالا،پاداش دریافت می نمایند</p>
-                <pre class="text-contract">هرسال برای این دسته از بازاریابان به ۱۲ قسمت یک ماهه تبدیل می گردد:
-
-                    که از فروردین تا اسفند خواهد بود و هر قسمت یک ماه کامل می باشد</pre>
-                <ol class="text-contract">
-                    <li>همانند مراحل قبل هر بازاریابی که در هر کدام از این 12 قسمت ، موفق به دریافت پاداش 7200 امتیاز فروش کالا بشود، تا پایان آن قسمت از خرید مجدد معاف می باشد.</li>
-                    <li>با شروع ماه بعد از آن، بازاریاب موظف است از بسته کالاهای تزئینی یا مصرفی یا خدماتی ارائه شده مبلغ 22.000.000ریال برای امتیازی که به این مرحله رسیده، خرید نماید.</li>
-                </ol>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p class="text-contract red-text"><b>نکات مهم </b></p>
-                <ol class="text-contract">
-                    <li>در صورتی که خرید مجدد هر بازاریاب انجام نگیرد، جایگاه درآمدزایی آن بازاریاب، فقط می تواند از درآمد حاصل در پلن صنایع دستی (یورویی و ریالی) بهره مند شود.</li>
-                    <li>در صورتی که خرید مجدد مجموعه یک بازاریاب، قبل از ایشان انجام گیرد، پاداش آن خرید برای بازاریابان مرتبطی که بعد از ایشان اقدام به خرید می نمایند، محاسبه نمی شود.</li>
-                    <li>در صورتی که یک بازاریاب قبل از پایان یک مرحله، موفق به ورود در مراحل بعدی شود، شرایط مرحله جدید بر ایشان حاکم می باشد. </li>
-                    <li>تکرار: اگر بخواهید از پاداش دیگر پلن ها بهره مند شوید، باید قبل از مجموعه خود اقدام به خرید نمایید. فقط در صورتی پاداش خریدهای قبل از خود را دریافت می کنید که در حالت معافیت یکی از مراحل باشید.</li>
-                    <li>اگر یک بازاریاب در مرحله خرید مجدد از کالاهای پلن A خرید نماید و مجموعه ایشان از کالاهای B و یا سایر خرید نماید، ابتدا تا دو میلیون و دویست هزار تومان از درآمد ایشان جهت پراخت برای کالای B، در نظر گرفته شده و مازاد آن به حساب بازاریاب
-                        واریز می گردد.</li>
-                    <li>اگر تا پایان یک مرحله، میزان پاداش دریافتی بازاریاب نتواند به مبلغ دومیلیون ودویست هزار تومان برای گروه B برسد، در پایان آن مرحله به میزان مبلغ مانده، برای ایشان کالا ارسال می شود، در صورتی که کالای انتخابی قادر به بخش شدن در چندین
-                        مرحله پولی نباشد، بازاریاب موظف است برای استفاده از مانده حساب خود، الباقی پول کالای گروه B را به صورت نقدی به حساب شرکت واریز نموده تا شرکت، کالای ایشان را ارسال نماید.</li>
-                    <li>از آنجایی که بازاریاب در هر مرحله،فقط موظف به خرید از یک رسته کالا جهت فعال نمودن پلن پاداش خرید مجدد خود می باشد، در صورتی که از گروه A این خرید را انجام داده باشد و با خرید مجموعه خود در گروه B مبلغ دومیلیون و دویست هزار تومان آن
-                        پلن را هم خرید نماید، خرید گروه B ایشان هم در پاداش مجموعه مرتبطش در شبکه بازاریابی، محاسبه می گردد.</li>
-                    <li>در هر مرحله از مراحل خرید مجدد، برای هر یک از جایگاه هایی که به صورت رایگان در اختیار دارید، فقط می توانید بصورت نقدی مبلغ 2.200.000 تومان خرید کنید. </li>
-                    <li>تا مدت پایان یک مرحله، تنها راه استفاده از دیگر رسته های کالایی، فقط از طریق پاداش دریافتی می باشد که از آن هم فقط در ازای خرید دومیلیون و دویست هزار تومان در هر مرحله حاصل می گردد.</li>
-                    <li>تا قبل از خرید برای هر امتیاز در هر مرحله (البته بعد از در نظر گرفتن زمان معافیت) هیچ پتانسیل فروشی هم برای بازاریابان محاسبه نمی گردد.</li>
-                    <li>خرید های مجدد، قابل استرداد نیستند: از آنجایی که این دست خریدها، اجباری نیست و برای استفاده پاداش فروش دیگر پلن ها در نظر گرفته شده، هر فرد بازاریاب بعد از پایان مهلت معافیت، موظف به خرید، قبل از مجموعه خود می باشد، تا بتواند از پاداش
-                        حاصل از فروش مجموعه خود بهره مند گردد، بنابراین خرید های انجام شده در این بخش قابل استرداد نمی باشد.</li>
-                    <li><pre>    برای همه بازاریابان معظم تلفیق هنر در صورتی که یک رسته کالایی دیگر را طبق جدول اعلامی خرید مجدد نمایند ، تمام بسته کالاهای  ارائه شده بصورت پیش فرض فعال می باشد و در صورتی که مجموعه بازاریابان ایشان از همه این بسته کالایی اقدام به خرید کنند.پاداش حاصل از آن فروش، برای آن بازاریاب بعد از کسر هزینه کالا، محاسبه می گردد.
-
-                        مثال:اگر بازاریاب، خرید مجدد خود را از دسته (الف) انجام دهد و بازاریابان مجموعه ایشان، خرید مجدد خود را از دسته کالای(ب)انجام دهد،طبق پلن درآمدزایی در ازای هر6 امتیاز آن پاداش دریافت می نماید، اما در درجه اول از پاداش دریافتی ایشان، مبلغ کالای(ب) کسر شده و مازاد آن به حساب بانکی ایشان واریز می گردد. و در ازای کسر مبلغ کالا برای آن بازاریاب، کالای دسته (ب) نیز ارسال می شود.</pre></li>
-                </ol>
-                <ol class="text-contract">
-                    <li>پلن صنایع دستی در خارج از کشور که با طرح یورویی می شناسیم همچون پلن صنایع دستی داخل ایران، نیازی به خرید مجدد برای فعال نمودن ندارد و سیستم به صورت خودکار در صورتی که مجموعه ایشان اقدام به فروش نمایند فقط برای یکبار از پاداش ایشان
-                        مبلغ کالای یورویی را کسر و اجازه واریز مابقی آن را به حساب ایشان می دهد.</li>
-                    <li>همه پلن های الحاقی نیز مانند پلن اصلی، امکان سیو به مدت یک تا دو سال را دارند و پتانسیل های درآمدی آنها از یک تا دوسال برایشان محفوظ است.</li>
-                </ol>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p class="text-contract"><b>(تضمین حمایت)</b>
-                </p>
-                <br>
-                <pre class="text-contract">چون شرکت فروشهای خود را بعد از شش ماه با مبلغ به فروش رسانده باز خرید می کند، از هر پاداشی که به بازاریابان تعلق می گیرد مبلغ 10% را نگه داشته تا در صورتی که عودت کالا مربوط به آن بازاریاب باشد مبلغ عودت داده، از آن مشتری کسر گردد.
-
-                    1-از آنجایی که دو ماه بعد از پایان شش ماه، زمان برای عودت کالا وجود دارد، هر مبلغ 10% ، هشت ماه بعد در صورت باقی ماندن به حساب بازاریاب بصورت یکجا واریز می گردد.
-
-               2-فقط تا 7 سطح پاداش گیرنده قبل از آن فروش، موظف به باز پرداخت مبلغ 10% می باشند.
-
-                    3-تمام کسور انجام شده از مبلغ 10% بازاریابان بصورت جدول( تضمین حمایت) به رویت ایشان می رسد.</pre>
-                <br>
-                <br>
-                <p class="text-contract red-text"><b>(مالیات و بسته بندی)</b></p>
-                <ol class="text-contract">
-                    <li>برای همه مبالغ فروش کالاها، مالیات ارزش افزوده و دیگر موارد مالیاتی به فاکتور خرید اضافه می شود.</li>
-                </ol>
-                <p class="text-contract yellow-text">(این مبالغ که طبق تعرفه می باشد هر 3ماه یکبار به حساب اداره مالیات واریز می گردد)</p>
-                <ol class="text-contract">
-                    <li>هزینه بسته بندی و ارسال در هنگام خرید، از مشتری مسترد می گردد.</li>
-                    <li>بازاریابانی که دریافت پاداش آنها ده میلیارد ریال در یک سال برسد، موظف هستند مفاصا حساب مالیاتی خود را به شرکت اعلام کنند .</li>
-                </ol>
-                <br>
-                <br>
-                <br>
-                <br>
-                <pre class="text-contract">
-                    برخی از شرکتهای ثبت شده در مجموعه هلدینگ تلفیق هنر عبارتند از:
+                1-از آنجایی که دو ماه بعد از پایان شش ماه، زمان برای عودت کالا وجود دارد، هر مبلغ 10% ، هشت ماه بعد در صورت باقی ماندن به حساب بازاریاب بصورت یکجا واریز می گردد.
+           
+           2-فقط تا 7 سطح پاداش گیرنده قبل از آن فروش، موظف به باز پرداخت مبلغ 10% می باشند.
+           
+                3-تمام کسور انجام شده از مبلغ 10% بازاریابان بصورت جدول( تضمین حمایت) به رویت ایشان می رسد.</pre>
+                    <br>
+                    <br>
+                    <p class="text-contract red-text"><b>(مالیات و بسته بندی)</b></p>
+                    <ol class="text-contract">
+                        <li>برای همه مبالغ فروش کالاها، مالیات ارزش افزوده و دیگر موارد مالیاتی به فاکتور خرید اضافه می شود.</li>
+                    </ol>
+                    <p class="text-contract yellow-text">(این مبالغ که طبق تعرفه می باشد هر 3ماه یکبار به حساب اداره مالیات واریز می گردد)</p>
+                    <ol class="text-contract">
+                        <li>هزینه بسته بندی و ارسال در هنگام خرید، از مشتری مسترد می گردد.</li>
+                        <li>بازاریابانی که دریافت پاداش آنها ده میلیارد ریال در یک سال برسد، موظف هستند مفاصا حساب مالیاتی خود را به شرکت اعلام کنند .</li>
+                    </ol>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <pre class="text-contract">
+                برخی از شرکتهای ثبت شده در مجموعه هلدینگ تلفیق هنر عبارتند از:
 
 1-تلفیق الوا صنعت                      فعال در زمینه تولید محصولات آلوئه ورا
 
@@ -1067,34 +763,16 @@
 5-تعاونی تلفیق هنر باستان          فعال در زمینه تولید صنایع دستی و تهیه مواد اولیه
 
 درآینده نزدیک شرکتهای دیگر معرفی می گردند.
-                </pre>
-                <p class="text-contract"><b>ما هم با شما موافقیم که با خرید این کالاها و موفقیت در کسب این پاداشها، می توانید وضع زندگی بهتری داشته باشید و آرزومندیم هر کدام از شما، در رسیدن به حجم بالای فروش کالا موفق شوید.</b></p>
-                <br>
+            </pre>
+                    <p class="text-contract"><b>ما هم با شما موافقیم که با خرید این کالاها و موفقیت در کسب این پاداشها، می توانید وضع زندگی بهتری داشته باشید و آرزومندیم هر کدام از شما، در رسیدن به حجم بالای فروش کالا موفق شوید.</b></p>
+                    <br>
+                </div>
             </div>
             <div class="panel-page clientele-page">
                 <div class="seller-account-title">
                     <p>فروش</p>
                 </div>
                 <div class="list-products-header">
-                    <div class="list-filters">
-                        <div class="filter-part2 filter">
-                            <span class="filter-part2-btn">مرتب سازی<div class="ordering-img"></div></span>
-                            <div class="filter-part2-dropdown">
-                                <span class="filter-dropdown-txt">گرانترین</span>
-                                <span class="filter-dropdown-txt">ارزانترین</span>
-                                <span class="filter-dropdown-txt">پرفروش ترین</span>
-                                <span class="filter-dropdown-txt">پرطرفدارترین</span>
-                                <span class="filter-dropdown-txt">مرتبط ترین</span>
-                                <span class="filter-dropdown-txt">جدید ترین</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="search-list">
-                        <form action="">
-                            <input class="filter-part4-btn-input" type="text" placeholder="جستوجو" name="search">
-                            <button class="filter-part4-btn" type="submit"></button>
-                        </form>
-                    </div>
                 </div>
                 <div class="all-forosh-tablet">
                     <div class="forosh-card">
@@ -1350,16 +1028,124 @@
                     </div>
                 </div>
             </div>
+            <div class="chart" id="custom-colored" dir="ltr" style="width: 90%;"></div>
         </div>
-        <script src="./js/user-panel.js "></script>
 
-        <script src="./js/index.js "></script>
-        <script src="./js/fixed.js "></script>
-        <script src="./js/treant-js-master/vendor/raphael.js"></script>
-        <script src="./js/treant-js-master/Treant.js"></script>
-        <script src="./js/arian-panel.js"></script>
+    </div>
+
+    <style>
+        /* required LIB STYLES */
+        /* .Treant is automatically added to each chart container */
+        
+        .Treant {
+            position: relative;
+            overflow: hidden;
+            padding: 0 !important;
+        }
+        
+        .Treant>.node,
+        .Treant>.pseudo {
+            position: absolute;
+            display: block;
+            visibility: hidden;
+        }
+        
+        .Treant.loaded .node,
+        .Treant.loaded .pseudo {
+            visibility: visible;
+        }
+        
+        .Treant>.pseudo {
+            width: 0;
+            height: 0;
+            border: none;
+            padding: 0;
+        }
+        
+        .Treant .collapse-switch {
+            width: 3px;
+            height: 3px;
+            display: block;
+            border: 1px solid black;
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            cursor: pointer;
+        }
+        
+        .Treant .collapsed .collapse-switch {
+            background-color: #868DEE;
+        }
+        
+        .Treant>.node img {
+            border: none;
+            float: left;
+        }
+        /* custom container style */
+        
+        .chart {
+            height: 650px;
+            margin: 5px;
+            width: 1060px;
+        }
+        
+        .Treant>.node {
+            text-align: center;
+        }
+        
+        .Treant>p {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .node-title {
+            font-weight: bold;
+        }
+        
+        .nodeExample1 {
+            padding: 3px;
+            -webkit-border-radius: 1px;
+            -moz-border-radius: 1px;
+            border-radius: 1px;
+            background-color: #ffffff;
+            border: 1px solid #000;
+            width: 120px;
+            font-family: sans-serif;
+            font-size: 12px;
+        }
+        
+        .nodeExample1 img {
+            margin-right: 10px;
+        }
+        
+        a.node.nodeExample1 {
+            text-decoration: none;
+        }
+        
+        .gray {
+            background-color: #cecece;
+        }
+        
+        .light-gray {
+            background-color: #e1e1e1;
+        }
+        
+        .blue {
+            background-color: #8bccea;
+        }
+        
+        a {
+            color: #333;
+        }
+    </style>
+    <script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="http://fperucic.github.io/treant-js/vendor/raphael.js"></script>
+    <script src="http://fperucic.github.io/treant-js/Treant.js"></script>
+    <script src="{% static 'Derakhti/js/derakhti-panel.js' %}"></script>
 
 </body>
-
 
 </html>
