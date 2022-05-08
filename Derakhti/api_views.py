@@ -7,6 +7,7 @@ from .models import *
 from random import choices
 from string import ascii_lowercase,ascii_letters
 from Taksathi.models import ProductsOrders
+from Taksathi.seralizers import OrdersSerializers
 from extensions.derakhti.amount_purchased import amount_purchased
 
 class contracts_add(generics.CreateAPIView):
@@ -268,10 +269,21 @@ class place_reservation_left_number(generics.ListAPIView):
 
 
 class orders_list(generics.ListAPIView):
+    serializer_class = OrdersSerializers
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
         return ProductsOrders.objects.filter(shopper_id=token_info.user.id, payment_status=True).all().order_by('id')
+
+
+class places_list(generics.ListAPIView):
+    serializer_class = MainUserSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return MainUser.objects.filter(Owner_id=token_info.user.id, payment_status=True).all().order_by('id')
 

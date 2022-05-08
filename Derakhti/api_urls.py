@@ -17,4 +17,5 @@ urlpatterns = [
     path('place-reservation-right-number/',api_views.place_reservation_right_number.as_view(),name='place_reservation_right_number'),
     path('place-reservation-left-number/',api_views.place_reservation_left_number.as_view(),name='place_reservation_left_number'),
     path('orders-list/',api_views.orders_list.as_view(),name='orders_list'),
+    path('places-list/',api_views.places_list.as_view(),name='places_list'),
 ]
