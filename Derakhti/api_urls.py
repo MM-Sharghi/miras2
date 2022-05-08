@@ -18,4 +18,5 @@ urlpatterns = [
     path('place-reservation-left-number/',api_views.place_reservation_left_number.as_view(),name='place_reservation_left_number'),
     path('orders-list/',api_views.orders_list.as_view(),name='orders_list'),
     path('places-list/',api_views.places_list.as_view(),name='places_list'),
+    path('places-list-filter/',api_views.places_list_filter.as_view(),name='places_list_filter'),
 ]

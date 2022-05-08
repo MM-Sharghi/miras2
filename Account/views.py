@@ -5,7 +5,7 @@ from django.contrib.auth import login,logout
 from .forms import *
 
 def register_page(request,type):
-    if type not in ['derakhti','mlm','taksathi']:
+    if type not in ['derakhti','taksathi']:
         return redirect('Account:login_page')
 
     if request.method == "POST":
@@ -21,6 +21,13 @@ def register_page(request,type):
 
             if user.role == 'taksathi':
                 return redirect('Taksathi:taksathi_panel_page')
+
+            elif user.role == 'derakhti':
+                return redirect('Derakhti:derakhti_page')
+
+
+            else:
+                return redirect('/')
 
         else:
             context = {
@@ -41,6 +48,12 @@ def login_page(request):
                 login(request,user)
                 if user.role == 'taksathi':
                     return redirect('Taksathi:taksathi_panel_page')
+
+                elif user.role == 'derakhti':
+                    return redirect('Derakhti:derakhti_page')
+
+                elif user.role == 'taksathiAdmin':
+                    return redirect('Taksathi:taksathi_admin_panel_page')
             else:
                 messages.error(request, 'اطلاعات اشتباه است')
                 return render(request, 'Account/login_page/login_page.html')

@@ -46,7 +46,7 @@ class Users(AbstractUser):
     postalـcode = models.CharField(max_length=999,verbose_name='Postal code')
     status = models.BooleanField(default=False,verbose_name='Status')
     Book_or_buy_goods = models.BooleanField(default=False,verbose_name='Book or buy goods')
-    REQUIRED_FIELDS = ['first_name', 'last_name','national_code']
+    REQUIRED_FIELDS = ['first_name', 'last_name','national_code','role']
 
     def __str__(self):
         return self.first_name

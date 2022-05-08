@@ -11,7 +11,7 @@ class MainUser(models.Model):
     r_or_l = models.BooleanField(default=False,verbose_name='Ruser or Luser')
     payment_status = models.BooleanField(default=False,verbose_name='Payment Status')
 
-    def RALL(self):
+    def RL_aLL(self):
         result = []
         m = MainUser.objects.filter(payment_status=True,Owner__id=self.Owner.id).all()
         for k in m:

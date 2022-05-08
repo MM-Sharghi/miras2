@@ -10,6 +10,7 @@ from extensions.taksathi.week import week
 from extensions.taksathi.month import month
 from extensions.taksathi.year import year
 
+
 class carts_add(generics.CreateAPIView):
     serializer_class = OrdersSerializers
 

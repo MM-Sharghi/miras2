@@ -1,6 +1,6 @@
-from django.shortcuts import render,get_object_or_404
-from .models import *
+from django.shortcuts import render,get_object_or_404,redirect
 from rest_framework.authtoken.models import Token
+from .models import *
 
 def products_page(request):
     sliders = ProductsSliders.objects.all()
@@ -28,18 +28,28 @@ def products_detail_page(request,id,slug):
     return render(request,'Taksathi/products_detail_page/products_detail_page.html',context)
 
 def taksathi_panel_page(request):
-    context = {
+    if request.user.is_authenticated:
+        user = Users.objects.filter(id=request.user.id).first()
+        if user.role == 'taksathi':
+            return render(request,'Taksathi/taksathi_panel_page/taksathi_panel_page.html')
+        else:
+            return redirect('Account:login_page')
+    else:
+        return redirect('Account:login_page')
 
-    }
-    return render(request,'Taksathi/taksathi_panel_page/taksathi_panel_page.html',context)
 
 
 
 def taksathi_admin_panel_page(request):
-    context = {
+    if request.user.is_authenticated:
+        user = Users.objects.filter(id=request.user.id).first()
+        if user.role == 'taksathiAdmin':
+            return render(request, 'Taksathi/admin_panel_page/admin_panel_page.html')
+        else:
+            return redirect('Account:login_page')
+    else:
+        return redirect('Account:login_page')
 
-    }
-    return render(request,'Taksathi/admin_panel_page/admin_panel_page.html',context)
 
 
 
