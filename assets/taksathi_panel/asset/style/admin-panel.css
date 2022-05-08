@@ -221,7 +221,17 @@ p {
 }
 
 .edit-prof-icon {
-    background-image: url(../icons/icon-42.png);
+    background-image: url(../icons/icons8-edit-48.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 32px 15px;
+}
+
+.product-list-icon {
+    background-image: url(../icons/icons8-list-view-40.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 60px;
@@ -231,7 +241,7 @@ p {
 }
 
 .sale-icon {
-    background-image: url(../icons/icon-44.png);
+    background-image: url(../icons/icons8-sell-50.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 60px;
@@ -240,8 +250,17 @@ p {
     margin: 32px 15px;
 }
 
-.stores-icon {
-    background-image: url(../icons/icon-43.png);
+.sale-icon {
+    background-image: url(../icons/icons8-sell-50.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 32px 15px;
+}
+.product-add-icon {
+    background-image: url(../icons/icons8-add-property-50.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 60px;
@@ -261,7 +280,7 @@ p {
 }
 
 .accounting-icon {
-    background-image: url(../icons/icon-45.png);
+    background-image: url(../icons/icons8-accounting-66.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 60px;
@@ -269,7 +288,14 @@ p {
     display: block;
     margin: 32px 15px;
 }
-
+.ticketing-icon{
+    background-image: url(../icons/icons8-two-tickets-50.png);
+    width: 61px;
+    background-repeat: round;
+    height: 54px;
+    display: block;
+    margin: 25px 8px;
+}
 .users-icon {
     background-image: url(../icons/icon-48.png);
     background-size: contain;
@@ -281,7 +307,7 @@ p {
 }
 
 .customer-satisfaction-icon {
-    background-image: url(../icons/icon-46.png);
+    background-image: url(../icons/icons8-customer-review-64.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 60px;
@@ -553,18 +579,21 @@ p {
 }
 
 .edit-icon {
-    background-image: url(../icons/icon-57.png);
+    background-image: url(../icons/icons8-edit-488.png);
     width: 40px;
-    height: 40px;
+    height: 39px;
+    background-repeat: round;
     display: block;
     cursor: pointer;
 }
 
 .trash-icon {
-    background-image: url(../icons/icon-56.png);
+    background-image: url(../icons/icons8-delete-24.png);
     width: 40px;
     height: 40px;
     display: block;
+    background-repeat: no-repeat;
+    margin-top: 5px;
     cursor: pointer;
 }
 
@@ -1023,7 +1052,7 @@ p {
 /* ------------------Chart Style------------ */
 
 .chart-icon {
-    background-image: url(../icons/icon-67.png);
+    background-image: url(../icons/icons8-chart-64.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 60px;
@@ -1388,9 +1417,17 @@ p {
         width: 65px;
         height: 23px;
     }
+    .teket-div p{
+        direction: rtl;
+    
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    .teket-div p{
+        direction: rtl;
+    
+    }
     .accounting-page-tablet {
         display: block;
     }
@@ -1567,4 +1604,67 @@ p {
     .panels-details p {
         font-size: 17px;
     }
+}
+
+.teket-div{
+    direction: rtl;
+    margin:auto;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    display: block;
+    margin-bottom: 100px;
+
+}
+.form-div{
+    width: 90%;
+    margin: auto !;
+    margin-top: 10px;
+    display: flex;
+    direction: rtl;
+    align-items: center;
+    background-color: azure;
+
+}
+.teket-p{
+    margin-right: 0;
+
+}
+.form-box{
+    width: 100%;
+    margin: auto !;
+    margin-top: 10px;
+    display: flex;
+    direction: rtl;
+    align-items: center;
+}
+
+.input{
+    width: 90%;
+    height: 35px;
+    border: 1px solid #707070;
+    border-radius: 7px;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+.textarea-input{
+    width: 90%;
+    height: 150px;
+    border: 1px solid #707070;
+    border-radius: 7px;
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.send-teket{
+    border-radius: 6px;
+    width: 40%;
+    cursor: pointer;
+    height: 40px;
+    background-color: rgb(47, 61, 215);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    margin: auto;
+    margin-top: 10px;
 }

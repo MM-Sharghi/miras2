@@ -163,18 +163,7 @@
 
                                 </div>
                             </li>
-                            <div class="detailstabdiv3">
-                                <p>ثبت امتیاز شما :</p>
-                                <div class="detailsrate2">
-
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-                                    <i class=""><img src="{% static 'home/icons/starr.png' %}"/></i>
-
-                                </div>
-                            </div>
+                 
                             <!-- <li> -->
                             <div class="pro-btn22">
                                 <button onclick=" sendData()" class="form-btn" type="button">ارسال نظر</button>
@@ -316,22 +305,18 @@ console.log("count");
 
 function getdata(){
     $.ajax({
-        url:'{% url "ApiTaksathi:admin_products_comments_list" %}?id={{ product.id  }}',
+        url:'http://127.0.0.1:8000/api/products/products-comments-list/',
+        // url:'{% url "ApiTaksathi:admin_products_comments_list" %}?id={{ product.id  }}',
         success:(res)=>{
-            console.log(res,'res');
+            console.log(res,'resqwwwqq');
             $('#detailstabdiv3').append(`
-            <div class="detailstabdiv22">
-                            <p> ${res.results[0].date}</p>
-                            <p style="margin: 50px -50px 0 0 ;">${res.results[0].comment}</p>
-                        </div>
-                        <div class="detailsrate">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
+                <div class="detailstabdiv22">
+                    <p>علی علیزاده</p>
+                    <p>تیر 22</p>
+                </div>
+                <p class="detailstabdiv22-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
             `)
+    
 
         },
         error:(err)=>{

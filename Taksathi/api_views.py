@@ -149,6 +149,37 @@ class admin_products_list(generics.ListAPIView):
         token_info = Token.objects.filter(key=user_token).first()
         return Products.objects.filter(user_id=token_info.user.id,status=True).all()
 
+
+class admin_main_categories(generics.ListAPIView):
+    serializer_class = ProductMainCategoriesSerializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductMainCategories.objects.all()
+
+
+class admin_sub_categories1(generics.ListAPIView):
+    serializer_class = ProductSubCategories_1Serializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductSubCategories_1.objects.all()
+
+
+class admin_sub_categories2(generics.ListAPIView):
+    serializer_class = ProductSubCategories_2Serializers
+    permission_classes = [IsTaksathiAdmin]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return ProductSubCategories_2.objects.all()
+
+
 class admin_products_purchased(generics.ListAPIView):
     serializer_class = OrdersSerializers
     permission_classes = [IsTaksathiAdmin]
@@ -286,10 +317,6 @@ class admin_tikets_update_status(generics.UpdateAPIView):
 
 
 # End Tak Sathi Admin
-
-
-
-
 
 
 

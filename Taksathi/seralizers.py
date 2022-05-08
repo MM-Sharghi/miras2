@@ -4,9 +4,26 @@ from .models import *
 from django.db.models.fields import TextField
 
 class ProductsSerializers(serializers.ModelSerializer):
+    price = serializers.IntegerField(required=True)
     jdate = serializers.ReadOnlyField()
     class Meta:
         model = Products
+        fields = '__all__'
+
+
+class ProductMainCategoriesSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ProductMainCategories
+        fields = '__all__'
+
+class ProductSubCategories_1Serializers(serializers.ModelSerializer):
+    class Meta:
+        model = ProductSubCategories_1
+        fields = '__all__'
+
+class ProductSubCategories_2Serializers(serializers.ModelSerializer):
+    class Meta:
+        model = ProductSubCategories_2
         fields = '__all__'
 
 
