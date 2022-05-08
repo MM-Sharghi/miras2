@@ -1,0 +1,777 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--styles-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./asset/style/new_style.css" />
+    <link rel="stylesheet" href="./asset/style/products.css" />
+    <link rel="stylesheet" href="./taksathi_panel/asset/style/admin-panel.css" />
+    <link rel="stylesheet" href="{% static 'taksathi_panel/asset/style/admin-panel.css' %}" />
+    <link rel="stylesheet" href="{% static 'taksathi_panel/asset/style/new_style.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'taksathi_panel/asset/style/chart-pro.css' %}" /> -->
+
+    <link rel="stylesheet" href="./asset/style/admin-panel.css">
+    <link rel="stylesheet" href="./asset/plugins/fontawesome/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!--/styles-->
+    <title>Taksthi Admin Panel</title>
+</head>
+
+<body>
+    <!--header-->
+    <section id="">
+        <!--  MENU -->
+        <!----------------------------------search--------------------------------->
+        <div onclick="" id="search-box" class="">
+            <button onclick="myFunction2()" id="search-btn-close" class="search-btn-close">x</button>
+            <div class="main-div">
+                <input type="search" class="search-input" placeholder="جستجو" />
+                <button class="search-btn"><img style="width:20px; height: 20px;" src="./asset/icons/icon-19.png" alt=""></button>
+            </div>
+        </div>
+        <!-- ------------------------------------------------------------------------>
+
+        <div class="top-navbar">
+            <div class="search-profile">
+                <div class="admin-prof">
+
+                    <img src="./asset/img/pic-50.png" alt="">
+                    <div class="admin-prof-name">
+                        <p>سلام</p>
+                        <p>مهران</p>
+                    </div>
+
+                </div>
+
+                <div class="container">
+                    <input type="text" placeholder="Search...">
+                    <div class="search"></div>
+                </div>
+
+            </div>
+            <div class="admin-top-bar-all-img">
+                <div class="sherakat-icon"></div>
+                <div class="admin-angle-icon"></div>
+            </div>
+        </div>
+        <!--  MENU -->
+
+    </section>
+
+    <!--header-->
+
+
+    <!--script-->
+    <div class="all-panels">
+        <div class="panel">
+
+            <div class="panels-details" onclick="SelectPanel(1)">
+                <div class="edit-prof-icon"></div>
+                <p>ویرایش حساب کاربری</p>
+            </div>
+            
+            <div class="panels-details" onclick="SelectPanel(2)">
+                <div class="sale-icon"></div>
+                <p>فروش</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(3)">
+                <div class="product-add-icon"></div>
+                <p>افزودن محصول</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(4)">
+                <div class="product-list-icon"></div>
+                <p>لیست محصول</p>
+            </div>
+
+            <div class="panels-details" onclick="SelectPanel(5)">
+                <div class="customer-satisfaction-icon"></div>
+                <p>دیدگاه ها </p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(6)">
+                <div class="ticketing-icon"></div>
+                <p>  تیکتینگ</p>
+            </div>
+            <div class="panels-details" onclick="SelectPanel(7)">
+                <div class="chart-icon"></div>
+                <p> انتخاب نمودار</p>
+            </div>
+        </div>
+        <div class="panel-details">
+            <div class="panel-page seller-account">
+                <div class="seller-account-title">
+                    <p>حساب کاربری</p>
+                </div>
+            
+                <div class="acc-inputs">
+                    <div><input id="ph-num1" type="text" placeholder="شماره تماس"></div>
+                </div>
+                <div class="acc-inputs">
+                    <div><input id="pass" type="number" placeholder="رمز عبور جدید"></div>
+                </div>
+                <div id="edit-acount-btn" class="acc-btn"><button type="submit">ویرایش</button></div>
+            </div>
+            <div id="snackbar" class=""></div>
+
+            <div class="panel-page clientele-page">
+                <div class="seller-account-title">
+                    <p>فروش</p>
+                </div>
+                <div id="p-sell1" class="all-forosh-tablet">
+                   
+           
+                </div>
+                <div id="p-sell2" class="all-forosh">
+                    <div class="top-table">
+
+                        <div>
+                            <p>تصویر</p>
+                        </div>
+                        <div>
+                            <p>نام محصول</p>
+                        </div>
+                      
+                        <div>
+                            <p>قیمت</p>
+                        </div>
+                        <div>
+                            <p>تاریخ</p>
+                        </div>
+                        <div>
+                            <p>ویرایش</p>
+                        </div>
+                    </div>
+                    <div class="mid-table-cli">
+                        <div>
+                            <p>1</p>
+                        </div>
+                        <div class="mid-table-img">
+                            <img src="./asset/img/pic-47.png" alt="">
+                        </div>
+                        <div>
+                            <p>علی</p>
+                        </div>
+                        <div>
+                            <p>c2-23rq34</p>
+                        </div>
+                        <div>
+                            <p>2</p>
+                        </div>
+                        <div>
+                            <div class="edit-icons">
+                                <div class="edit-icon"></div>
+                                <div class="trash-icon" onclick="trash(1)"></div>
+                            </div>
+                        </div>
+                        <div class="client-icon">
+                        </div>
+                    </div>
+       
+                </div>
+            </div>
+
+            <div class="panel-page add-products">
+                <div class="seller-account-title">
+                    <p>افزودن محصول</p>
+                </div>
+                <div class="add-details">
+                    <input  type="file" id="upload" hidden/>
+
+                    <!-- <input type='file' hidden /> -->
+                </br><img id="myImg" src="#" alt="your image" height=200 width=100>
+
+                  <label for= 'upload' id="add-img">
+
+                    <div>
+                        <p>افزودن تصویر </p>
+                    </div>
+                    <div class="add-icons">
+                        <div class="add-icon"></div>
+                    </div>
+                  </label>
+                    <div class="acc-inputs">
+                        <div><input id="product-name" class="services-inp" type="text" placeholder="نام محصول"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input id="product-descriptions" class="services-inp" type="text" placeholder="توضیحات محصول"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input id="product-grouping" class="services-inp" type="text" placeholder="دسته بندی"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input id="product-subordinate1"class="services-inp" type="text" placeholder="زیر دسته1"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input id="product-subordinate2"class="services-inp" type="text" placeholder="زیر دسته2"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input id="product-compounds" class="services-inp" type="number" placeholder="ترکیبات محصول"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input id="product-volume" class="services-inp" type="number" placeholder="حجم محصول"></div>
+                    </div>
+                    <div class="acc-inputs">
+                        <div><input id="product-product-license-issuer" class="services-inp" type="number" placeholder="صادرکننده پروانه "></div>
+                    </div>
+                    
+                    <div id="add-btn" class="add-btn"><button  type="submit">افزودن</button></div>
+                </div>
+
+            </div>
+
+
+            <div class="panel-page list-products">
+                <div class="seller-account-title">
+                    <p>لیست محصول</p>
+                </div>
+              
+                <div id="p-list" class="all-forosh-tablet">
+                      
+
+                </div>
+                <div id="p-list1" class="all-service-info-tables">
+                    <div class="top-table">
+
+                        <div>
+                            <p>تصویر</p>
+                        </div>
+                        <div>
+                            <p>نام محصول</p>
+                        </div>
+                      
+                        <div>
+                            <p>قیمت</p>
+                        </div>
+                        <div>
+                            <p>تاریخ</p>
+                        </div>
+                        <div>
+                            <p>ویرایش</p>
+                        </div>
+                    </div>
+
+               
+
+                </div>
+            </div>
+            
+
+ 
+
+            <div id="p-comment" class="panel-page complaint-page">
+                <div class="seller-account-title">
+                    <p> یدگاه ها</p>
+                </div>
+            
+          
+            </div>
+
+            <div class="panel-page complaint-page">
+              
+                <div class="teket-div">
+                    <h2>سیستم پشتیبانی</h2>
+                    <p class="teket-p">موضوع تیکت</p>
+                    <input class="input" type="text" name="" id="" placeholder="موضوع تیکت را وارد کنید ">
+                    <p class="teket-p">پیام</p>
+                    <textarea class="textarea-input" type="password" name="" id="" placeholder=" متن پیام را وارد کنید"></textarea>
+                    <div class="form-div">
+                        <div class="form-box">
+                            <input type="file" name="" id="" >
+                            <button type="submit" class="send-teket"> ارسال تیکت </button>
+                        </div>
+                       
+                    </div>
+                    
+                  </div>
+            </div>
+            
+            <div class="panel-page clientele-page">
+
+                <div class="list-products-header chart-main">
+                     <div class="services-panel-title">
+                        <p>  انتخاب نمودار</p>
+                    </div>
+            
+
+                   <div class="chart-heder">
+                        <div class="list-filters chart-filter">
+                            <div class="filter-part2 filter-part22 filter">
+                                <span class="filter-part2-btn"> بازه زمانی<img src="./asset/icons/icon-28.png" alt=""></span>
+                                <div class="filter-part2-dropdown">
+                                    <span id="daily" class="filter-dropdown-txt">روزانه</span>
+                                    <span id="Weekly" class="filter-dropdown-txt">هفتگی</span>
+                                    <span id="monthly" class="filter-dropdown-txt"> ماهانه</span>
+                                    <span id="yearly" class="filter-dropdown-txt">سالانه</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chart-stye">
+                        <div class="services-panel-title">
+                            <p> نمودار  فروش محصول</p>
+                        </div>
+                        <p class="chart-txt">نمودار ارائه خدمات در 6 ماه گذشته در 6 ماهه دوم سال</p>
+                        <canvas id="myChart" style="width:100%;"></canvas>
+                        <div class="chart-bottom">
+                            <div class="chart-div">
+                                <p>فروش</p>
+                                <div class="chart-color color-red"></div>
+                            </div>
+                         
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="background"></div>
+    <div class="question-box qu-off">
+        <div class="close-icon" onclick="trash(2)"></div>
+        <div class="trash-icon-big"></div>
+        <p>آیا مطمئن هستید میخواهید محصول را حذف کنید؟</p>
+        <div class="question-btn">
+            <button class="yes-btn" type="submit">بله</button>
+            <button class="no-btn" type="submit" onclick="trash(2)">خیر</button>
+        </div>
+    </div>
+    <div class="question-box-two qu-two-off">
+        <div class="close-icon" onclick="exit(2)"></div>
+        <div class="close-icon-big"></div>
+        <p>آیا مطمئن هستید میخواهید خارج شوید</p>
+        <div class="question-btn">
+            <button class="yes-btn" type="submit">بله</button>
+            <button class="no-btn" type="submit" onclick="exit(2)">خیر</button>
+        </div>
+    </div> -->
+    <script>
+
+
+               
+function message(type,msg) {
+                var succ = type
+                var messageText = msg
+                var snackbar = document.getElementById('snackbar')
+
+                if(succ == "sucsses"){
+                    snackbar.innerText = messageText
+                    snackbar.className += " sucsses"
+                setTimeout(function(){
+                    snackbar.innerText = " "
+                    snackbar.classList.remove("sucsses")
+                    }, 3000);
+                }
+
+                if(succ == "error"){
+                    snackbar.innerText = msg
+                    snackbar.className += " error"
+                setTimeout(function(){
+                    snackbar.innerText = " "
+                    snackbar.classList.remove("error")
+                    }, 3000);
+                }
+
+                    // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
+                }
+
+
+
+var mmm
+                $('#edit-acount-btn').click(function(){ 
+                let phNum1= $('#ph-num1').val()
+                let phNum2=  $('#ph-num2').val()
+                let pass = $('#pass').val()
+                // console.log(fullName,phNum2 , phNum , curentPass,newPass,emil);
+
+                $.ajax({
+                    url:'http://127.0.0.1:8000/api/tak-s-panel/user/user-edit-profile/',
+                    type:"put",
+                    headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                    data:{
+                        mobile1 :phNum1,
+                        password:pass
+                            
+                        },
+                        success:(res)=>{
+                            console.log( res,'res');
+                            if(phNum1=='' && pass == '' || phNum1 == '' || pass==''){
+                                message('error','پرکردن این فیلد اجباری است')
+                                console.log('xxxxxx');
+
+                                return
+                            }
+                          
+                            else{
+                                message('sucsses',res.message)
+                            }
+                       
+
+                        },
+                        error:(err)=>{
+                            console.log(err,'err');
+                        }
+                })
+
+                })
+
+
+                $(function () {
+                    $(":file").change(function () {
+                        if (this.files && this.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = imageIsLoaded;
+                            reader.readAsDataURL(this.files[0]);
+                            mmm =reader.result
+                        }
+                    });
+                });
+
+    function imageIsLoaded(e) {
+        $('#myImg').attr('src', e.target.result);
+        $('#yourImage').attr('src', e.target.result);
+    };
+
+                $('#add-btn').click(function(){
+                    console.log(mmm,'aaa');
+                    // let upImg = $('#upload').val()
+                    let productName = $('#product-name').val()
+                    let productDescriptions = $('#product-descriptions').val()
+                    let productGrouping = $('#product-grouping').val()
+                    let productSubordinate1 = $('#product-subordinate1').val()
+                    let productSubordinate2 = $('#product-subordinate2').val()
+                    let productCompounds = $('#product-compounds').val()
+                    let productVolume = $('#product-volume').val()
+                    let productLicenseIssuer = $('#product-license-issuer').val()
+                    
+                    $.ajax({
+                    url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-add/',
+                    type:"post",
+                    headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                    data:{
+                        title:productName,
+                        descriptions:productDescriptions,
+                        subCategories1:productSubordinate1,
+                        maincategories:productGrouping,
+                        subCategories2:productSubordinate2,
+                        volume:productVolume,
+                        compounds:productCompounds,
+                        image:mmm,
+                            
+                        },
+                        success:(res)=>{
+                            console.log( res,'res');
+                          
+                            if(productName=='' && productDescriptions == ''&& productGrouping == '' && productSubordinate1 =='' && productSubordinate2=='' && productCompounds == '' && productVolume =='' && productLicenseIssuer ==''
+                            || productName == '' || productDescriptions=='' || productGrouping=='' || productSubordinate1=='' || productSubordinate2=='' || productCompounds ==  '' || productVolume== '' || productLicenseIssuer ==  '' )
+                            {
+                                message('error','پرکردن این فیلد اجباری است')
+                                console.log('xxxxxx');
+
+                                return
+                            }
+                          
+                            else{
+                                message('sucsses',res.message)
+                            }
+                       
+
+                        },
+                        error:(err)=>{
+                            console.log(err,'err');
+                        }
+                })
+                })
+
+
+                function getListProducts(){
+                    $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-list/',
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res,'res');
+
+                                $('#p-list1').append(`
+                                    <div class="mid-table">
+    
+                                        <div class="mid-table-img">
+                                            <img src="${res.results[0].image}" alt="">
+                                        </div>
+                                        <div>
+                                            <p>${res.results[0].title}</p>
+                                        </div>
+                                        
+                                        <div>
+                                            <p>${res.results[0].price}</p>
+                                        </div>
+                                        <div>
+                                            <p>${res.results[0].jdate}</p>
+                                        </div>
+                                        <div>
+                                            <div class="edit-icons">
+                                                <div class="edit-icon"></div>
+                                                <div class="trash-icon" onclick="trash(1)"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `)
+
+                               $('#p-list').append(`
+                                    <div class="all-service-card">
+                                        <div class="fc fc-r1">
+                                            <p class="fc-text1">نام </p>
+                                            <img class="fc-img" src="${res.results[0].image}" alt="">
+                                        </div>
+                                     
+                                        <div class="fc fc-r2">
+                                            <p class="fc-text1">حجم</p>
+                                            <p class="fc-text2">${res.results[0].compounds}</p>
+                                        </div>
+                                        <div class="fc fc-r2">
+                                            <p class="fc-text1">قیمت</p>
+                                            <p class="fc-text2">${res.results[0].price}</p>
+                                        </div>
+                                        <div class="fc fc-r4">
+                                            <p class="fc-text1">تاریخ</p>
+                                            <p class="fc-text2">${res.results[0].jdate}</p>
+                                        </div>
+
+                                        <div class="fc fc-r6">
+                                            <div class="trash-forosh-icon"></div>
+                                            <div class="edit-forosh-icon"></div>
+                                        </div>
+                                    </div>
+                               `)
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+                }
+                getListProducts()
+
+
+
+
+                function getCommentProducts(){
+                    $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-comments-list/',
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res,'res');
+
+                                $('#p-comment').append(`
+                                    <div class="complaint-box">
+                                        <div>
+                                            <div class="top-complaintbox">
+                                                <div class="name-complaintbox">
+                                                    <p>${res.results[0].user_fullname}</p>
+                                                </div>
+                                            </div>  
+                                            <div class="text-user-msg">
+                                                <p>${res.results[0].comment} </p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                `)
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+                }
+                getCommentProducts()
+
+                
+                function getSell(){
+                    $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-purchased/',
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res,'rwwwwwwwwes');
+                                
+                            //     $('#p-sell1').append(`
+                            //         <div class="mid-table">
+    
+                            //             <div class="mid-table-img">
+                            //                 <img src="${res.results[0].image}" alt="">
+                            //             </div>
+                            //             <div>
+                            //                 <p>${res.results[0].title}</p>
+                            //             </div>
+                                        
+                            //             <div>
+                            //                 <p>${res.results[0].price}</p>
+                            //             </div>
+                            //             <div>
+                            //                 <p>${res.results[0].jdate}</p>
+                            //             </div>
+                            //             <div>
+                            //                 <div class="edit-icons">
+                            //                     <div class="edit-icon"></div>
+                            //                     <div class="trash-icon" onclick="trash(1)"></div>
+                            //                 </div>
+                            //             </div>
+                            //         </div>
+                            //     `)
+
+                            //    $('#p-sell2').append(`
+                            //         <div class="all-service-card">
+                            //             <div class="fc fc-r1">
+                            //                 <p class="fc-text1">نام </p>
+                            //                 <img class="fc-img" src="${res.results[0].image}" alt="">
+                            //             </div>
+                                     
+                            //             <div class="fc fc-r2">
+                            //                 <p class="fc-text1">حجم</p>
+                            //                 <p class="fc-text2">${res.results[0].compounds}</p>
+                            //             </div>
+                            //             <div class="fc fc-r2">
+                            //                 <p class="fc-text1">قیمت</p>
+                            //                 <p class="fc-text2">${res.results[0].price}</p>
+                            //             </div>
+                            //             <div class="fc fc-r4">
+                            //                 <p class="fc-text1">تاریخ</p>
+                            //                 <p class="fc-text2">${res.results[0].jdate}</p>
+                            //             </div>
+
+                            //             <div class="fc fc-r6">
+                            //                 <div class="trash-forosh-icon"></div>
+                            //                 <div class="edit-forosh-icon"></div>
+                            //             </div>
+                            //         </div>
+                            //    `)
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+                }
+                getSell()
+
+                $('#daily').click(function(){
+                       $.ajax({
+                        url:'http://127.0.0.1:8000/api/tak-s-admin-panel/products/products-orders-day/',
+                        headers: {'Authorization': 'Token c9cec0af088e332caf8092ae888ae0d3858189d9'},
+                  
+                            success:(res)=>{
+                                console.log( res,'rwwwwwwwwes');
+                            
+
+                            },
+                            error:(err)=>{
+                                console.log(err,'err');
+                            }
+                        })
+
+                })
+  
+//======================= trash alert ==================================
+
+function trash(n) {
+    var boxOne = document.getElementsByClassName("question-box");
+    var shadowBox = document.getElementsByClassName("background");
+    if (n == 1) {
+        boxOne[0].classList.remove("qu-off");
+        boxOne[0].classList.add("qu-on");
+        shadowBox[0].style.display = "block";
+    }
+    if (n == 2) {
+        boxOne[0].classList.remove("qu-on");
+        boxOne[0].classList.add("qu-off");
+        shadowBox[0].style.display = "none";
+    }
+}
+
+// =================================== close ======================
+function exit(n) {
+    console.log(1);
+    var boxOne1 = document.getElementsByClassName("question-box-two");
+    var shadowBox1 = document.getElementsByClassName("background");
+    if (n == 1) {
+        boxOne1[0].classList.remove("qu-two-off");
+        boxOne1[0].classList.add("qu-two-on");
+        shadowBox1[0].style.display = "block";
+    }
+    if (n == 2) {
+        boxOne1[0].classList.remove("qu-two-on");
+        boxOne1[0].classList.add("qu-two-off");
+        shadowBox1[0].style.display = "none";
+    }
+}
+
+//============================ panel ==============================
+var panelpage = 1;
+panel(1);
+
+
+
+
+function SelectPanel(n) {
+    panel(panelpage = n);
+}
+
+function panel(n) {
+    var i;
+    var page = document.getElementsByClassName("panel-page");
+    var StyPanel = document.getElementsByClassName("panels-details");
+    if (n > page.length) { panelpage = 1 }
+    if (n < 1) { panelpage = page.length }
+    for (i = 0; i < page.length; i++) {
+        page[i].style.display = "none";
+    }
+    for (i = 0; i < StyPanel.length; i++) {
+        StyPanel[i].classList.remove("border");
+    }
+    page[panelpage - 1].style.display = "inline-block";
+    StyPanel[panelpage - 1].classList.add("border");
+}
+
+// ============================CHART ==========================
+var xValues =  ["مهر","آبان","آذر","دی","بهمن","اسفند"] ;
+// xValues.classList.add('chart-text-style')
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      lineTension: 0,
+      data:[0,500,0,500,750],
+      borderColor: "#EC6666",
+      fill: false
+    }
+]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 0, max:750}}],
+   
+    }
+  }
+});
+
+
+    </script>
+</body>
+
+
+</html>

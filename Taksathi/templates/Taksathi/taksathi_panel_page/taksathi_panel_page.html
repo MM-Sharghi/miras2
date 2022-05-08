@@ -15,7 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!--/styles-->
-    <title>wellcome to C2|Home</title>
+    <title>Taksathi User Panel</title>
 </head>
 
 <body>
@@ -91,7 +91,6 @@
             
             <div id="order-history" class="order-history panel-page">
                 <h3 class="user-panel-title">سابقه سفارش</h3>
-
                 <div class="page-number" dir="ltr">
                     <span id="page1" class="page1 page"></span>
                     <span id="page2" class="page2 page"></span>
@@ -107,32 +106,32 @@
 
             <script>
                               
-                
-                              function message(type,msg) {
-    var succ = type
-    var messageText = msg
-    var snackbar = document.getElementById('snackbar')
+                            
+                function message(type,msg) {
+                var succ = type
+                var messageText = msg
+                var snackbar = document.getElementById('snackbar')
 
-    if(succ == "sucsses"){
-        snackbar.innerText = messageText
-        snackbar.className += " sucsses"
-    setTimeout(function(){
-        snackbar.innerText = " "
-         snackbar.classList.remove("sucsses")
-        }, 3000);
-}
+                if(succ == "sucsses"){
+                    snackbar.innerText = messageText
+                    snackbar.className += " sucsses"
+                setTimeout(function(){
+                    snackbar.innerText = " "
+                    snackbar.classList.remove("sucsses")
+                    }, 3000);
+                }
 
-if(succ == "error"){
-    snackbar.innerText = msg
-    snackbar.className += " error"
-setTimeout(function(){
-    snackbar.innerText = " "
-     snackbar.classList.remove("error")
-    }, 3000);
-}
+                if(succ == "error"){
+                    snackbar.innerText = msg
+                    snackbar.className += " error"
+                setTimeout(function(){
+                    snackbar.innerText = " "
+                    snackbar.classList.remove("error")
+                    }, 3000);
+                }
 
-    // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
-  }
+                    // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
+                }
 
 
 
