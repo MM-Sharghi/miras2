@@ -21,6 +21,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
+    path('',include('Home.urls')),
     path('account/',include('Account.urls')),
     path('taksathi/',include('Taksathi.urls')),
     path('api/', include('Taksathi.api_urls')),

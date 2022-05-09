@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'extensions',  # Extensions
     'Users',
+    'Home',
     'Account',
     'Taksathi',
     'Derakhti',

@@ -18,10 +18,24 @@ class MainUser(models.Model):
         if m is not None:
             for k in m:
                 R = Rusers.objects.filter(main__user_id=k.user.id).first()
-                active_right = Rusers.objects.filter(main__Owner_id=R.main.user.id,main__payment_status=True).count()
+                if R is not None:
+                    active_right = Rusers.objects.filter(main__Owner_id=R.main.user.id,main__payment_status=True).count()
+                else:
+                    active_right = None
                 L = Lusers.objects.filter(main__user_id=k.user.id).first()
-                active_left = Lusers.objects.filter(main__Owner_id=L.main.user.id,main__payment_status=True).count()
-                result.append({f'{k.user.id}': {f'R': {'admin': R.main.admin.username,'owner': R.main.Owner.username,f'user': k.user.username,'active_right': active_right},f'L': {'admin': R.main.admin.username,'owner': L.main.Owner.username,f'user': k.user.username,'active_left': active_left}} })
+                if L is not None:
+                    active_left = Lusers.objects.filter(main__Owner_id=L.main.user.id,main__payment_status=True).count()
+                else:
+                    active_left = None
+
+                if R is not None and L is None:
+                    result.append({f'{k.user.id}': {f'R': {'admin': R.main.admin.username, 'owner': R.main.Owner.username, f'user': k.user.username,'active_right': active_right},f'L': None}})
+
+                elif L is not None and R is None:
+                    result.append({f'{k.user.id}': {f'R': None,f'L': {'admin': L.main.admin.username, 'owner': L.main.Owner.username, f'user': k.user.username,'active_left': active_left}}})
+
+                else:
+                    result.append({f'{k.user.id}': {f'R': {'admin': R.main.admin.username, 'owner': R.main.Owner.username, f'user': k.user.username,'active_right': active_right},f'L': {'admin': L.main.admin.username, 'owner': L.main.Owner.username, f'user': k.user.username,'active_left': active_left}}})
 
             return result
         else:
