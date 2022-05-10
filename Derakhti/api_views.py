@@ -310,11 +310,6 @@ class places_list(generics.ListAPIView):
         L = Lusers.objects.filter(user_id=token_info.user.id,main__payment_status=True).all()
 
         if user is not None:
-
-            print(R)
-            print(L)
-
-
             return Response({'info': {'main': {'owner': Owner.Owner.username,'user': user.Owner.username},'R': [{'Owner': r.main.Owner.username,'user': r.user.username} for r in R]} ,'L': [{'Owner': l.main.Owner.username,'user': l.user.username} for l in L], })
 
         else:

@@ -165,20 +165,27 @@ class admin_sub_categories1(generics.ListAPIView):
     serializer_class = ProductSubCategories_1Serializers
     permission_classes = [IsTaksathiAdmin]
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
+        id = self.request.query_params.get('id',False)
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        return ProductSubCategories_1.objects.all()
+        sub_categories1 = ProductSubCategories_1.objects.filter(products__maincategories__id=id).distinct()
+
+        return Response({'info': [{s1.id:s1.name}  for s1 in sub_categories1] })
 
 
 class admin_sub_categories2(generics.ListAPIView):
     serializer_class = ProductSubCategories_2Serializers
     permission_classes = [IsTaksathiAdmin]
 
-    def get_queryset(self):
+
+    def get(self, request, *args, **kwargs):
+        id = self.request.query_params.get('id',False)
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        return ProductSubCategories_2.objects.all()
+        sub_categories2 = ProductSubCategories_2.objects.filter(products__subCategories1__id=id).distinct()
+        return Response({'info': [{s2.id:s2.name}  for s2 in sub_categories2] })
+
 
 
 class admin_products_purchased(generics.ListAPIView):
