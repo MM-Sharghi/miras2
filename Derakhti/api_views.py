@@ -301,10 +301,24 @@ class places_list(generics.ListAPIView):
     serializer_class = MainUserSerializers
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        return MainUser.objects.filter(Owner_id=token_info.user.id, payment_status=True).all().order_by('id')
+        Owner = MainUser.objects.filter(user_id=token_info.user.id, payment_status=True).first()
+        user = MainUser.objects.filter(Owner_id=token_info.user.id, payment_status=True).first()
+        R = Rusers.objects.filter(user_id=token_info.user.id,main__payment_status=True).all()
+        L = Lusers.objects.filter(user_id=token_info.user.id,main__payment_status=True).all()
+
+        if user is not None:
+
+            print(R)
+            print(L)
+
+
+            return Response({'info': {'main': {'owner': Owner.Owner.username,'user': user.Owner.username},'R': [{'Owner': r.main.Owner.username,'user': r.user.username} for r in R]} ,'L': [{'Owner': l.main.Owner.username,'user': l.user.username} for l in L], })
+
+        else:
+            return Response({'info': {'main': {'owner': Owner.Owner.username, 'user': Owner.user.username},'R': [{'Owner': r.main.Owner.username, 'user': r.user.username} for r in R]},'L': [{'Owner': l.main.Owner.username, 'user': l.user.username} for l in L], })
 
 
 class places_list_filter(generics.ListAPIView):
