@@ -75,73 +75,92 @@ class place_user_buy(generics.CreateAPIView):
         if data.is_valid():
             user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
             token_info = Token.objects.filter(key=user_token).first()
-            if amount_purchased(token_info.user.id) >= 20010000:
-                sub_categories_number = MainUser.objects.filter(Owner_id=data.validated_data['Owner'].id,payment_status=True).count()
-                if sub_categories_number != 12:
-                    user = Users.objects.filter(id=token_info.user.id).first()
-                    owner_check = MainUser.objects.filter(Owner_id=data.validated_data['Owner'].id).first()
-                    mainU = MainUser.objects.filter(user_id=token_info.user.id).first()
+            sub_categories_number = MainUser.objects.filter(Owner_id=data.validated_data['Owner'].id,payment_status=True).count()
+            if sub_categories_number != 12:
+                user = Users.objects.filter(id=token_info.user.id).first()
+                owner_check = MainUser.objects.filter(Owner_id=data.validated_data['Owner'].id).first()
+                mainU = MainUser.objects.filter(user_id=token_info.user.id).first()
 
-                    if mainU is not None:
-                        return Response({'message': 'کاربر قبلا انتخاب کرده است'})
+                if mainU is not None:
+                    return Response({'message': 'کاربر قبلا  جایگاه انتخاب کرده است'})
 
-                    if owner_check is None:
-                        return Response({'Owner': 'وجود ندارد'})
-                    else: pass
+                if owner_check is None:
+                    return Response({'Owner': 'وجود ندارد'})
+                else: pass
 
-                    mainU = MainUser.objects.filter(Owner=data.validated_data['Owner'].id).first()
-                    if data.validated_data['places'] == 1 and amount_purchased(token_info.user.id) >= 10005000:
-                        # print('chi hs')
-                        # data.save()
-                        return Response({'message': 'موجودی شما کافی نیست '})
-
-
-                    elif  data.validated_data['r_or_l']  == True or  data.validated_data['r_or_l']  == False and data.validated_data['places'] in [2,3]:
-                        if amount_purchased(token_info.user.id) >= 20010000 and data.validated_data['places'] == 2:
-                            data.save()
-                            data.instance.place = 2
-                            if data.validated_data['r_or_l']:
-                                Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
-                            else:
-                                Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
-                            data.instance.r_or_l = data.validated_data['r_or_l']
-                            data.save()
+                mainU = MainUser.objects.filter(Owner=data.validated_data['Owner'].id).first()
+                if data.validated_data['places'] == 1 and amount_purchased(token_info.user.id) >= 10005000:
+                    data.save()
 
 
 
-                        elif amount_purchased(token_info.user.id) >= 30015000 and data.validated_data['places'] == 3:
-                            data.instance.place = 3
-                            if data.validated_data['r_or_l']:
-                                Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
-                            else:
-                                Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
-                            data.instance.r_or_l = data.validated_data['r_or_l']
-                            data.save()
+                elif  data.validated_data['r_or_l']  == True or  data.validated_data['r_or_l']  == False and data.validated_data['places'] in [2,3]:
+                    if amount_purchased(token_info.user.id) >= 20010000 and data.validated_data['places'] == 2:
+                        data.save()
+                        data.instance.place = 2
+                        if data.validated_data['r_or_l']:
+                            Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
                         else:
-                            return Response({'message': 'موجودی شما کافی نیست '})
+                            Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+                        data.instance.r_or_l = data.validated_data['r_or_l']
+                        data.save()
+
+
+
+                    elif amount_purchased(token_info.user.id) >= 30015000 and data.validated_data['places'] == 3:
+                        data.save()
+                        data.instance.place = 3
+                        Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+                        Rusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+                        data.instance.r_or_l = data.validated_data['r_or_l']
+                        data.save()
+
                     else:
                         return Response({'message': 'موجودی شما کافی نیست '})
 
-
-
-                    identifierـcode = "$" + "".join([choices(list(ascii_letters))[0] for _ in range(10)])
-                    mainU_check = MainUser.objects.filter(identifierـcode=identifierـcode).first()
-                    if mainU_check is not None:
-                        identifierـcode = "$" + "".join([choices(list(ascii_letters))[0] for _ in range(10)])
-                    else: pass
-                    data.instance.user_id = token_info.user.id
-                    data.instance.identifierـcode = identifierـcode
+                elif amount_purchased(token_info.user.id) >= 70035000 and data.validated_data['places'] == 7:
                     data.save()
-                    mainU = MainUser.objects.filter(user_id=token_info.user.id).first()
-                    mainU.payment_status = True
-                    mainU.save()
+                    data.instance.places = 7
+                    L1 = Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+                    R1 = Rusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
 
-                    return Response({'message': 'اضافه شد'})
+
+                    L2 = Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+                    R2 = Rusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+
+                    L3 = Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+                    R3 = Rusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+
+                    L4= Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+
+                    Lusers.objects.create(main_id=mainU.id, user_id=token_info.user.id)
+
+                    data.instance.r_or_l = data.validated_data['r_or_l']
+                    data.save()
+
                 else:
-                    return Response({'message': 'Owner جایگاه خالی ندارد'})
+                    print(amount_purchased(token_info.user.id))
+                    return Response({'message': 'موجودی شما کافی نیست '})
 
+
+
+                identifierـcode = "$" + "".join([choices(list(ascii_letters))[0] for _ in range(10)])
+                mainU_check = MainUser.objects.filter(identifierـcode=identifierـcode).first()
+                if mainU_check is not None:
+                    identifierـcode = "$" + "".join([choices(list(ascii_letters))[0] for _ in range(10)])
+                else: pass
+                data.instance.user_id = token_info.user.id
+                data.instance.identifierـcode = identifierـcode
+                data.save()
+                mainU = MainUser.objects.filter(user_id=token_info.user.id).first()
+                mainU.payment_status = True
+                mainU.save()
+
+                return Response({'message': 'جایگاه خریداری شد'})
             else:
-                return Response({'message': 'موجودی شما کافی نیست '})
+                return Response({'message': 'Owner جایگاه خالی ندارد'})
+
+
         else:
             return Response(data.errors)
 
@@ -315,3 +334,17 @@ class places_list_filter(generics.ListAPIView):
                 return Response({'result': None})
         return Response(result)
 
+
+class user_info(generics.ListAPIView):
+    serializer_class = UsersSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        user = Users.objects.filter(id=token_info.user.id).first()
+        card = Cards.objects.filter(user_id=token_info.user.id).first()
+        if card is not None:
+            return Response({'info': {'first_name': card.first_name,'last_name': card.last_name,'accountـnumber': card.accountـnumber,'shaba_number': card.shaba_number,'user_status': user.status,'mobile1': user.mobile1}})
+        else:
+            return Response({'info': 'empty'})

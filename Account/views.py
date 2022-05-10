@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from Users.models import Users
-from django.contrib.auth import login,logout
+from django.contrib.auth import login,logout,authenticate
 from .forms import *
 
 def register_page(request,type):
@@ -43,7 +43,7 @@ def register_page(request,type):
 def login_page(request):
     if not request.user.is_authenticated:
         if request.method == "POST":
-            user = Users.objects.filter(username=request.POST.get('username'),password=request.POST.get('password')).first()
+            user = authenticate(username=request.POST.get('username'),password=request.POST.get('password'))
             if user is not None:
                 login(request,user)
                 if user.role == 'taksathi':

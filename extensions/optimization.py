@@ -10,3 +10,4 @@ def photo_optimization(image):
         return 'optimized'
     except:
         return 'not optimized'
+

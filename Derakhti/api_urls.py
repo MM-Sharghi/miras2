@@ -19,4 +19,5 @@ urlpatterns = [
     path('orders-list/',api_views.orders_list.as_view(),name='orders_list'),
     path('places-list/',api_views.places_list.as_view(),name='places_list'),
     path('places-list-filter/',api_views.places_list_filter.as_view(),name='places_list_filter'),
+    path('user-info/',api_views.user_info.as_view(),name='user_info'),
 ]

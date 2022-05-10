@@ -400,10 +400,11 @@ getdata()
         <div class="close-icon-big"></div>
         <p>آیا مطمئن هستید میخواهید خارج شوید</p>
         <div class="question-btn">
-            <button class="yes-btn" type="submit">بله</button>
+            <button class="yes-btn"  type="submit"><a href="{% url 'Account:logout_page' %}" style="color: #f0f0f0" >بله</a></button>
             <button class="no-btn" type="submit" onclick="exit(2)">خیر</button>
         </div>
     </div>
+
 <!-- </div> -->
     <script src="{% static 'taksathi_panel/js/user-panel.js' %}"></script>
     <script src="{% static 'taksathi_panel/js/index.js' %}"></script>

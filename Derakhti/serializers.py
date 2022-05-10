@@ -157,3 +157,8 @@ class SelectPointsSerializers(serializers.ModelSerializer):
 
 
 
+class UserinfoSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Users
+        fields = '__all__'
+
