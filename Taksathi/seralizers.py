@@ -148,9 +148,10 @@ class MessagesSupportSerializers(serializers.ModelSerializer):
 class MessagesUserSerializers(serializers.ModelSerializer):
     jdate = serializers.ReadOnlyField()
     status = serializers.ReadOnlyField()
+    is_suppot = serializers.BooleanField(required=True)
     class Meta:
         model = Messages
-        fields = ['user','tiket','support','jdate','status','text','file']
+        fields = ['user','tiket','support','jdate','status','text','file','is_suppot']
         extra_kwargs = {
             "support": {"error_messages": {"required": "This amount is required"}},
         }
