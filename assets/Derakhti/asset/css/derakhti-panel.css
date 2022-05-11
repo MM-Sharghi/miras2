@@ -37,6 +37,16 @@ body {
     margin: auto;
 }
 
+.tiket-active-icon1 {
+    background-image: url(../icons/accept.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 38px;
+    height: 38px;
+    display: block;
+    margin: auto;
+}
+
 .copy-icon1 {
     background-image: url(../icons/copy.png);
     background-repeat: no-repeat;
@@ -107,6 +117,16 @@ body {
     border: 5px solid green    ; */
 }
 
+.all-pelans-part1 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.all-pelans-part2 {
+    display: block;
+    margin: auto;
+}
+
 .error {
     /* background-color: rgb(235, 26, 3); */
     color: #721c24;
@@ -149,6 +169,17 @@ body {
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.profile-line-two-four {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    height: 65px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
 }
 
 .profile-line-two-one-all-text {
@@ -299,8 +330,7 @@ body {
 }
 
 .edit-list-box-allPart {
-    display: flex;
-    justify-content: space-evenly;
+    display: block;
     gap: 20px;
 }
 
@@ -324,6 +354,7 @@ body {
     border: 1px solid #cfcfcf;
     border-radius: 15px;
     margin-left: 50px;
+    padding-right: 15px;
 }
 
 .edit-list-box-radio-all {
@@ -358,13 +389,18 @@ body {
     margin-left: 20px;
     margin-top: 10px;
     cursor: pointer;
+    font-size: 22px;
 }
 
 .top-info-acc {
-    display: flex;
-    justify-content: space-evenly;
+    display: block;
     width: 400px;
     height: auto;
+    font-size: 26px;
+}
+
+.text-of-panel {
+    font-size: 20px;
 }
 
 .save-info-acc {
@@ -406,7 +442,7 @@ body {
     color: #fff;
     box-shadow: 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     padding: 25px;
-    background-image: url(../icons/81806.jpg);
+    background-image: url(../icons/bank-carto.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -450,6 +486,7 @@ body {
 .number-of-place {
     display: flex;
     justify-content: right;
+    font-size: 20px;
 }
 
 #node-part {
@@ -460,13 +497,26 @@ body {
 }
 
 .tik-checkbox-contract {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     width: 535px;
     height: auto;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     padding: 25px;
+    line-height: 40px;
+}
+
+#checked-box-contract {
+    display: block;
+    margin: auto;
+    margin-left: 20px;
+}
+
+.taEEd-contract {
+    display: flex;
+    justify-content: space-between;
 }
 
 .save-edit-contract {
@@ -495,12 +545,14 @@ body {
 
 .forosh-card {
     display: block;
-    width: 90%;
+    width: 70%;
     height: auto;
+    margin: auto;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     padding: 25px;
+    margin-top: 40px;
 }
 
 #myChart {
@@ -552,10 +604,98 @@ body {
 }
 
 .edit-prof-icon {
-    background-image: url(../icons/icons8-edit-48.png);
-    width: 61px;
+    background-image: url(../icons/home.png);
+    width: 50px;
     background-repeat: round;
-    height: 54px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.information-acc-icon {
+    background-image: url(../icons/credit-card.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.tree-advance-icon {
+    background-image: url(../icons/networking.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.base-info-icon {
+    background-image: url(../icons/edit.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.contract-icon {
+    background-image: url(../icons/contract.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.order-icon {
+    background-image: url(../icons/clipboard.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.point-icon {
+    background-image: url(../icons/point-icon.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.position-icon {
+    background-image: url(../icons/position.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.dasti-shop-icon {
+    background-image: url(../icons/icons8-shop-100.png);
+    width: 50px;
+    background-repeat: round;
+    height: 50px;
     display: block;
     margin: auto;
     margin-left: 15px;
@@ -687,13 +827,10 @@ body {
 
 .panels-details p {
     width: 60%;
-    font-size: 17px;
+    font-size: 20px;
     margin-right: 0px;
-    margin-top: 35px;
+    margin-top: 30px;
     text-align: right;
-    /* width: 366px;
-    height: 60px;
-    margin-top: 40px; */
 }
 
 .main-content-userpanel {
@@ -883,8 +1020,13 @@ body {
 
 .seller-account-title p {
     display: block;
-    padding: 0;
+    padding-right: 40px;
     font-size: 27px;
+    padding-top: 30px;
+}
+
+.all-forosh-tablet {
+    display: none;
 }
 
 .add-icons {
@@ -1454,44 +1596,147 @@ body {
     direction: rtl;
 }
 
-@media screen and (min-width:300px) and (max-width: 720px) {
-    .user-history-lefticon3 {
-        display: block;
-    }
-    .form-div {
-        width: 90% !important;
-        margin: auto !;
-        margin-top: 10px;
-        display: block !important;
-        direction: rtl;
-        align-items: center;
-        background-color: azure;
-    }
-    .form-box {
-        width: 100% !important;
-        margin: auto;
-        margin-top: 10px;
-        display: flex;
-        direction: rtl;
-        align-items: center;
-    }
-    .send-teket {
-        border-radius: 6px;
-        width: 100% !important;
-        cursor: pointer;
-        height: 40px;
-        background-color: rgb(47, 61, 215);
-        color: white;
-        font-size: 1rem;
-        border: none;
-        margin: auto;
-        margin-top: 10px;
-    }
+.bank-off {
+    display: none;
 }
 
 @media screen and (min-width:720px) and (max-width: 1012px) {}
 
 @media screen and (max-width: 1012px) {
+    .profile-line-two {
+        display: block;
+    }
+    .profile-line-two-three {
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .profile-line-two-four {
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .profile-line-two-two {
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .profile-line-two-one {
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .profile-line-three {
+        grid-template-columns: auto;
+    }
+    .introduced-code {
+        width: 90%;
+        margin: auto;
+    }
+    .edit-list-box-partOne {
+        grid-template-columns: auto;
+    }
+    .edit-list-box {
+        padding: 17px;
+        height: 1095px;
+    }
+    .input-in-editBox input {
+        width: 90%;
+        margin: auto;
+    }
+    .save-info-edit-list-box {
+        margin-top: 20px;
+    }
+    .bank-off {
+        display: block;
+        margin-top: 13%;
+        width: 90%;
+    }
+    .bank-on {
+        display: none;
+    }
+    .mid-info-acc {
+        height: 390px;
+    }
+    .top-tree-advanced {
+        width: 90%;
+        margin: auto;
+    }
+    .tik-checkbox-contract {
+        width: 90%;
+        display: block;
+    }
+    .all-forosh {
+        display: none;
+    }
+    .all-forosh-tablet {
+        display: block;
+    }
+    .all-pelans {
+        display: block !important;
+    }
+    .pelan-btn {
+        width: 90% !important;
+    }
+    .pelan1-icon {
+        width: 150px !important;
+        height: 200px !important;
+    }
+    .pelan4-icon {
+        width: 150px !important;
+        height: 200px !important;
+    }
+    .pelan2-icon {
+        width: 150px !important;
+        height: 200px !important;
+    }
+    .pelan3-icon {
+        width: 150px !important;
+        height: 200px !important;
+    }
+    .pelan {
+        margin-top: 20px;
+    }
+    .mid-register-place-box {
+        display: block !important;
+    }
+    .level-one {
+        width: 90% !important;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .level-two {
+        width: 90% !important;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .level-three {
+        width: 90% !important;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .level-four {
+        width: 90% !important;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .number-place-box {
+        margin-top: 20px;
+    }
+    .cancel-info-edit-list-box {
+        width: 90%;
+        font-size: 14px;
+    }
+    .save-info-edit-list-box {
+        width: 90% !important;
+    }
+    .top-info-acc {
+        width: 90% !important;
+    }
     .user-history-box-left4 {
         display: none;
     }
@@ -1713,6 +1958,70 @@ body {
     }
 }
 
+@media screen and (min-width:300px) and (max-width: 720px) {
+    .user-history-lefticon3 {
+        display: block;
+    }
+    .form-div {
+        width: 90% !important;
+        margin: auto !;
+        margin-top: 10px;
+        display: block !important;
+        direction: rtl;
+        align-items: center;
+        background-color: azure;
+    }
+    .form-box {
+        width: 100% !important;
+        margin: auto;
+        margin-top: 10px;
+        display: flex;
+        direction: rtl;
+        align-items: center;
+    }
+    .send-teket {
+        border-radius: 6px;
+        width: 100% !important;
+        cursor: pointer;
+        height: 40px;
+        background-color: rgb(47, 61, 215);
+        color: white;
+        font-size: 1rem;
+        border: none;
+        margin: auto;
+        margin-top: 10px;
+    }
+    .pelan1-icon {
+        width: 115px !important;
+        height: 165px !important;
+    }
+    .pelan4-icon {
+        width: 115px !important;
+        height: 165px !important;
+    }
+    .pelan2-icon {
+        width: 115px !important;
+        height: 165px !important;
+    }
+    .pelan3-icon {
+        width: 115px !important;
+        height: 165px !important;
+    }
+    .all-price {
+        width: 90% !important;
+    }
+    .tik-price-icon {
+        width: 15px !important;
+        height: 15px !important;
+    }
+    .pelan-price {
+        font-size: 11px !important;
+    }
+    .text-of-panel {
+        font-size: 16px;
+    }
+}
+
 .teket-div {
     direction: rtl;
     margin: auto;
@@ -1813,25 +2122,32 @@ body {
     width: 25%;
     height: auto;
     display: block;
+    background-color: #dfdfdf;
+    border-radius: 20px;
 }
 
 .level-two {
     width: 25%;
-    display: none;
+    display: block;
+    background-color: #dfdfdf;
+    border-radius: 20px;
 }
 
 .level-three {
     width: 25%;
-    display: none;
+    display: block;
+    background-color: #dfdfdf;
+    border-radius: 20px;
 }
 
 .level-four {
     width: 23%;
-    display: none;
+    display: block;
+    border-radius: 20px;
 }
 
 .reagent-code-title {
-    color: #cfcfcf;
+    color: #626262;
 }
 
 .reagent-code-input {
@@ -1840,6 +2156,7 @@ body {
     border: none;
     border-bottom: 1px solid #cfcfcf;
     margin-bottom: 30px;
+    background-color: #dfdfdf;
 }
 
 .level-one-details {
@@ -1848,12 +2165,16 @@ body {
     margin: auto;
 }
 
+.save-place {
+    padding-top: 7%;
+}
+
 .reagent-info-title {
-    color: #cfcfcf;
+    color: #afafaf;
 }
 
 .text-register-info {
-    color: #cfcfcf;
+    color: #afafaf;
 }
 
 .mobile-info {
@@ -1873,7 +2194,47 @@ body {
 .level-two {
     text-align: center;
     color: #cfcfcf;
-    display: none;
+    display: block;
+}
+
+.pelan4-icon {
+    background-image: url(../icons/pelan4.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 250px;
+    display: block;
+    margin: auto;
+}
+
+.pelan1-icon {
+    background-image: url(../icons/pelan1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 250px;
+    display: block;
+    margin: auto;
+}
+
+.pelan2-icon {
+    background-image: url(../icons/pelan2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 250px;
+    display: block;
+    margin: auto;
+}
+
+.pelan3-icon {
+    background-image: url(../icons/pelan3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 250px;
+    display: block;
+    margin: auto;
 }
 
 .parent-inp {
@@ -1922,6 +2283,7 @@ body {
     display: block;
     border-radius: 20px;
     box-shadow: 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    background-color: #dfdfdf;
 }
 
 .all-info {
@@ -1986,9 +2348,14 @@ body {
 
 .all-pelans {
     width: 70%;
-    display: flex;
-    justify-content: space-evenly;
+    display: block;
     margin: auto;
+}
+
+.pelan-four {
+    width: 200px;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .pelan-btn {
@@ -2028,6 +2395,11 @@ body {
     text-align: center;
     font-size: 20px;
     font-weight: bold;
+    margin-top: 5%;
+}
+
+.text-contract {
+    font-size: 20px;
 }
 
 .sugg-text {
@@ -2049,8 +2421,8 @@ body {
 }
 
 .pelan {
-    height: 135px;
+    height: auto;
     padding: 30px;
-    background-color: #cfcfcf;
+    background-color: #eeeeee;
     border-radius: 20px;
 }
