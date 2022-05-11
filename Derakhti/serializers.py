@@ -80,9 +80,7 @@ class UsersSerializers(serializers.ModelSerializer):
 
 
 class MainUserSerializers(serializers.ModelSerializer):
-    places = serializers.IntegerField(required=True)
     user = serializers.CharField(required=False)
-    identifierـcode = serializers.CharField(required=False)
     r_or_l = serializers.BooleanField(required=False)
     RL_aLL = serializers.ReadOnlyField()
     class Meta:

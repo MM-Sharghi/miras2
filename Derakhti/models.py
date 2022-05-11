@@ -8,10 +8,14 @@ class MainUser(models.Model):
     admin = models.ForeignKey(Users,on_delete=models.CASCADE,default=1,verbose_name='Admin',related_name='mainUser_admin')
     Owner = models.ForeignKey(Users,on_delete=models.CASCADE,verbose_name='Owner',related_name='mainUser_owner')
     user = models.ForeignKey(Users,on_delete=models.CASCADE,blank=True,null=True,verbose_name='User')
-    identifierـcode = models.CharField(max_length=30,verbose_name='Identifier code')
-    places = models.IntegerField(default=1,verbose_name='Places')
+    places = models.IntegerField(default=0,blank=True,null=True,verbose_name='Places')
     r_or_l = models.BooleanField(default=False,verbose_name='Ruser or Luser')
     payment_status = models.BooleanField(default=False,verbose_name='Payment Status')
+
+
+
+
+
 
     def RL_aLL(self):
         result = []
@@ -43,23 +47,16 @@ class MainUser(models.Model):
         else:
             return None
 
-    def __str__(self):
-        return self.identifierـcode
 
 class Rusers(models.Model):
     main = models.ForeignKey(MainUser,on_delete=models.CASCADE,verbose_name='Main')
     user = models.ForeignKey(Users,on_delete=models.CASCADE,verbose_name='User')
 
-    def __str__(self):
-        return self.main.identifierـcode
 
 
 class Lusers(models.Model):
     main = models.ForeignKey(MainUser, on_delete=models.CASCADE, verbose_name='Main')
     user = models.ForeignKey(Users, on_delete=models.CASCADE, verbose_name='User')
-
-    def __str__(self):
-        return self.main.identifierـcode
 
 
 

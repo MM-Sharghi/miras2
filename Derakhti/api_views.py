@@ -302,16 +302,31 @@ class places_list(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        Owner = MainUser.objects.filter(user_id=token_info.user.id, payment_status=True).first()
-        user = MainUser.objects.filter(Owner_id=token_info.user.id, payment_status=True).first()
-        R = Rusers.objects.filter(user_id=token_info.user.id,main__payment_status=True).all()
-        L = Lusers.objects.filter(user_id=token_info.user.id,main__payment_status=True).all()
+        places = MainUser.objects.filter(Owner_id=token_info.user.id, payment_status=True).all()
+        main = MainUser.objects.filter(user_id=token_info.user.id, payment_status=True).first()
+        result = []
+        result.append({'main': {'Owner': main.Owner.username,'user': main.user.username,'places': main.places,'r_or_l': main.r_or_l }})
+        count = 0
+        for p in places:
+            result.append({'Owner': p.Owner.username,'user': p.user.username,'places': p.places,'r_or_l': p.r_or_l})
+            count += 1
 
-        if user is not None:
-            return Response({'info': {'main': {'owner': Owner.Owner.username,'user': user.Owner.username},'R': [{'Owner': r.main.Owner.username,'user': r.user.username} for r in R]} ,'L': [{'Owner': l.main.Owner.username,'user': l.user.username} for l in L], })
+        if count != 15:
+            while count < 15:
+                result.append({'Owner': None,'user': None,'places': None,'r_or_l': None })
+                count += 1
 
-        else:
-            return Response({'info': {'main': {'owner': Owner.Owner.username, 'user': Owner.user.username},'R': [{'Owner': r.main.Owner.username, 'user': r.user.username} for r in R]},'L': [{'Owner': l.main.Owner.username, 'user': l.user.username} for l in L], })
+        return Response(result)
+
+        #user = MainUser.objects.filter(Owner_id=token_info.user.id, payment_status=True).first()
+        # R = Rusers.objects.filter(user_id=token_info.user.id,main__payment_status=True).all()
+        # L = Lusers.objects.filter(user_id=token_info.user.id,main__payment_status=True).all()
+        #
+        # if user is not None:
+        #     return Response({'info': {'main': {'owner': Owner.Owner.username,'user': user.Owner.username},'R': [{'Owner': r.main.Owner.username,'user': r.user.username} for r in R]} ,'L': [{'Owner': l.main.Owner.username,'user': l.user.username} for l in L], })
+        #
+        # else:
+        #     return Response({'info': {'main': {'owner': Owner.Owner.username, 'user': Owner.user.username},'R': [{'Owner': r.main.Owner.username, 'user': r.user.username} for r in R]},'L': [{'Owner': l.main.Owner.username, 'user': l.user.username} for l in L], })
 
 
 class places_list_filter(generics.ListAPIView):
