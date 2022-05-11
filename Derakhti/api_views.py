@@ -138,7 +138,6 @@ class place_user_buy(generics.CreateAPIView):
                     data.save()
 
                 else:
-                    print(amount_purchased(token_info.user.id))
                     return Response({'message': 'موجودی شما کافی نیست '})
 
 
@@ -321,26 +320,16 @@ class places_list_filter(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         username = self.request.query_params.get('username',False)
         result = []
-        m = MainUser.objects.filter(payment_status=True,Owner__username=username).all()
-        for k in m:
-            R = Rusers.objects.filter(main__user_id=k.user.id).first()
-            if R is not None:
-                active_right = Rusers.objects.filter(main__Owner_id=R.main.user.id,main__payment_status=True).count()
-            L = Lusers.objects.filter(main__user_id=k.user.id).first()
-            if L is not None:
-                active_left = Lusers.objects.filter(main__Owner_id=L.main.user.id,main__payment_status=True).all().count()
-
-            if R and L:
-                result.append({f'{k.user.id}': {f'R': {'admin': R.main.admin.username,'owner': R.main.Owner.username,f'user': k.user.username,'active_right': active_right},f'L': {'admin': L.main.admin.username,'owner': L.main.Owner.username,f'user': k.user.username,'active_left': active_left}} })
-            elif R is not None and L is None:
-                result.append({f'{k.user.id}': {f'R': {'admin': R.main.admin.username,'owner': R.main.Owner.username,f'user': k.user.username,'active_right': active_right}}})
-
-            elif L is not None and R is None:
-                result.append({f'{k.user.id}': {f'L': {'admin': L.main.admin.username,'owner': L.main.Owner.username,f'user': k.user.username,'active_left': active_left}} })
-
-            else:
-                return Response({'result': None})
+        m = MainUser.objects.filter(payment_status=True,user__username=username).first()
+        R = Rusers.objects.filter(user_id=m.user.id).all()
+        L = Lusers.objects.filter(user_id=m.user.id).all()
+        active_right = Rusers.objects.filter(main__Owner_id=m.user.id, main__payment_status=True).count()
+        active_left = Lusers.objects.filter(main__Owner_id=m.user.id, main__payment_status=True).count()
+        result.append( [{'R': {f'info': [{f'{r.id}': 'id','admin': r.main.admin.username,'owner': r.main.Owner.username,f'user': m.user.username,'active_right': active_right} for r in R]}},{'L' : {f'info': [{f'{l.id}': 'id','admin': l.main.admin.username,'owner': l.main.Owner.username,f'user': m.user.username,'active_right': active_right} for l in L]}}] )
         return Response(result)
+
+
+
 
 
 class user_info(generics.ListAPIView):
@@ -356,6 +345,12 @@ class user_info(generics.ListAPIView):
             return Response({'info': {'first_name': card.first_name,'last_name': card.last_name,'accountـnumber': card.accountـnumber,'shaba_number': card.shaba_number,'user_status': user.status,'mobile1': user.mobile1}})
         else:
             return Response({'info': 'empty'})
+
+
+
+
+
+
 
 
 
