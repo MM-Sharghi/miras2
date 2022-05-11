@@ -6,8 +6,7 @@ from .serializers import *
 from .models import *
 from random import choices
 from string import ascii_lowercase,ascii_letters
-from Taksathi.models import ProductsOrders
-from Taksathi.seralizers import OrdersSerializers
+from django.shortcuts import get_object_or_404
 from extensions.derakhti.amount_purchased import amount_purchased
 
 class contracts_add(generics.CreateAPIView):
@@ -288,13 +287,13 @@ class place_reservation_left_number(generics.ListAPIView):
 
 
 class orders_list(generics.ListAPIView):
-    serializer_class = OrdersSerializers
+    serializer_class = DerakhtiOrdersSerializers
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        return ProductsOrders.objects.filter(shopper_id=token_info.user.id, payment_status=True).all().order_by('id')
+        return DerakhtiProductsOrders.objects.filter(shopper_id=token_info.user.id, payment_status=True).all().order_by('id')
 
 
 class places_list(generics.ListAPIView):
@@ -357,3 +356,235 @@ class user_info(generics.ListAPIView):
             return Response({'info': {'first_name': card.first_name,'last_name': card.last_name,'accountـnumber': card.accountـnumber,'shaba_number': card.shaba_number,'user_status': user.status,'mobile1': user.mobile1}})
         else:
             return Response({'info': 'empty'})
+
+
+
+class admin_products_list(generics.ListAPIView):
+    serializer_class = DerakhtiProductsSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return DerakhtiProducts.objects.filter(user_id=token_info.user.id,status=True).all()
+
+
+class admin_main_categories(generics.ListAPIView):
+    serializer_class = DerakhtiProductMainCategoriesSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return DerakhtiProductMainCategories.objects.all()
+
+
+class admin_sub_categories1(generics.ListAPIView):
+    serializer_class = DerakhtiProductSubCategories_1Serializers
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        id = self.request.query_params.get('id',False)
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        sub_categories1 = DerakhtiProductSubCategories_1.objects.filter(products__maincategories__id=id).distinct()
+
+        return Response({'info': [{s1.id:s1.name}  for s1 in sub_categories1] })
+
+
+class admin_sub_categories2(generics.ListAPIView):
+    serializer_class = DerakhtiProductSubCategories_2Serializers
+    permission_classes = [IsAuthenticated]
+
+
+    def get(self, request, *args, **kwargs):
+        id = self.request.query_params.get('id',False)
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        sub_categories2 = DerakhtiProductSubCategories_2.objects.filter(products__subCategories1__id=id).distinct()
+        return Response({'info': [{s2.id:s2.name}  for s2 in sub_categories2] })
+
+
+
+class admin_products_purchased(generics.ListAPIView):
+    serializer_class = DerakhtiOrdersSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return DerakhtiProductsOrders.objects.filter(product__user__id=token_info.user.id,payment_status=True).all()
+
+
+class admin_products_comments_list(generics.ListAPIView):
+    serializer_class = DerakhtiProductsCommentsSerializers
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        return DerakhtiProductsComments.objects.filter(product__user__id=token_info.user.id).all()
+
+
+class admin_products_add(generics.CreateAPIView):
+    serializer_class = DerakhtiProductsSerializers
+    permission_classes = [IsAuthenticated]
+
+    def post(self,request):
+        data = DerakhtiProductsSerializers(data=request.data)
+        if data.is_valid():
+            user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+            token_info = Token.objects.filter(key=user_token).first()
+            data.save()
+            data.instance.user = token_info.user
+            data.save()
+
+            return Response({'message': 'با موفقیت اضافه شد'})
+        else:
+            return Response(data.errors)
+
+
+class admin_products_update(generics.UpdateAPIView):
+    serializer_class = DerakhtiProductsUpdateSerializers
+    permission_classes = [IsAuthenticated]
+
+
+    def update(self, request, *args, **kwargs):
+        data = DerakhtiProductsUpdateSerializers(data=request.data)
+        if data.is_valid():
+            user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+            token_info = Token.objects.filter(key=user_token).first()
+            product = DerakhtiProducts.objects.filter(id=data.validated_data['id'],user_id=token_info.user.id).first()
+            if product is not None:
+                data.update(product,data.validated_data)
+                return Response({'message': 'با موفقیت بروز شد'})
+            else:
+                return Response({'message': 'وجود ندارد'})
+        else:
+            return Response(data.errors)
+
+
+class admin_products_delete(generics.CreateAPIView):
+    serializer_class = DerakhtiProductsSerializers
+    permission_classes = [IsAuthenticated]
+
+
+    def post(self,request):
+        id = self.request.query_params.get('id',False)
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        product = DerakhtiProducts.objects.filter(id=id,user_id=token_info.user.id).first()
+        if product is not None:
+            product.delete()
+            return Response({'message': 'حذف شد'})
+        else:
+            return Response({'message': 'وجود ندارد'},status=status.HTTP_400_BAD_REQUEST)
+
+
+
+class carts_add(generics.CreateAPIView):
+    serializer_class = DerakhtiOrdersSerializers
+
+    def post(self, request, *args, **kwargs):
+        data = DerakhtiOrdersSerializers(data=request.data)
+        if data.is_valid():
+            user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+            token_info = Token.objects.filter(key=user_token).first()
+            cart = DerakhtiProductsCarts.objects.filter(user_id=token_info.user.id).first()
+            if cart is None:
+                cart_create = DerakhtiProductsCarts.objects.create(user_id=token_info.user.id)
+            else: pass
+            cart = DerakhtiProductsCarts.objects.filter(user_id=token_info.user.id).first()
+            product = DerakhtiProducts.objects.filter(id=data.validated_data['product'].id).first()
+            DerakhtiProductsOrders.objects.create(shopper_id=token_info.user.id,title=product.title,description=product.descriptions,price=product.price,cart_id=cart.id,product_id=product.id)
+            return Response({'message': 'اضافه شد'})
+        else:
+            return Response(data.errors)
+
+class carts_remove(generics.CreateAPIView):
+    serializer_class = DerakhtiOrdersSerializers
+
+
+    def post(self, request, *args, **kwargs):
+        data = DerakhtiOrdersSerializers(data=request.data)
+        if data.is_valid():
+            id = request.data.get('id',False)
+            if id:
+                user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+                token_info = Token.objects.filter(key=user_token).first()
+                cart = DerakhtiProductsCarts.objects.filter(user_id=token_info.user.id).first()
+                order = DerakhtiProductsOrders.objects.filter(id=id,product_id=data.validated_data['product'].id,payment_status=False).first()
+                if order is not None:
+                    order.delete()
+                    return Response({'message': 'حذف شد'})
+                else:
+                    return Response({'message': 'error'})
+            else:
+                return Response({'id': 'این فیلد الزامی است'})
+        else:
+            return Response(data.errors)
+
+
+
+
+class carts_list(generics.ListAPIView):
+    serializer_class = DerakhtiOrdersSerializers
+
+    def get_queryset(self):
+        user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
+        token_info = Token.objects.filter(key=user_token).first()
+        cart = get_object_or_404(DerakhtiProductsCarts,user_id=token_info.user.id)
+        return DerakhtiProductsOrders.objects.filter(cart_id=cart.id,payment_status=False).all().order_by('id')
+
+
+
+
+class products_list(generics.ListAPIView):
+    serializer_class = DerakhtiProductsSerializers
+
+    def get_queryset(self):
+        return DerakhtiProducts.objects.filter(status=True,vocher=False).all()
+
+class products_list_vocher(generics.ListAPIView):
+    serializer_class = DerakhtiProductsSerializers
+
+    def get_queryset(self):
+        return DerakhtiProducts.objects.filter(status=True,vocher=True).all()
+
+
+class products_comments_list(generics.ListAPIView):
+    serializer_class = DerakhtiProductsCommentsSerializers
+
+    def get_queryset(self):
+        product_id = self.request.query_params.get('id',False)
+        return DerakhtiProductsComments.objects.filter(product_id=product_id,status=True).all()
+
+
+
+
+class products_comments_add(generics.CreateAPIView):
+    serializer_class = DerakhtiProductsCommentsSerializers
+    permission_classes = [IsAuthenticated]
+
+    def post(self,request):
+        data = DerakhtiProductsCommentsSerializers(data=request.data)
+        if data.is_valid():
+            user_token = str(request.headers['Authorization']).split('Token')[1].strip()
+            token_info = Token.objects.filter(key=user_token).first()
+            productComments_check = DerakhtiProductsComments.objects.filter(user_id=token_info.user.id,product_id=data.validated_data['product'].id,status=False).first()
+            if productComments_check is None:
+                DerakhtiProductsComments(user_id=token_info.user.id, product_id=data.validated_data['product'].id,comment=data.validated_data['comment'], status=False).save()
+                return Response({'message': 'دیدگاه ثبت شد'})
+            else:
+                return Response({"message": "کاربر قبلا برای این محصول دیدگاه ثبت کرده است"})
+        else:
+            return Response(data.errors)
+
+
+class products_filter_maincategory_list(generics.ListAPIView):
+    serializer_class = DerakhtiProductsSerializers
+
+    def get_queryset(self):
+        id = self.request.query_params.get('id',False)
+        return DerakhtiProducts.objects.filter(maincategories__id=id,status=True).all()
+

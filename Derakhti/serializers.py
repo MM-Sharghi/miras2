@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+from django.db.models.fields import TextField
 
 class ContractsSerializers(serializers.ModelSerializer):
     jdate = serializers.ReadOnlyField()
@@ -160,5 +161,96 @@ class SelectPointsSerializers(serializers.ModelSerializer):
 class UserinfoSerializers(serializers.ModelSerializer):
     class Meta:
         model = Users
+        fields = '__all__'
+
+
+
+class DerakhtiProductsSerializers(serializers.ModelSerializer):
+    price = serializers.IntegerField(required=True)
+    vocher = serializers.IntegerField(required=True)
+    jdate = serializers.ReadOnlyField()
+    class Meta:
+        model = DerakhtiProducts
+        fields = '__all__'
+
+
+class DerakhtiProductMainCategoriesSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = DerakhtiProductMainCategories
+        fields = '__all__'
+
+class DerakhtiProductSubCategories_1Serializers(serializers.ModelSerializer):
+    class Meta:
+        model = DerakhtiProductSubCategories_1
+        fields = '__all__'
+
+class DerakhtiProductSubCategories_2Serializers(serializers.ModelSerializer):
+    class Meta:
+        model = DerakhtiProductSubCategories_2
+        fields = '__all__'
+
+
+
+
+class DerakhtiProductsUpdateSerializers(serializers.Serializer):
+    id = serializers.IntegerField(required=True)
+    title = serializers.CharField(required=False)
+    slug = serializers.CharField(required=False)
+    descriptions = TextField(null=True,blank=True)
+    image = serializers.ImageField(required=False)
+    image1 = serializers.ImageField(required=False)
+    image2 = serializers.ImageField(required=False)
+    image3 = serializers.ImageField(required=False)
+    price = serializers.IntegerField(required=False)
+    maincategories = serializers.PrimaryKeyRelatedField(queryset=DerakhtiProductMainCategories.objects.all(), many=True)
+    subCategories1 = serializers.PrimaryKeyRelatedField(queryset=DerakhtiProductSubCategories_1.objects.all(), many=True)
+    subCategories2 = serializers.PrimaryKeyRelatedField(queryset=DerakhtiProductSubCategories_2.objects.all(), many=True)
+    volume = serializers.CharField(required=False)
+    compounds = serializers.CharField(required=False)
+    licenseـissuer = serializers.CharField(required=False)
+    limit = serializers.IntegerField(required=False)
+    vocher = serializers.IntegerField(required=False)
+    jdate = serializers.ReadOnlyField()
+
+    class Meta:
+        model = DerakhtiProducts
+        fields = '__all__'
+
+    def update(self, instance, validated_data):
+        instance.user = validated_data.get('user', instance.user)
+        instance.title = validated_data.get('title', instance.user)
+        instance.slug = validated_data.get('slug', instance.slug)
+        instance.descriptions = validated_data.get('descriptions', instance.descriptions)
+        instance.image = validated_data.get('image', instance.image)
+        instance.image1 = validated_data.get('image1', instance.image1)
+        instance.image2 = validated_data.get('image2', instance.image2)
+        instance.image3 = validated_data.get('image3', instance.image3)
+        instance.price = validated_data.get('price', instance.price)
+        instance.maincategories.set(validated_data.get('maincategories', instance.maincategories))
+        instance.subCategories1.set(validated_data.get('subCategories1', instance.subCategories1))
+        instance.subCategories2.set(validated_data.get('subCategories2', instance.subCategories2))
+        instance.volume = validated_data.get('volume', instance.volume)
+        instance.compounds = validated_data.get('compounds', instance.compounds)
+        instance.licenseـissuer = validated_data.get('licenseـissuer', instance.licenseـissuer)
+        instance.limit = validated_data.get('limit', instance.limit)
+        instance.vocher = validated_data.get('vocher', instance.vocher)
+        instance.save()
+        return instance
+
+
+class DerakhtiOrdersSerializers(serializers.ModelSerializer):
+    product_image = serializers.ReadOnlyField()
+    user_address = serializers.ReadOnlyField()
+    jdate = serializers.ReadOnlyField()
+    class Meta:
+        model = DerakhtiProductsOrders
+        fields = '__all__'
+
+
+class DerakhtiProductsCommentsSerializers(serializers.ModelSerializer):
+    user_fullname = serializers.ReadOnlyField()
+    jdate = serializers.ReadOnlyField()
+    class Meta:
+        model = DerakhtiProductsComments
         fields = '__all__'
 

@@ -1,6 +1,6 @@
-from Taksathi.models import ProductsOrders
+from Derakhti.models import DerakhtiProductsOrders
 
 def amount_purchased(user_id):
-    products = ProductsOrders.objects.filter(product__user__id=user_id,payment_status=True).order_by('id').all()
+    products = DerakhtiProductsOrders.objects.filter(product__user__id=user_id,payment_status=True).order_by('id').all()
     orders = sum([p.price for p in products])
     return orders
