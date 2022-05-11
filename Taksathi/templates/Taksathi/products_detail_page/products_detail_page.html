@@ -1,94 +1,92 @@
+{% extends 'base/base.html' %} {% load static %} {% block content %}
 
-{% extends 'base/base.html' %}
-{% load static %}
-
-
-{% block content %}
-
-    <div style="width: 100%;background-color: #f7f7f7;">
+<div style="width: 100%;background-color: #f7f7f7;">
 
 
 
-        <section id="slider" class="" style="width: 80%;justify-content: center; display: flex;margin: auto auto; background-color: #f7f7f7;">
-           
-
-            <div class="containerdetails">
-                <div class="all-dot-btnditails">
+    <section id="slider" class="" style="width: 92%;justify-content: center; display: flex;margin: auto auto; background-color: #f7f7f7;">
 
 
+        <div class="containerdetails">
 
-
-
-                 <button type="button" class="dot-btndetails slide-activedetails" onclick="currentpic({{ forloop.counter }})">
-                 <img class="slidedetails" src="{{ product.image.url }}" alt="...">
-
+            <div style="display: flex;" class="main-box-slider">
+                <div class="nxt-btnditails" onclick="plusSlides(1)">
+                    <div class="nxt-btnditails-img"></div>
                 </div>
 
-                <div style="display: flex;" class="">
-                    <div class="nxt-btnditails" onclick="addSlides(1)">
-                        <div class="nxt-btnditails-img"></div>
-                    </div>
+                <div class="carousel-item fade">
+                    <img class=" slide-imgditils" src="./asset/img/pic-29.png" alt="...">
+                </div>
+                <div class="carousel-item fade">
+                    <img class=" slide-imgditils" src="./asset/img/pic-30.png" alt="...">
+                </div>
 
-                    <div class="carousel-item fade">
-                        <img class="slide-imgditils" src="{{ product.image.url }}" alt="...">
-                    </div>
-                    <div class="carousel-item fade">
-                        <img class="slide-imgditils" src="{% static 'home/img/pic-30.png' %}" alt="...">
-                    </div>
-
-                    <div class="pre-btnditails" onclick="addSlides(-1)">
-                        <div class="pre-btnditails-img"></div>
-                    </div>
-
+                <div class="pre-btnditails" onclick="plusSlides(-1)">
+                    <div class="pre-btnditails-img"></div>
                 </div>
 
             </div>
-           
-            <div class="form-left-box">
-                <ol>
-                    <li class="form-item " style="display: flex; width: 100%;">
-                        <div class="div-style">
-                            <h2 style=" color: #F26A4F;" class=""> {{ product.title }}</h2>
-                        </div>
-                    
-                    </li>
-                    <li style="display: flex; width: 100%;">
-                        <p style="margin-top: -8px; margin-right: -1px;" class="form-title">
-
-                        </p>
-                    </li>
-
-                    <li class="form-item " >
-                        <div class="div-style" >
-                            <div class="form-item-cout" >
-                                <div class="item-count">
-                                    <p id="cunt-plus" class="cunt-div">+</p>
-                                </div>
-                                <div class="item-count">
-                                    <p id="cunt-content" class="cunt-div">1</p>
-                                </div>
-                                <div class="item-count">
-                                    <p id="cunt-min" class="cunt-div">-</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="direction: ltr;" class="div-style">
-                            <div class="sec-price" >{{ product.price }} تومان </div>
-                        </div>
-                    </li>
-
-
-                    <li>
-                        {% if request.user.is_authenticated %}
-                            <div class="pro-btn2">
-                                <button id="add-cart" class="form-btn2" type="button">افزودن به سبد خرید</button>
-                            </div>
-                        {% endif %}
-                    </li>
-                </ol>
+            <div class="all-dot-btnditails">
+                <button type="button" class="dot-btndetails slide-activedetails" onclick="currentSlideDetails(1)">
+                      <img class="slidedetails" src="./asset/img/pic-29.png" alt="...">
+                    </button>
+                <button style="margin-top: 5px" type="button" class="dot-btndetails " onclick="currentSlideDetails(2)">
+                    <img class="slidedetails" src="./asset/img/pic-30.png" alt="...">
+                    </button>
             </div>
-            <!-- <div class="detailstext">
+
+
+        </div>
+        <div class="form-left-box">
+            <ol>
+                <li class="form-item " style="display: flex; width: 100%;">
+                    <div class="div-style">
+                        <h2 style=" color: #F26A4F;" class="">test {{ product.title }}</h2>
+                    </div>
+
+                </li>
+                <li style="display: flex; width: 100%;">
+                    <p style="margin-top: -8px; margin-right: -1px;" class="form-title">
+
+                    </p>
+                </li>
+
+                <li class="form-item ">
+                    <div class="div-style">
+                        <div class="form-item-cout">
+                            <div class="item-count">
+                                <p id="cunt-plus" class="cunt-div">+</p>
+                            </div>
+                            <div class="item-count">
+                                <p id="cunt-content" class="cunt-div">1</p>
+                            </div>
+                            <div class="item-count">
+                                <p id="cunt-min" class="cunt-div">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="direction: ltr;" class="div-style">
+                        <div class="sec-price">{{ product.price }} تومان </div>
+                    </div>
+                </li>
+                <li style="display: flex; width: 100%;">
+                    <p id="form-title1" class="form-title1">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                        باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت
+                        می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
+                </li>
+
+                <li>
+                    {% if request.user.is_authenticated %}
+                    <div class="pro-btn2">
+                        <button id="add-cart" class="form-btn2" type="button">افزودن به سبد خرید</button>
+                    </div>
+                    {% endif %}
+                </li>
+            </ol>
+        </div>
+        <!-- <div class="detailstext">
             <div class="ditailstextcontent">
                 <h3></h3>
             </div>
@@ -97,312 +95,315 @@
                   </p>
             </div>
         </div> -->
-        </section>
-    </div>
-
-    <!--   slider   -->
-
-
-    <section class="product">
-
-
     </section>
+</div>
 
-    <section id="detailswrapper">
-        <div class="detailscontent">
-            <!-- Tab links -->
-            <div class="detailstabs">
-                <button class="detailstablinks detailsactive" data-valuetxt="firstdetails"><p data-title="معرفی "> معرفی</p></button>
-                <button class="detailstablinks" data-valuetxt="seconddetails"><p data-title=" جزئیات">جزئیات </p></button>
-                <button class="detailstablinks" data-valuetxt="fourthdetails"><p data-title=" نظرات">نظرات </p></button>
+<!--   slider   -->
+
+
+<section class="product">
+
+
+</section>
+
+<section id="detailswrapper">
+    <div class="detailscontent">
+        <!-- Tab links -->
+        <div class="detailstabs">
+            <button class="detailstablinks detailsactive" data-valuetxt="firstdetails"><p data-title="معرفی "> معرفی</p></button>
+            <button class="detailstablinks" data-valuetxt="seconddetails"><p data-title=" جزئیات">جزئیات </p></button>
+            <button class="detailstablinks" data-valuetxt="fourthdetails"><p data-title=" نظرات">نظرات </p></button>
+        </div>
+
+        <!-- Tab content -->
+        <div class="detailswrapper_tabcontent">
+            <div id="firstdetails" class="detailstabcontent detailsactive">
+                <!-- <h3> معرفی</h3> -->
+                <p>
+                    {{ product.descriptions }}
+                </p>
             </div>
 
-            <!-- Tab content -->
-            <div class="detailswrapper_tabcontent">
-                <div id="firstdetails" class="detailstabcontent detailsactive">
-                    <!-- <h3> معرفی</h3> -->
-                    <p>
-                        {{ product.descriptions }}
-                    </p>
+            <div id="seconddetails" class="detailstabcontent">
+                <!-- <h3> جزئیات</h3> -->
+                <div class="detailstabdiv">
+                    <p class="detailstabp">حجم</p>
+                    <p class="detailstabp">{{ product.volume }}</p>
+                </div>
+                <div class="detailstabdiv">
+                    <p class="detailstabp">ترکیبات</p>
+                    <p class="detailstabp">{{ product.compounds }}</p>
+                </div>
+                <div class="detailstabdiv">
+                    <p class="detailstabp">صادرکننده مجوز</p>
+                    <p class="detailstabp"> {{ product.licenseـissuer }} </p>
                 </div>
 
-                <div id="seconddetails" class="detailstabcontent">
-                    <!-- <h3> جزئیات</h3> -->
-                    <div class="detailstabdiv">
-                        <p class="detailstabp">حجم</p>
-                        <p class="detailstabp">{{ product.volume }}</p>
-                    </div>
-                    <div class="detailstabdiv">
-                        <p class="detailstabp">ترکیبات</p>
-                        <p class="detailstabp">{{ product.compounds }}</p>
-                    </div>
-                    <div class="detailstabdiv">
-                        <p class="detailstabp">صادرکننده مجوز</p>
-                        <p class="detailstabp"> {{ product.licenseـissuer }}  </p>
-                    </div>
+            </div>
+
+
+            <div id="fourthdetails" class="detailstabcontent">
+                <!-- <h3> نظرات</h3> -->
+                <div id="detailstabdiv3" class="detailstabdiv3">
 
                 </div>
+                <div style="display: block; width: 100%;">
+                    <h4 style="color: #F26A4F;">ثبت دیدگاه جدید</h4>
+                    <p>شما هم درباره این کالا دیدگاه ثب کنید</p>
+                    <div class="form-details">
+                        <!-- <ol> -->
 
 
-                <div id="fourthdetails" class="detailstabcontent">
-                    <!-- <h3> نظرات</h3> -->
-                    <div id="detailstabdiv3" class="detailstabdiv3">
-                       
-                    </div>
-                    <div style="display: block; width: 100%;">
-                        <h4 style="color: #F26A4F;">ثبت دیدگاه جدید</h4>
-                        <p>شما هم درباره این کالا دیدگاه ثب کنید</p>
-                        <div class="form-details">
-                            <!-- <ol> -->
 
-                
+                        <li class="form-item-details  " style="display: flex; width: 94%;">
+                            <div style=" width: 100%;">
+                                <textarea id="form-text" class="form-input-textarea2" placeholder="متن پیام" name="textarea-input" rows="5" cols="50"></textarea>
 
-                            <li class="form-item-details  " style="display: flex; width: 94%;">
-                                <div style=" width: 100%;">
-                                    <textarea id="form-text" class="form-input-textarea2" placeholder="متن پیام" name="textarea-input" rows="5" cols="50"></textarea>
-
-                                </div>
-                            </li>
-                 
-                            <!-- <li> -->
-                            <div class="pro-btn22">
-                                <button onclick=" sendData()" class="form-btn" type="button">ارسال نظر</button>
                             </div>
-                            <div id="snackbar" class=""></div>
+                        </li>
 
-                            <!-- </li> -->
-
-                            <!-- </ol> -->
+                        <!-- <li> -->
+                        <div class="pro-btn22">
+                            <button onclick=" sendData()" class="form-btn" type="button">ارسال نظر</button>
                         </div>
+                        <div id="snackbar" class=""></div>
+
+                        <!-- </li> -->
+
+                        <!-- </ol> -->
                     </div>
-
-
                 </div>
+
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <div class="product-slider">
-        <h1 class="title1">محصولات مشابه</h1>
-        <section class="product">
-            <div class="nxt-btn" onclick="plusslides1(1)">
-                <div class="nxt-btn-img"></div>
-            </div>
+<div class="product-slider">
+    <h1 class="title1">محصولات مشابه</h1>
+    <section class="product">
+        <div class="nxt-btn" onclick="plusslides1(1)">
+            <div class="nxt-btn-img"></div>
+        </div>
 
-            <div class="p1-page">
-                <div id="product-container-id" class="product-container">
+        <div class="p1-page">
+            <div id="product-container-id" class="product-container">
 
-                    {% for p in similars %}
-                        <div class="product-box">
-                            <a href="{% url 'Taksathi:products_detail_page' p.id p.slug %}">
-                                <img class="image" src="{{ p.image.url }}" alt="{{ p.title }}">
-                            </a>
-                            <div class="details">
+                {% for p in similars %}
+                <div class="product-box">
+                    <a href="{% url 'Taksathi:products_detail_page' p.id p.slug %}">
+                        <img class="image" src="{{ p.image.url }}" alt="{{ p.title }}">
+                    </a>
+                    <div class="details">
 
-                                <a href="#">
-                                    <h2>{{ p.title }}</h2>
-                                </a>
+                        <a href="#">
+                            <h2>{{ p.title }}</h2>
+                        </a>
 
-                                <div class="price">{{ p.price }} تومان </div>
+                        <div class="price">{{ p.price }} تومان </div>
 
 
-                            </div>
-
-                        </div>
-                    {% endfor %}
+                    </div>
 
                 </div>
+                {% endfor %}
+
             </div>
+        </div>
 
-        </section>
- 
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </section>
 
-    <script>
-     var count = 1
-                        // var limitLengh = document.getElementById('remainingnumber').innerHTML;
-                        var minLengh = 0
-                        var limitLengh =3
-                        console.log("count" );
-                        $('#cunt-plus').click(function(){
-                            if (count <3) {
-                                document.getElementById('cunt-content').innerHTML = ++count
-                                // alert('hhh')
-                            } else {
-                                alert('jjjjjjj')
-                            }
-                        })
-                        $('#cunt-min').click(function(){
-                            if (count>0) {
-                                document.getElementById('cunt-content').innerHTML = --count
-                            } else {
-                                alert('mmmmm')
-                            }
-                        })
-                    
-//===========================slider=========================
-// ==========================DETAILS_TAB==================
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-var detailstabLinks = document.querySelectorAll(".detailstablinks");
-var detailstabContent = document.querySelectorAll(".detailstabcontent");
+<script>
+    var count = 1
+        // var limitLengh = document.getElementById('remainingnumber').innerHTML;
+    var minLengh = 0
+    var limitLengh = 3
+    console.log("count");
+    $('#cunt-plus').click(function() {
+        if (count < 3) {
+            document.getElementById('cunt-content').innerHTML = ++count
+                // alert('hhh')
+        } else {
+            alert('jjjjjjj')
+        }
+    })
+    $('#cunt-min').click(function() {
+        if (count > 0) {
+            document.getElementById('cunt-content').innerHTML = --count
+        } else {
+            alert('mmmmm')
+        }
+    })
 
+    //===========================slider=========================
+    // ==========================DETAILS_TAB==================
 
-detailstabLinks.forEach(function(el) {
-    el.addEventListener("click", detailsopenTabs);
-});
+    var detailstabLinks = document.querySelectorAll(".detailstablinks");
+    var detailstabContent = document.querySelectorAll(".detailstabcontent");
 
-
-function detailsopenTabs(el) {
-    var detailsbtnTarget = el.currentTarget;
-    var detailsvaluetxt = detailsbtnTarget.dataset.valuetxt;
-
-    detailstabContent.forEach(function(el) {
-        el.classList.remove("detailsactive");
-    });
 
     detailstabLinks.forEach(function(el) {
-        el.classList.remove("detailsactive");
+        el.addEventListener("click", detailsopenTabs);
     });
 
-    document.querySelector("#" + detailsvaluetxt).classList.add("detailsactive");
 
-    detailsbtnTarget.classList.add("detailsactive");
-}
+    function detailsopenTabs(el) {
+        var detailsbtnTarget = el.currentTarget;
+        var detailsvaluetxt = detailsbtnTarget.dataset.valuetxt;
+
+        detailstabContent.forEach(function(el) {
+            el.classList.remove("detailsactive");
+        });
+
+        detailstabLinks.forEach(function(el) {
+            el.classList.remove("detailsactive");
+        });
+
+        document.querySelector("#" + detailsvaluetxt).classList.add("detailsactive");
+
+        detailsbtnTarget.classList.add("detailsactive");
+    }
 
 
-// ==========================DETAILS_TAB==================
+    // ==========================DETAILS_TAB==================
 
-// ==========================COUNTER=====================
-var count = 1
-var limitLengh = 5 
-var minLengh = 0
-console.log("count");
+    // ==========================COUNTER=====================
+    var count = 1
+    var limitLengh = 5
+    var minLengh = 0
+    console.log("count");
 
-// var firstPrice = document.getElementById('price-product').innerHTML
+    // var firstPrice = document.getElementById('price-product').innerHTML
 
 
-// function plus() {
-//     console.log("count");
+    // function plus() {
+    //     console.log("count");
 
-//     if(count < limitLengh){
-//     document.getElementById('counter').innerHTML = ++count
-//     }
-//     else{
-//         alert('jjjjjjj')
-//     }
-// }
+    //     if(count < limitLengh){
+    //     document.getElementById('counter').innerHTML = ++count
+    //     }
+    //     else{
+    //         alert('jjjjjjj')
+    //     }
+    // }
 
-// function minus() {
-//     if(count > minLengh){
-//     document.getElementById('counter').innerHTML = --count
-//     }
-//     else{
-//         alert('mmmmm')
-//     }
-// }
+    // function minus() {
+    //     if(count > minLengh){
+    //     document.getElementById('counter').innerHTML = --count
+    //     }
+    //     else{
+    //         alert('mmmmm')
+    //     }
+    // }
 
-function getdata(){
-    $.ajax({
-        url:'http://127.0.0.1:8000/api/products/products-comments-list/',
-        // url:'{% url "ApiTaksathi:admin_products_comments_list" %}?id={{ product.id  }}',
-        success:(res)=>{
-            console.log(res,'resqwwwqq');
-            $('#detailstabdiv3').append(`
+    function getdata() {
+        $.ajax({
+            url: 'http://127.0.0.1:8000/api/products/products-comments-list/',
+            // url:'{% url "ApiTaksathi:admin_products_comments_list" %}?id={{ product.id  }}',
+            success: (res) => {
+                console.log(res, 'resqwwwqq');
+                $('#detailstabdiv3').append(`
                 <div class="detailstabdiv22">
                     <p>علی علیزاده</p>
                     <p>تیر 22</p>
                 </div>
                 <p class="detailstabdiv22-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
             `)
-    
 
-        },
-        error:(err)=>{
-            console.log(err,'err');
-        }
-    })
-}
-getdata()
-$('#add-cart').click(function(){
-    $.ajax({
-        url: '{% url "ApiTaksathi:carts_add" %}',
-        type:'post',
-        headers: {'Authorization': 'Token {{ user_token }}'},
-        data:{
-            id:1
-        },
-        success:(res)=>{
-            console.log(res,'res')
 
-        },
-        error:(err)=>{
-            console.log(err,'err');
-        }
-    })
-})
-function sendData(){
-        let txt = $("#form-text").val()
-        $.ajax({
-            url:"{% url 'ApiTaksathi:products_comments_add' %}",
-            type:"post",
-            headers: {'Authorization': 'Token {{ user_token }}'},
-            data:{
-                user:3,
-                product:1,
-                comment: txt,
             },
-            success:(res)=>{
-                if(txt==''){
-                    message('error','متن پیام را وارد کنید')
-                    return
-                }
-                else if(res.message == 'کاربر قبلا برای این محصول دیدگاه ثبت کرده است'){
-                    message('error','کاربر قبلا برای این محصول دیدگاه ثبت کرده است')
-                    // console.log(res);
-
-
-                }
-            },
-            error:(err)=>{
-                message('error','ارسال نشد')
-                // console.log(err);
-
+            error: (err) => {
+                console.log(err, 'err');
             }
-            
         })
     }
-// =================================== send ======================
+    getdata()
+    $('#add-cart').click(function() {
+        $.ajax({
+            url: '{% url "ApiTaksathi:carts_add" %}',
+            type: 'post',
+            headers: {
+                'Authorization': 'Token {{ user_token }}'
+            },
+            data: {
+                id: 1
+            },
+            success: (res) => {
+                console.log(res, 'res')
+
+            },
+            error: (err) => {
+                console.log(err, 'err');
+            }
+        })
+    })
+
+    function sendData() {
+        let txt = $("#form-text").val()
+        $.ajax({
+            url: "{% url 'ApiTaksathi:products_comments_add' %}",
+            type: "post",
+            headers: {
+                'Authorization': 'Token {{ user_token }}'
+            },
+            data: {
+                user: 3,
+                product: 1,
+                comment: txt,
+            },
+            success: (res) => {
+                if (txt == '') {
+                    message('error', 'متن پیام را وارد کنید')
+                    return
+                } else if (res.message == 'کاربر قبلا برای این محصول دیدگاه ثبت کرده است') {
+                    message('error', 'کاربر قبلا برای این محصول دیدگاه ثبت کرده است')
+                        // console.log(res);
+
+
+                }
+            },
+            error: (err) => {
+                message('error', 'ارسال نشد')
+                    // console.log(err);
+
+            }
+
+        })
+    }
+    // =================================== send ======================
 
 
 
-function message(type,msg) {
-    var succ = type
-    var messageText = msg
-    var snackbar = document.getElementById('snackbar')
+    function message(type, msg) {
+        var succ = type
+        var messageText = msg
+        var snackbar = document.getElementById('snackbar')
 
-    if(succ == "sucsses"){
-        snackbar.innerText = messageText
-        snackbar.className += " sucsses"
-    setTimeout(function(){
-        snackbar.innerText = " "
-         snackbar.classList.remove("sucsses")
-        }, 3000);
-}
+        if (succ == "sucsses") {
+            snackbar.innerText = messageText
+            snackbar.className += " sucsses"
+            setTimeout(function() {
+                snackbar.innerText = " "
+                snackbar.classList.remove("sucsses")
+            }, 3000);
+        }
 
-if(succ == "error"){
-    snackbar.innerText = msg
-    snackbar.className += " error"
-setTimeout(function(){
-    snackbar.innerText = " "
-     snackbar.classList.remove("error")
-    }, 3000);
-}
+        if (succ == "error") {
+            snackbar.innerText = msg
+            snackbar.className += " error"
+            setTimeout(function() {
+                snackbar.innerText = " "
+                snackbar.classList.remove("error")
+            }, 3000);
+        }
 
-    // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
-  }
-
-    </script>
+        // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
+    }
+</script>
 
 {% endblock %}

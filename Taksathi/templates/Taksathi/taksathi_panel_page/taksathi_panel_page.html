@@ -37,7 +37,7 @@
             </div>
             <div class="panels-details" onclick="SelectPanel(2)">
                 <div class="ticketing-icon"></div>
-                <p>  تیکتینگ</p>
+                <p> تیکتینگ</p>
             </div>
             <div id="p-order">
                 <div id="product-order" class="panels-details" onclick="SelectPanel(3)">
@@ -45,7 +45,7 @@
                     <p>سابقه سفارش </p>
                 </div>
             </div>
-          
+
             <div class="panels-details" onclick="SelectPanel(4)">
                 <div class="comments-icon"></div>
                 <p>نظرات</p>
@@ -69,7 +69,7 @@
             </div>
 
             <div id="edit-acount" class="user-panel-tab panel-page">
-                  <div class="teket-div">
+                <div class="teket-div">
                     <h2>سیستم پشتیبانی</h2>
                     <p class="teket-p">موضوع تیکت</p>
                     <input id="title-tiket" class="input" type="text" name="" id="" placeholder="موضوع تیکت را وارد کنید ">
@@ -77,18 +77,18 @@
                     <textarea id="text-tiket" class="textarea-input" type="password" name="" id="" placeholder=" متن پیام را وارد کنید"></textarea>
                     <div class="form-div">
                         <div class="form-box">
-                            <input itemid="teket-file" type="file" name="" id="" >
+                            <input itemid="teket-file" type="file" name="" id="">
                             <button id="send-ticket" type="submit" class="send-teket"> ارسال تیکت </button>
                         </div>
-                       
+
                     </div>
-                    
-                  </div>
+
+                </div>
 
             </div>
             <div id="snackbar" class=""></div>
 
-            
+
             <div id="order-history" class="order-history panel-page">
                 <h3 class="user-panel-title">سابقه سفارش</h3>
                 <div class="page-number" dir="ltr">
@@ -100,35 +100,33 @@
 
             <div id="comments" class="comments panel-page">
                 <h3 class="user-panel-title"> نظرات</h3>
-           
+
 
             </div>
 
             <script>
-                              
-                            
-                function message(type,msg) {
-                var succ = type
-                var messageText = msg
-                var snackbar = document.getElementById('snackbar')
+                function message(type, msg) {
+                    var succ = type
+                    var messageText = msg
+                    var snackbar = document.getElementById('snackbar')
 
-                if(succ == "sucsses"){
-                    snackbar.innerText = messageText
-                    snackbar.className += " sucsses"
-                setTimeout(function(){
-                    snackbar.innerText = " "
-                    snackbar.classList.remove("sucsses")
-                    }, 3000);
-                }
+                    if (succ == "sucsses") {
+                        snackbar.innerText = messageText
+                        snackbar.className += " sucsses"
+                        setTimeout(function() {
+                            snackbar.innerText = " "
+                            snackbar.classList.remove("sucsses")
+                        }, 3000);
+                    }
 
-                if(succ == "error"){
-                    snackbar.innerText = msg
-                    snackbar.className += " error"
-                setTimeout(function(){
-                    snackbar.innerText = " "
-                    snackbar.classList.remove("error")
-                    }, 3000);
-                }
+                    if (succ == "error") {
+                        snackbar.innerText = msg
+                        snackbar.className += " error"
+                        setTimeout(function() {
+                            snackbar.innerText = " "
+                            snackbar.classList.remove("error")
+                        }, 3000);
+                    }
 
                     // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
                 }
@@ -136,55 +134,57 @@
 
 
 
-                $('#edit-acount-btn').click(function(){ 
-                let phNum1= $('#ph-num1').val()
-                let phNum2=  $('#ph-num2').val()
-                let pass = $('#pass').val()
-                // console.log(fullName,phNum2 , phNum , curentPass,newPass,emil);
+                $('#edit-acount-btn').click(function() {
+                    let phNum1 = $('#ph-num1').val()
+                    let phNum2 = $('#ph-num2').val()
+                    let pass = $('#pass').val()
+                        // console.log(fullName,phNum2 , phNum , curentPass,newPass,emil);
 
-                $.ajax({
-                    url:'http://127.0.0.1:8000/api/tak-s-panel/user/user-edit-profile/',
-                    type:"put",
-                    headers: {'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'},
-                    data:{
-                        mobile1 :phNum1,
-                        password:pass
-                            
+                    $.ajax({
+                        url: 'http://127.0.0.1:8000/api/tak-s-panel/user/user-edit-profile/',
+                        type: "put",
+                        headers: {
+                            'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'
                         },
-                        success:(res)=>{
-                            console.log( res,'res');
-                            if(phNum1=='' && pass == '' || phNum1 == '' || pass==''){
-                                message('error','پرکردن این فیلد اجباری است')
+                        data: {
+                            mobile1: phNum1,
+                            password: pass
+
+                        },
+                        success: (res) => {
+                            console.log(res, 'res');
+                            if (phNum1 == '' && pass == '' || phNum1 == '' || pass == '') {
+                                message('error', 'پرکردن این فیلد اجباری است')
                                 console.log('xxxxxx');
 
                                 return
+                            } else {
+                                message('sucsses', res.message)
                             }
-                          
-                            else{
-                                message('sucsses',res.message)
-                            }
-                       
+
 
                         },
-                        error:(err)=>{
-                            console.log(err,'err');
+                        error: (err) => {
+                            console.log(err, 'err');
                         }
-                })
+                    })
 
                 })
 
-                $('#p-order').click(function(){
-                    
+                $('#p-order').click(function() {
+
                     $.ajax({
-                        url:'http://127.0.0.1:8000/api/tak-s-panel/products/products-orders-list/',
+                        url: 'http://127.0.0.1:8000/api/tak-s-panel/products/products-orders-list/',
                         // type:"post",
-                        headers: {'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'},
+                        headers: {
+                            'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'
+                        },
                         // data:{
-                                
+
                         //     },
-                            success:(res)=>{
-                                console.log( res,'res')
-                                $('#order-history').append(`
+                        success: (res) => {
+                            console.log(res, 'res')
+                            $('#order-history').append(`
                                 <div class="user-history-mainbox">
                                     <div class="user-history-box">
                                         <div class=" user-history-box-right">
@@ -193,7 +193,7 @@
                                                 <img src="./asset/img/pic-32.png" class="user-history-img">
                                                 <img src="./asset/img/pic-13.png" class="user-history-img">    
                                             </div>
-                                        <h3 class="user-history-text"> ${res.results[0].title}</h3>
+                                        <h3 class="user-history-text"> ${res.results[0].title}</h3>}
                                         </div>
                                         <div class="  user-history-box-left">
                                             <div class="user-history-lefticon"></div>
@@ -207,22 +207,22 @@
                                     <div class="div-line"></div>
                                 </div>
                                 `)
-                           
-    
-                            },
-                            error:(err)=>{
-                                console.log(err,'err');
-                            }
-                    })
-    
+
+
+                        },
+                        error: (err) => {
+                            console.log(err, 'err');
+                        }
                     })
 
-                    function getdata(){
-                        $.ajax({
-                            url:'http://127.0.0.1:8000/api/products/products-comments-list/?id=1',
-                            success:(res)=>{
-                                console.log(res,'rehhs');
-                                $('#comments').append(`
+                })
+
+                function getdata() {
+                    $.ajax({
+                        url: 'http://127.0.0.1:8000/api/products/products-comments-list/?id=5',
+                        success: (res) => {
+                            console.log(res, 'rehhs');
+                            $('#comments').append(`
                                     <div class="user-history-mainbox">
                                         <div class="user-history-box">
                                             <div class=" user-history-box-right4">
@@ -246,79 +246,76 @@
                                         </div>
                                         <div class="div-line"></div>
                                     </div>
-                                
-                               
+
                                 `)
 
-                            },
-                            error:(err)=>{
-                                console.log(err,'err');
-                            }
-                        })
-                    }
-getdata()
+                        },
+                        error: (err) => {
+                            console.log(err, 'err');
+                        }
+                    })
+                }
+                getdata()
 
 
-                $('#send-ticket').click(function(){
+                $('#send-ticket').click(function() {
                     var tiketTitle = $('#title-tiket').val()
-                    let created 
+                    let created
                     $.ajax({
-                        url:'http://127.0.0.1:8000/api/tak-s-panel/tikets/tikets-new/',
-                        type:'post',
-                        headers: {'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'},
-                        data:{
-                            title:tiketTitle,
-                            support:1,
+                        url: 'http://127.0.0.1:8000/api/tak-s-panel/tikets/tikets-new/',
+                        type: 'post',
+                        headers: {
+                            'Authorization': 'Token 108412633fea521015206bb85f6d0f94d87708e2'
                         },
-                        success:(res)=>{
-                            console.log( res.created,'res');
+                        data: {
+                            title: tiketTitle,
+                            support: 5,
+                        },
+                        success: (res) => {
+                            console.log(res.created, 'res');
                             created = Number(res.created)
-                            // if(tiketTitle==''){
-                            //     message('error','متن پیام را وارد کنید')
-                            //     return
-                            // }
-
                         },
-                        error:(err)=>{
-                            console.log(err,'err');
+                        error: (err) => {
+                            console.log(err, 'err');
                         }
                     })
                     var ticketText = $('#text-tiket').val()
-                    var tiketFile  = $('#teket-file').val()
+                    var tiketFile = $('#teket-file').val()
                     console.log(ticketText);
 
                     $.ajax({
-                        url:'http://127.0.0.1:8000/api/tak-s-panel/tikets/tikets-add/',
-                        type:'post',
-                        headers: {'Authorization': 'Token f887194d539a9507147827df0b166c256ae09378'},
-                        data:{
-                            tiket:4,
-                            user:1,
-                            support:1,
-                            text:ticketText,
-                            file:tiketFile
+                        url: 'http://127.0.0.1:8000/api/tak-s-panel/tikets/tikets-add/',
+                        type: 'post',
+                        headers: {
+                            'Authorization': 'Token 108412633fea521015206bb85f6d0f94d87708e2'
+                        },
+                        data: {
+                            tiket: 14,
+                            user: 4,
+                            support: 5,
+                            text: ticketText,
+                            file: tiketFile
 
                         },
-                        success:(res)=>{
-                            console.log(res,'res');
-                            if(ticketText=='' && tiketTitle == '' || tiketTitle == '' || ticketText==''){
-                                message('error','متن پیام را وارد کنید')
+                        success: (res) => {
+                            console.log(res, 'res');
+                            if (ticketText == '' && tiketTitle == '' || tiketTitle == '' || ticketText == '') {
+                                message('error', 'متن پیام را وارد کنید')
                                 return
                             }
-                          
-                            if(res.message =='با موفقیت اضافه شد'){
-                                message('sucsses',res.message)
+
+                            if (res.message == 'با موفقیت اضافه شد') {
+                                message('sucsses', res.message)
                             }
-                            
+
                         },
-                        error:(err)=>{
-                            console.log(err,'err');
-                            message('error',res.message)
+                        error: (err) => {
+                            console.log(err, 'err');
+                            message('error', res.message)
 
                         }
                     })
                 })
-  
             </script>
 
             <!-- <div id="order" class="user-panel-history ">
@@ -400,12 +397,12 @@ getdata()
         <div class="close-icon-big"></div>
         <p>آیا مطمئن هستید میخواهید خارج شوید</p>
         <div class="question-btn">
-            <button class="yes-btn"  type="submit"><a href="{% url 'Account:logout_page' %}" style="color: #f0f0f0" >بله</a></button>
+            <button class="yes-btn" type="submit"><a href="{% url 'Account:logout_page' %}" style="color: #f0f0f0" >بله</a></button>
             <button class="no-btn" type="submit" onclick="exit(2)">خیر</button>
         </div>
     </div>
 
-<!-- </div> -->
+    <!-- </div> -->
     <script src="{% static 'taksathi_panel/js/user-panel.js' %}"></script>
     <script src="{% static 'taksathi_panel/js/index.js' %}"></script>
     <script src={% static 'taksathi_panel/js/fixed.js' %}></script>

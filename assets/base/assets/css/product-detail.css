@@ -353,11 +353,11 @@ h1 {
 }
 
 .div-style {
-    width: 50%;
+    width: 49%;
     align-items: center;
     display: flex;
     text-align: center;
-    border-radius: 10px 10px  ;
+    border-radius: 10px 10px;
 }
 
 .cunt-div {
@@ -370,6 +370,7 @@ h1 {
     font-family: "sansfont";
     font-weight: bolder;
     font-size: 20px;
+    border-radius: 1px;
     text-align: center;
 }
 
@@ -725,7 +726,6 @@ h1 {
 }
 
 .detailstabp {
- 
     display: block;
     padding: auto 10px;
 }
@@ -1010,4 +1010,23 @@ article {
     margin: 4em;
     max-width: 30em;
     padding: 2em;
+}
+
+#form-title1 {
+    color: #707070 !important;
+    font-size: 16px !important;
+    margin-top: 25px !important;
+    font-family: 'sansfont';
+    line-height: initial;
+    text-align: justify;
+}
+
+#cunt-plus {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#cunt-min {
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
