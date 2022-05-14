@@ -245,33 +245,13 @@
 
 
 
-                <div class="all-forosh-tablet">
+                <div id="listProduct" class="all-forosh-tablet">
 
-                    <div class="all-service-card">
-                        <div class="fc fc-r1">
-                            <p class="fc-text1">نام </p>
-                            <img class="fc-img" src="./asset/img/pic-26.png" alt="">
-                        </div>
-                        <div class="fc fc-r2">
-                            <p class="fc-text1">کد خدمت </p>
-                            <p class="fc-text2">224sdfd4</p>
-                        </div>
-
-                        <div class="fc fc-r4">
-                            <p class="fc-text1">تاریخ</p>
-                            <p class="fc-text2">1400/12/01</p>
-                        </div>
-
-                        <div class="fc fc-r6">
-                            <div class="trash-forosh-icon"></div>
-                            <div class="edit-forosh-icon"></div>
-                        </div>
-                    </div>
 
                 </div>
 
 
-                <div class="all-service-info-tables">
+                <div id="listProduct2" class="all-service-info-tables">
                     <div class="top-table">
 
                         <div>
@@ -293,30 +273,7 @@
                             <p>ویرایش</p>
                         </div>
                     </div>
-                    <!-- <div class="mid-table">
 
-                        <div class="mid-table-img">
-                            <img src="./asset/img/pic-47.png" alt="">
-                        </div>
-                        <div>
-                            <p>صندلی چوبی</p>
-                        </div>
-                        <div>
-                            <p>c2-23rq34</p>
-                        </div>
-                        <div>
-                            <p>990,000</p>
-                        </div>
-                        <div>
-                            <p>1400/09/12</p>
-                        </div>
-                        <div>
-                            <div class="edit-icons">
-                                <div class="edit-icon"></div>
-                                <div class="trash-icon" onclick="trash(1)"></div>
-                            </div>
-                        </div>
-                    </div> -->
 
                 </div>
 
@@ -810,7 +767,11 @@
                 // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
             }
 
+            $('#edit-forosh-icon').click(function() {
+                // SelectPanel(3)
 
+
+            })
 
             $('#edit-acount-btn').click(function() {
                 let phNum1 = $('#ph-num1').val()
@@ -936,10 +897,63 @@
                     },
 
                     success: (res) => {
-                        // console.log(res, 'res getListProducts');
+                        $('#listProduct').append(`
+                        
+                    <div class="all-service-card">
+                        <div class="fc fc-r1">
+                            <p class="fc-text1">${res.results[0].title} </p>
+                            <img class="fc-img" src="${res.results[0].image}" alt="">
+                        </div>
+                        <div class="fc fc-r2">
+                            <p class="fc-text1">کد محصول </p>
+                            <p class="fc-text2">${res.results[0].id}</p>
+                        </div>
+
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">تاریخ</p>
+                            <p class="fc-text2">${res.results[0].jdate}</p>
+                        </div>
+                        <div class="fc fc-r4">
+                            <p class="fc-text1">قیمت</p>
+                            <p class="fc-text2">${res.results[0].price}</p>
+                        </div>
+
+                        <div class="fc fc-r6">
+                            <div class="trash-icon"></div>
+                            <div class="edit-icon"></div>
+                        </div>
+                    </div>
+                        `)
+                        $('#listProduct2').append(`
+                         <div class="mid-table">
+
+                            <div class="mid-table-img">
+                                <img src="${res.results[0].image}" alt="">
+                            </div>
+                            <div>
+                                <p> ${res.results[0].title}</p>
+                            </div>
+                            <div>
+                                <p>${res.results[0].id}</p>
+                            </div>
+                            <div>
+                                <p>${res.results[0].price}</p>
+                            </div>
+                            <div>
+                                <p>${res.results[0].jdate}</p>
+                            </div>
+                            <div>
+                                <div class="edit-icons">
+                                    <div class="edit-icon"></div>
+                                    <div class="trash-icon" onclick="trash(1)"></div>
+                                </div>
+                            </div>
+                            </div> 
+                        `)
+                        console.log(res, 'res getListProducts');
                     },
                     error: (err) => {
-                        // console.log(err, 'err');
+                        console.log(err, 'err getListProducts');
                     }
                 })
             }
@@ -960,11 +974,11 @@
                                         <div>
                                             <div class="top-complaintbox">
                                                 <div class="name-complaintbox">
-                                                    <p>${res.results[0].user_fullname} خخخخخخخخخخخخخخخخخ</p>
+                                                    <p>${res.results[0].user_fullname} </p>
                                                 </div>
                                             </div>  
                                             <div class="text-user-msg">
-                                                <p>${res.results[0].comment}تتتتتتتتتتتتتتت </p>
+                                                <p>${res.results[0].comment} </p>
                                             </div>
                                         </div>
                                         
@@ -988,7 +1002,7 @@
                     },
 
                     success: (res) => {
-                        // console.log(res, 'rwwwwwwwwes');
+                        console.log(res, 'rwwwwwwwwes');
 
                         $('#p-sell1').append(`
                                 <div class="mid-table">
@@ -1004,14 +1018,9 @@
                                         <p>${res.results[0].price}</p>
                                     </div>
                                     <div>
-                                        <p>${res.results[0].jdate}</p>
+                                        <p>${res.results[0].jdate}</p>  
                                     </div>
-                                    <div>
-                                        <div class="edit-icons">
-                                            <div class="edit-icon"></div>
-                                            <div class="trash-icon" onclick="trash(1)"></div>
-                                        </div>
-                                    </div>
+                                  
                                 </div>
                             `)
 
@@ -1019,12 +1028,16 @@
                                 <div class="all-service-card">
                                     <div class="fc fc-r1">
                                         <p class="fc-text1">نام </p>
+                                        <img class="fc-img" src="${res.results[0].title}" alt="">
+                                    </div>
+                                    <div class="fc fc-r1">
+                                        <p class="fc-text1">تصویر </p>
                                         <img class="fc-img" src="${res.results[0].image}" alt="">
                                     </div>
 
                                     <div class="fc fc-r2">
-                                        <p class="fc-text1">حجم</p>
-                                        <p class="fc-text2">${res.results[0].compounds}</p>
+                                        <p class="fc-text1">کد محصول</p>
+                                        <p class="fc-text2">${res.results[0].id}</p>
                                     </div>
                                     <div class="fc fc-r2">
                                         <p class="fc-text1">قیمت</p>
@@ -1035,10 +1048,6 @@
                                         <p class="fc-text2">${res.results[0].jdate}</p>
                                     </div>
 
-                                    <div class="fc fc-r6">
-                                        <div class="trash-forosh-icon"></div>
-                                        <div class="edit-forosh-icon"></div>
-                                    </div>
                                 </div>
                            `)
 
