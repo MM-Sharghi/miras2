@@ -1,184 +1,169 @@
 {% extends 'base/base.html' %} {% load static %} {% block content %}
 
-<div style="width: 100%;background-color: #f7f7f7;">
+<!-- ---------------------------------new code-------------------------------- -->
 
 
+<section id="slider" class="main-box">
 
-    <section id="slider" class="" style="width: 92%;justify-content: center; display: flex;margin: auto auto; background-color: #f7f7f7;">
+    <div class="containerdetails">
 
-
-        <div class="containerdetails">
-
-            <div style="display: flex;" class="main-box-slider">
-                <div class="nxt-btnditails" onclick="plusSlides(1)">
-                    <div class="nxt-btnditails-img"></div>
-                </div>
-
-                <div class="carousel-item fade">
-                    <img class=" slide-imgditils" src="./asset/img/pic-29.png" alt="...">
-                </div>
-                <div class="carousel-item fade">
-                    <img class=" slide-imgditils" src="./asset/img/pic-30.png" alt="...">
-                </div>
-
-                <div class="pre-btnditails" onclick="plusSlides(-1)">
-                    <div class="pre-btnditails-img"></div>
-                </div>
-
-            </div>
-            <div class="all-dot-btnditails">
-                <button type="button" class="dot-btndetails slide-activedetails" onclick="currentSlideDetails(1)">
-                      <img class="slidedetails" src="./asset/img/pic-29.png" alt="...">
-                    </button>
-                <button style="margin-top: 5px" type="button" class="dot-btndetails " onclick="currentSlideDetails(2)">
-                    <img class="slidedetails" src="./asset/img/pic-30.png" alt="...">
-                    </button>
+        <div style="display: flex;" class="main-box-slider">
+            <div class="nxt-btnditails" onclick="plusSlides(1)">
+                <div class="nxt-btnditails-img"></div>
             </div>
 
+            <div class="carousel-item fade">
+                <img class=" slide-imgditils" src="./asset/img/pic-29.png" alt="...">
+            </div>
+            <div class="carousel-item fade">
+                <img class=" slide-imgditils" src="./asset/img/pic-30.png" alt="...">
+            </div>
+
+            <div class="pre-btnditails" onclick="plusSlides(-1)">
+                <div class="pre-btnditails-img"></div>
+            </div>
 
         </div>
-        <div class="form-left-box">
-            <ol>
-                <li class="form-item " style="display: flex; width: 100%;">
-                    <div class="div-style">
-                        <h2 style=" color: #F26A4F;" class="">test {{ product.title }}</h2>
-                    </div>
-
-                </li>
-                <li style="display: flex; width: 100%;">
-                    <p style="margin-top: -8px; margin-right: -1px;" class="form-title">
-
-                    </p>
-                </li>
-
-                <li class="form-item ">
-                    <div class="div-style">
-                        <div class="form-item-cout">
-                            <div class="item-count">
-                                <p id="cunt-plus" class="cunt-div">+</p>
-                            </div>
-                            <div class="item-count">
-                                <p id="cunt-content" class="cunt-div">1</p>
-                            </div>
-                            <div class="item-count">
-                                <p id="cunt-min" class="cunt-div">-</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="direction: ltr;" class="div-style">
-                        <div class="sec-price">{{ product.price }} تومان </div>
-                    </div>
-                </li>
-                <li style="display: flex; width: 100%;">
-                    <p id="form-title1" class="form-title1">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
-                        باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت
-                        می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
-                </li>
-
-                <li>
-                    {% if request.user.is_authenticated %}
-                    <div class="pro-btn2">
-                        <button id="add-cart" class="form-btn2" type="button">افزودن به سبد خرید</button>
-                    </div>
-                    {% endif %}
-                </li>
-            </ol>
-        </div>
-        <!-- <div class="detailstext">
-            <div class="ditailstextcontent">
-                <h3></h3>
-            </div>
-            <div>
-                <p class="ditailstextcontent">
-                  </p>
-            </div>
-        </div> -->
-    </section>
-</div>
-
-<!--   slider   -->
-
-
-<section class="product">
-
-
-</section>
-
-<section id="detailswrapper">
-    <div class="detailscontent">
-        <!-- Tab links -->
-        <div class="detailstabs">
-            <button class="detailstablinks detailsactive" data-valuetxt="firstdetails"><p data-title="معرفی "> معرفی</p></button>
-            <button class="detailstablinks" data-valuetxt="seconddetails"><p data-title=" جزئیات">جزئیات </p></button>
-            <button class="detailstablinks" data-valuetxt="fourthdetails"><p data-title=" نظرات">نظرات </p></button>
+        <div class="all-dot-btnditails">
+            <button type="button" class="dot-btndetails slide-activedetails" onclick="currentSlideDetails(1)">
+              <img class="slidedetails" src="./asset/img/pic-29.png" alt="...">
+            </button>
+            <button style="margin-top: 5px" type="button" class="dot-btndetails " onclick="currentSlideDetails(2)">
+            <img class="slidedetails" src="./asset/img/pic-30.png" alt="...">
+            </button>
         </div>
 
-        <!-- Tab content -->
-        <div class="detailswrapper_tabcontent">
-            <div id="firstdetails" class="detailstabcontent detailsactive">
-                <!-- <h3> معرفی</h3> -->
-                <p>
-                    {{ product.descriptions }}
+
+    </div>
+    <div class="form-left-box">
+        <ol>
+            <li class="form-item ">
+                <div class="div-style">
+                    <h2 class="form-item-title"> {{ product.title }}</h2>
+                </div>
+
+            </li>
+            <li style="display: flex; width: 100%;">
+                <p class="form-title">
+                    بانكه هاي چوبي از ان دسته ظروفي است که طرفداران زيادي دارد اين بانكه از چوب روسي تهيه شده و كيفيت خوبي دارد که از آن هم می توان برای پذیرایی و ریختن انواع تنقلات ، شکلات و حتی حبوبات استفاده نمود
                 </p>
-            </div>
+            </li>
 
-            <div id="seconddetails" class="detailstabcontent">
-                <!-- <h3> جزئیات</h3> -->
-                <div class="detailstabdiv">
-                    <p class="detailstabp">حجم</p>
-                    <p class="detailstabp">{{ product.volume }}</p>
-                </div>
-                <div class="detailstabdiv">
-                    <p class="detailstabp">ترکیبات</p>
-                    <p class="detailstabp">{{ product.compounds }}</p>
-                </div>
-                <div class="detailstabdiv">
-                    <p class="detailstabp">صادرکننده مجوز</p>
-                    <p class="detailstabp"> {{ product.licenseـissuer }} </p>
-                </div>
-
-            </div>
-
-
-            <div id="fourthdetails" class="detailstabcontent">
-                <!-- <h3> نظرات</h3> -->
-                <div id="detailstabdiv3" class="detailstabdiv3">
-
-                </div>
-                <div style="display: block; width: 100%;">
-                    <h4 style="color: #F26A4F;">ثبت دیدگاه جدید</h4>
-                    <p>شما هم درباره این کالا دیدگاه ثب کنید</p>
-                    <div class="form-details">
-                        <!-- <ol> -->
-
-
-
-                        <li class="form-item-details  " style="display: flex; width: 94%;">
-                            <div style=" width: 100%;">
-                                <textarea id="form-text" class="form-input-textarea2" placeholder="متن پیام" name="textarea-input" rows="5" cols="50"></textarea>
-
-                            </div>
-                        </li>
-
-                        <!-- <li> -->
-                        <div class="pro-btn22">
-                            <button onclick=" sendData()" class="form-btn" type="button">ارسال نظر</button>
+            <li class="form-item ">
+                <div class="div-style">
+                    <div class="form-item-cout">
+                        <div class="item-count">
+                            <p id="cunt-plus" class="cunt-div">+</p>
                         </div>
-                        <div id="snackbar" class=""></div>
-
-                        <!-- </li> -->
-
-                        <!-- </ol> -->
+                        <div class="item-count">
+                            <p id="counter" class="cunt-div">1</p>
+                        </div>
+                        <div class="item-count">
+                            <p id="cunt-min" class="cunt-div">-</p>
+                        </div>
                     </div>
                 </div>
 
+                <div style="direction: ltr;" class="div-style">
+                    <h2 class="sec-price" class=""> {{ product.price }} تومان </h2>
 
-            </div>
-        </div>
+                </div>
+            </li>
+
+            <li>
+                {% if request.user.is_authenticated %}
+                <div class="pro-btn2">
+                    <button id="add-cart" class="form-btn2" type="button">افزودن به سبد خرید</button>
+                </div>
+                {% endif %}
+            </li>
+        </ol>
     </div>
 </section>
+
+<!-- ---------- -->
+
+
+<section class="ttttttttttttttt">
+
+
+    <div class="tabs-main">
+        <input type="radio" name="tabs-main" id="tabone" checked="checked">
+        <label class="tabs-main-part" for="tabone">
+            
+            <div class="tabs-main-res-label">          معرفی
+            </div></label>
+        <div class="tab detailstabcontent">
+            <!-- <h1>معرفی</h1> -->
+            <p>
+                {{ product.descriptions }}
+            </p>
+        </div>
+        <input type="radio" name="tabs-main" id="tabtwo">
+        <label class="tabs-main-part" for="tabtwo">
+            <div class="tabs-main-res-label">جزئیات
+            </div>
+        </label>
+        <div class="tab detailstabcontent ">
+            <div class="detailstabdiv">
+                <p class="detailstabp">حجم</p>
+                <p class="detailstabp">{{ product.volume }}</p>
+            </div>
+            <div class="detailstabdiv">
+                <p class="detailstabp">ترکیبات</p>
+                <p class="detailstabp">{{ product.compounds }}</p>
+            </div>
+            <div class="detailstabdiv">
+                <p class="detailstabp">صادرکننده مجوز</p>
+                <p class="detailstabp"> {{ product.licenseـissuer }} </p>
+            </div>
+
+        </div>
+
+        <input type="radio" name="tabs-main" id="tabfour">
+        <label class="tabs-main-part" for="tabfour">
+          <div class="tabs-main-res-label">          نظرات
+    </div>
+
+    </label>
+        <div class="tab detailstabcontent">
+            <div class="detailstabdiv3">
+                <div class="detailstabdiv22">
+                    <p>علی علیزاده</p>
+                    <p>تیر 22</p>
+                </div>
+
+            </div>
+            <p class="detailstabdiv22-p">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+
+
+            <div class="tab-div-m">
+                <h4 style="color: #F26A4F;">ثبت دیدگاه جدید</h4>
+                <p>شما هم درباره این کالا دیدگاه ثب کنید</p>
+                <div class="form-details">
+
+                    <li class="form-item-details  ">
+                        <div style=" width: 100%;">
+                            <textarea class="form-input-textarea2" placeholder="متن پیام" name="textarea-input" rows="5" cols="50"></textarea>
+
+                        </div>
+                    </li>
+
+                    <div class="pro-btn22">
+                        <button onclick="sendData()" class="form-btn" type="button">ارسال نظر</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<div id="snackbar" class=""></div>
+
+<!-- ---------------------------------new code-------------------------------- -->
+
 
 
 <div class="product-slider">
@@ -219,6 +204,31 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <script>
+    function message(type, msg) {
+        var succ = type
+        var messageText = msg
+        var snackbar = document.getElementById('snackbar')
+
+        if (succ == "sucsses") {
+            snackbar.innerText = messageText
+            snackbar.className += " sucsses"
+            setTimeout(function() {
+                snackbar.innerText = " "
+                snackbar.classList.remove("sucsses")
+            }, 3000);
+        }
+
+        if (succ == "error") {
+            snackbar.innerText = msg
+            snackbar.className += " error"
+            setTimeout(function() {
+                snackbar.innerText = " "
+                snackbar.classList.remove("error")
+            }, 3000);
+        }
+
+        // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
+    }
     var count = 1
         // var limitLengh = document.getElementById('remainingnumber').innerHTML;
     var minLengh = 0
@@ -226,7 +236,7 @@
     console.log("count");
     $('#cunt-plus').click(function() {
         if (count < 3) {
-            document.getElementById('cunt-content').innerHTML = ++count
+            document.getElementById('counter').innerHTML = ++count
                 // alert('hhh')
         } else {
             alert('jjjjjjj')
@@ -234,7 +244,7 @@
     })
     $('#cunt-min').click(function() {
         if (count > 0) {
-            document.getElementById('cunt-content').innerHTML = --count
+            document.getElementById('counter').innerHTML = --count
         } else {
             alert('mmmmm')
         }
@@ -352,58 +362,31 @@
                 'Authorization': 'Token {{ user_token }}'
             },
             data: {
-                user: 3,
-                product: 1,
+                user: 6,
+                product: 5,
                 comment: txt,
             },
             success: (res) => {
+                console.log(res, "kjbjkn");
+
                 if (txt == '') {
                     message('error', 'متن پیام را وارد کنید')
                     return
                 } else if (res.message == 'کاربر قبلا برای این محصول دیدگاه ثبت کرده است') {
                     message('error', 'کاربر قبلا برای این محصول دیدگاه ثبت کرده است')
-                        // console.log(res);
 
 
                 }
             },
             error: (err) => {
                 message('error', 'ارسال نشد')
-                    // console.log(err);
+                console.log(err, "jjjj");
 
             }
 
         })
     }
     // =================================== send ======================
-
-
-
-    function message(type, msg) {
-        var succ = type
-        var messageText = msg
-        var snackbar = document.getElementById('snackbar')
-
-        if (succ == "sucsses") {
-            snackbar.innerText = messageText
-            snackbar.className += " sucsses"
-            setTimeout(function() {
-                snackbar.innerText = " "
-                snackbar.classList.remove("sucsses")
-            }, 3000);
-        }
-
-        if (succ == "error") {
-            snackbar.innerText = msg
-            snackbar.className += " error"
-            setTimeout(function() {
-                snackbar.innerText = " "
-                snackbar.classList.remove("error")
-            }, 3000);
-        }
-
-        // setTimeout(function(){ snackbar.classList.remove("error")}, 3000);
-    }
 </script>
 
 {% endblock %}

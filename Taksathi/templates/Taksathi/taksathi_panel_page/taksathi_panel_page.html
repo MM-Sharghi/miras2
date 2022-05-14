@@ -77,7 +77,7 @@
                     <textarea id="text-tiket" class="textarea-input" type="password" name="" id="" placeholder=" متن پیام را وارد کنید"></textarea>
                     <div class="form-div">
                         <div class="form-box">
-                            <input itemid="teket-file" type="file" name="" id="">
+                            <input itemid="teket-file" type="file" name="" id="add-teket-file">
                             <button id="send-ticket" type="submit" class="send-teket"> ارسال تیکت </button>
                         </div>
 
@@ -257,46 +257,65 @@
                 }
                 getdata()
 
+                var created
 
-                $('#send-ticket').click(function() {
+                $('#add-teket-file').change(function(e) {
+
+                    if (e.target.files && e.target.files.length > 0) {
+                        console.log('m5');
+                        tiketFile = e.target.files[0]
+                        console.log('m5', tiketFile);
+
+                    }
+                })
+
+                $('#send-ticket').click(async function() {
                     var tiketTitle = $('#title-tiket').val()
-                    let created
-                    $.ajax({
+                    console.log(tiketTitle, '------------------');
+                    await $.ajax({
                         url: 'http://127.0.0.1:8000/api/tak-s-panel/tikets/tikets-new/',
                         type: 'post',
                         headers: {
-                            'Authorization': 'Token 108412633fea521015206bb85f6d0f94d87708e2'
+                            'Authorization': 'Token d127c16f6948fa52b491c66056c8a4bdc8fd2dc7'
                         },
                         data: {
                             title: tiketTitle,
                             support: 5,
                         },
                         success: (res) => {
-                            console.log(res.created, 'res');
-                            created = Number(res.created)
+                            console.log(res.created, 'res id teket');
+                            created = res.created
+
+
+
                         },
                         error: (err) => {
                             console.log(err, 'err');
                         }
                     })
                     var ticketText = $('#text-tiket').val()
-                    var tiketFile = $('#teket-file').val()
+                        // var tiketFile = $('#teket-file').val()
                     console.log(ticketText);
+                    created = Number(created)
+                    console.log(typeof(created), created);
+                    let formData = new FormData()
+                    formData.append('tiket', 2)
+                    formData.append('user', 6)
+                    formData.append('support', 5)
+                    formData.append('text', ticketText)
+                    formData.append('is_support', true)
+                    formData.append('file', tiketFile)
+
 
                     $.ajax({
                         url: 'http://127.0.0.1:8000/api/tak-s-panel/tikets/tikets-add/',
                         type: 'post',
                         headers: {
-                            'Authorization': 'Token 108412633fea521015206bb85f6d0f94d87708e2'
+                            'Authorization': 'Token d127c16f6948fa52b491c66056c8a4bdc8fd2dc7'
                         },
-                        data: {
-                            tiket: 14,
-                            user: 4,
-                            support: 5,
-                            text: ticketText,
-                            file: tiketFile
-
-                        },
+                        data: formData,
+                        processData: false,
+                        contentType: false,
                         success: (res) => {
                             console.log(res, 'res');
                             if (ticketText == '' && tiketTitle == '' || tiketTitle == '' || ticketText == '') {

@@ -110,6 +110,7 @@ class UserSerializers(serializers.ModelSerializer):
 
 class TiketSerializers(serializers.ModelSerializer):
     jdate = serializers.ReadOnlyField()
+    title = serializers.CharField(read_only=True)
     class Meta:
         model = Tiket
         fields = '__all__'
@@ -119,8 +120,7 @@ class TiketSerializers(serializers.ModelSerializer):
 
 
 class TiketSupportUpdateStatusSerializers(serializers.ModelSerializer):
-    id = serializers.IntegerField(required=True)
-    title = serializers.CharField(read_only=True,required=False)
+    id = serializers.IntegerField(required=True)    
     user = serializers.CharField(required=True)
     support = serializers.CharField(read_only=True,required=False)
     status = serializers.BooleanField(required=True,error_messages={"required": "This amount is required"})
@@ -140,18 +140,19 @@ class TiketSupportUpdateStatusSerializers(serializers.ModelSerializer):
 class MessagesSupportSerializers(serializers.ModelSerializer):
     jdate = serializers.ReadOnlyField()
     status = serializers.ReadOnlyField()
+    is_support = serializers.BooleanField()
     class Meta:
         model = Messages
-        fields = ['user','tiket','jdate','status','text','file']
+        fields = ['user','tiket','jdate','status','text','file','is_support']
 
 
 class MessagesUserSerializers(serializers.ModelSerializer):
     jdate = serializers.ReadOnlyField()
     status = serializers.ReadOnlyField()
-    is_suppot = serializers.BooleanField(required=True)
+    is_support = serializers.BooleanField()
     class Meta:
         model = Messages
-        fields = ['user','tiket','support','jdate','status','text','file','is_suppot']
+        fields = ['user','tiket','support','jdate','status','text','file','is_support']
         extra_kwargs = {
             "support": {"error_messages": {"required": "This amount is required"}},
         }

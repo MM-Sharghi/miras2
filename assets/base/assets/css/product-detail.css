@@ -307,7 +307,7 @@ body {
 h1 {
     font-size: 30px;
     display: block;
-    width: 700px;
+    width: max-content;
     height: 100fpx;
     padding: 20px;
     margin: auto;
@@ -788,7 +788,8 @@ h1 {
     order: 1;
     display: block;
     padding: 1rem 2rem;
-    margin-right: 8.2rem;
+    justify-content: center;
+    margin: auto;
     cursor: pointer;
     background: white;
     font-weight: bold;

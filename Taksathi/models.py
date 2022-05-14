@@ -148,7 +148,7 @@ class Messages(models.Model):
     text = models.TextField(null=True,blank=True,verbose_name='Text')
     file = models.FileField(upload_to='TiketFile',blank=True,null=True,verbose_name='File')
     date = models.DateTimeField(auto_now_add=True,verbose_name='Date')
-    is_suppot = models.BooleanField(default=False,verbose_name='Is Support')
+    is_support = models.BooleanField(default=False,verbose_name='Is Support')
 
     def jdate(self):
         return django_jalali(self.date)

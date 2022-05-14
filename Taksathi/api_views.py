@@ -272,14 +272,18 @@ class admin_tikets_list(generics.ListAPIView):
         return Tiket.objects.filter(support_id=token_info.user.id).all()
 
 class admin_tikets_filter(generics.ListAPIView):
-    serializer_class = TiketSerializers
+    serializer_class = MessagesUserSerializers
     permission_classes = [IsTaksathiAdmin]
 
     def get_queryset(self):
         id = self.request.query_params.get('id')
         user_token = str(self.request.headers['Authorization']).split('Token')[1].strip()
         token_info = Token.objects.filter(key=user_token).first()
-        return Messages.objects.filter(tiket_id=id,support_id=token_info.user.id).all()
+        try:
+            result =  Messages.objects.filter(tiket_id=id,support_id=token_info.user.id).all()
+            return result
+        except:
+            return []
 
 
 
